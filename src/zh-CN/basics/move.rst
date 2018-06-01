@@ -1,4 +1,4 @@
-First program
+第一个程序
 =============
 
 .. index:: move(), function
@@ -6,113 +6,74 @@ First program
 .. figure:: ../../../src/images/move.png
    :align: left
 
-If you followed the instructions given at the very beginning
-of this tutorial, you just had Reeborg take its very first step.
-In the editor panel, there is a
-single instruction::
+如果你遵循了本教程一开始给出的指示，那么你应该已经让乐跑走出它的第一步了。在代码编辑框里只需一个命令：
+
+.. code-block:: python
 
     move()
 
-``move()`` is an example of a Python **function**.
-A function has a name; in this case, it is ``move``.
-Valid names must start with either a letter or the underscore character "_"
-and may contain letters, numbers or the underscore character "_".
-The name of the function is followed by ``()``. This tells Reeborg (Python)
-that the function must be *executed* or *called* (which are two synonyms).
-This function must be on a line of its own. [We will see exception to this
-rule later on.]
+``move()`` 是一个 Python **函数** 。每个函数都有名字，在这里是 ``move`` 。合理的函数名必须以字母或下划线（“_”）开头，可以包含字母、数字或下划线（“_”）。函数名后面的 ``()`` 是告诉乐跑（Python），此函数必须被 *执行* 或者 *调用* （这两个是同义词）。此函数必须自己独占一行。[我们待会儿将见到这条规则的例外情况。]
 
-Occasionnally we will make **flowcharts** which are graphical representations of a program.
-In a flowchart, a single instruction like ``move()`` might be represented
-as follows:
+我们偶尔会用到 **流程图** ——用图形来表示程序。在流程图里，一条命令，如 ``move()`` 会这样呈现：
 
 .. figure:: ../../flowcharts/move1.jpg
    :align: center
 
-and a complete program containing this single instruction would be represented
-as follows:
+然后一个包含这条命令的完整程序会这样呈现：
 
 .. figure:: ../../flowcharts/move.jpg
    :align: center
 
-In a flowchart, the sequence of instructions follows the arrows, starting at "Start"
-and ending at "Stop".
+在流程图里，命令的执行按照箭头顺序，从“Start（开始）”开始，到“Stop（结束）”结束。
 
-.. topic:: Try this!
+.. topic:: 试试这个！
 
-    Add a second ``move()`` instruction so that Reeborg takes two steps instead
-    of only one.
+    添加第二个 ``move()`` 命令，让乐跑多走一步。
 
 .. hint::
 
-   Each instruction must appear on its own line, with no extra space
-   at the beginning of the line.
+   每条命令必须自己独占一行，并且行首没有多余的空格。
 
 
-Dealing with eRRoRs
+应对错误
 -------------------
 
-When writing computer programs, you will likely make many errors.
-To see how Reeborg react to some errors, I will ask you to intentionally
-introduce one error in the program.
+在写计算机程序的时候，你很可能会犯很多错误。为了展示乐跑如何对错误作出反应，我也会请你在程序里故意引入一个错误。
 
 
-.. topic:: Try this!
+.. topic:: 试试这个！
 
-    Change ``move()`` to ``Move()`` (with an uppercase M) and try to
-    execute the program.
+    把 ``move()`` 改成 ``Move()`` （使用大写 M），然后再尝试运行一下。
 
-What happened?
+发生什么情况了？
 ~~~~~~~~~~~~~~
 
-Python, the language that Reeborg understands, is "case sensitive";
-that is, lowercase letters have a different meanings than uppercase
-ones. Now that you see how Reeborg deals with errors, go back,
-fix the program and run the corrected version.
+Python ——乐跑的语言是“大小写敏感的”，使用小写字母名称的函数和使用大写字母名称的函数是不同的函数。现在你应该知道乐跑是怎么应对错误的了。让我们把程序改回来，运行一下正确的版本。
 
 
-Rule #1
+规则一
 -------
 
-Did you try all that I suggested to you above?  If not,
-I urge you to go back to do it.  You see, the most important rule you
-must follow if you wish to learn programming is the following:
+你试过我在前面建议你做的了么？如果没有，我敦促你回去试试。你瞧，如果想学习编程，你必须遵守的最重要的规则如下：
 
-.. index:: Rule # 1
+.. index:: 规则一
 
 .. important::
 
-    Rule # 1
-        Learning about computer programming is like learning to play
-        a musical instrument: you have to **do it**, not simply read
-        about it.
+    规则一
+        学习计算机编程就像学习一件乐器：你要 **练习**，而不只是阅读。
 
 
-Every time I suggest you try something, I have a reason for doing
-so.  Sometimes it will not be apparent right away, but I really encourage
-you to try it.  I would even suggest to you that you should do more
-than what I suggest and try different things just to explore further.
+每当我建议你试试什么的时候，都是有原因的。有时原因不会立刻出现，但我真的鼓励你去试试。我甚至建议，你应该做更多的尝试，比我建议的还多，试试不同的东西，以便探索的更深入。
 
-A special tool to help you
+一个特别的工具
 ---------------------------
 
-At the very top of Reeborg's World, you will find a button
-titled **Reeborg's keyboard**.  If you click on it, a special
-keyboard will appear.  By clicking on a each button, the corresponding
-instruction, Python keyword, etc., will be inserted in the editor
-automatically.   This can be useful to ensure that names are
-spelled out correctly and that required parentheses are not forgotten.
+在乐跑的世界的最顶部，你会发现一个名为 **乐跑键盘** 的按钮，按一下就会出现一个特别的键盘。再按一下键盘上的按钮，相应的命令—— Python 关键字等等，就会被自动插入编辑器。在需要确保函数名拼写正确和避免漏掉括号时，这个功能很实用。
 
 
-.. admonition:: For educators
+.. admonition:: 写给教育工作者的内容
 
-    Reeborg's keyboard could be especially useful for three categories
-    of users: the younger ones, who find typing on a normal keyboard
-    difficult, those that use a touch screen, and those that use a non-English
-    keyboard and may have trouble entering some symbols required for Python.
+    乐跑键盘对于三类用户可能特别有用：小朋友——用一般的键盘输入对他们来说可能比较困难；触摸屏用户；以及使用非英语键盘，并且感觉输入一些 Python 符号很麻烦的用户。
 
-    As I am writing this note, Reeborg's keyboard includes one
-    instruction (``no_highlight()``) which is not documented in this
-    tutorial nor in the online help.  This type of omission could happen
-    with other instructions ... if that is the case, please contact me
-    so that I can make the required corrections.
+    另外，在我写这段内容的时候，乐跑键盘包含的一个命令（ ``no_highlight()`` ）既没有记录在本教程里，也没有记录在在线帮助里。这类的疏忽也有可能出现在其它的命令上……如果出现了，请联系我改正。

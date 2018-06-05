@@ -1,65 +1,48 @@
-Task driven learning
+任务驱动型学习
 ====================
 
 .. figure:: ../../../src/images/select_home.png
    :align: left
 
 
-In order to help you learn Python, I will give you some tests: you
-have to program Reeborg to accomplish specific tasks and Reeborg itself
-will tell you if you got it right or wrong.
+为了帮助你学习 Python，我会给你一些小测验：你需要通过给乐跑编程来完成，乐跑自己会告诉你结果是否正确。
 
-Select the world **Home 1**. Notice the house on the bottom left square:
-this is Reeborg's home. Reeborg's world is a simple grid.
-In **Home 1**, Reeborg starts at the third square on the bottom row. It
-labels this square as ``x=3`` and ``y=1``, using what is known as
-Cartesian coordinates.
+让我们切换到名为 **Home 1（一号家园）** 的世界。乐跑的世界是由方块格子组成的，在左下角格子里的房子是乐跑的家。在 **Home 1（一号家园）** 里，乐跑一开始站在最下面一排的第三个格子里。当使用被称为“笛卡尔坐标”的系统时，这个位置被叫做 ``x=3`` ， ``y=1`` 。
 
-.. topic:: Try this!
+.. topic:: 试试这个！
 
-    With **Home 1** selected, write a program with a single ``move()`` instruction,
-    run it and notice what feedback Reeborg gives you.
-    Then, change your program so that
-    Reeborg go home.
+    选择 **Home 1（一号家园）** ，写一个只有一条 ``move()`` 命令的程序，试着运行一下，并观察乐跑给你的反馈。然后，修改这个程序，让乐跑回家。
 
-.. topic:: Try two more!
+.. topic:: 再试试这个！
 
-    Select **Home 2**. Notice how Reeborg is in a different location and is also
-    facing you. Try running the exact same program and see what happens.
-
-    Next, select **Home 3** and run your program.
+     选择 **Home 2（二号家园）** ，留意乐跑的位置和朝向都有所不同。试着运行同样的程序，看看会发生什么。
+     
+     然后，选择 **Home 3（三号家园）** 并运行程序。
 
 .. index:: turn_left()
 
-Making a left turn
+向左转
 ------------------
 
-Last example ended with a program that did not work, as Reeborg
-did not end up at his home.  To solve this problem, we need to
-add two instructions::
+在 **Home 3（三号家园）** 里，我们的程序并没有把乐跑送回家。为了把程序完成，我们还需要再添加两条命令：
+
+.. code-block:: python
 
     turn_left()
     move()
 
-.. topic:: Try this!
+.. topic:: 试试这个！
 
-    Make sure that Reeborg goes home in **Home 3**.
+    在 **Home 3（三号家园）** 里，把乐跑送回家。
 
-.. topic:: Try something else!
+.. topic:: 试试别的！
 
-    What happens if, you leave out the ``turn_left()`` instruction, but
-    keep the additional ``move()`` instruction?
+    如果你不添加 ``turn_left()`` ，只添加 ``move()`` 命令，会发生什么？
 
-A different view
+不同的视角
 ----------------
 
 .. |image0| image:: ../../../src/images/robot_e.png
 .. |image1| image:: ../../../src/images/rover_e.png
 
-You may have noticed that Reeborg (the robot itself) is seen from its
-side, such as |image0| whereas his world is seen from above ... which
-you might perhaps find confusing especially when you instruct Reeborg to
-turn left. You can change the way Reeborg is seen by either using the
-clicking on the appropriate image above Reeborg's world.
-For example, when facing East, such as the side view above, using a different
-image, Reeborg can appear as follows when viewed from above: |image1|
+你大概注意到了，我们的一直在平视着乐跑（机器人），就像这样： |image0| ，然而我们却是在俯视着它的世界……这可能会让你觉得有些混乱，尤其是在命令它左转的时候。这时，你可以通过点击乐跑的世界顶部的图片来改变视角。比如，当乐跑面向东边时，就像刚才那张图片一样，点击另外一个视角的图片，我们就可以像这样俯视乐跑了： |image1|

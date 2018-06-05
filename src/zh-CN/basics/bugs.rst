@@ -1,124 +1,64 @@
-Darn bugs!
+捉虫！
 ==========
 
-Nobody likes to talk about computer bugs. But, unfortunately, you must
-learn about them and, especially, how to get rid of them.
+没人喜欢谈论计算机臭虫（bugs）！但不走运的是，你必须学习，特别是学习怎样对付它。
 
-This lesson is a little longer than the previous ones, but I encourage you to read it completely at least once.
+这节课比之前的课略长，但我建议你至少完整的阅读一次。
 
-What is a bug?
+臭虫是什么？
 --------------
 
-The origin of the word **bug** in computer jargon is often attributed to
-an actual incident where a moth was found inside Harvard University's
-Mark II computer; apparently this moth had caused the computer to stop
-working. It was found by the team headed by renowned computer scientist,
-mathematician, and young naval officer Grace Murray Hopper, who went on
-to invent the concept of compiler languages in computer programming. Dr.
-Grace Hopper eventually rose in the U.S. naval hierarchy to the rank of
-Rear Admiral.
+在计算机领域里， **臭虫** 这个词最开始是和哈佛大学的一台 Mark II 计算机的一个真实故事联系在一起的：一只蛾子使该计算机停止了工作。一个由知名的计算机科学家、数学家、年轻的海军军官—— Grace Murray Hopper 领导的团队找到了这个问题。Grace Hopper 博士后来逐渐升任成为了美国海军上将。
 
-The moth was preserved, taped into Hopper's log book, as shown below.
-Interestingly, the log book included a note saying, "First actual case
-of bug being found." as you can see.
+这只蛾子后来被保留，并且粘在了 Hopper 的日志里，见下图。有趣的是，你可以看到，日志里有一行笔记写着：“第一次发现真正的臭虫。”（"First actual case of bug being found."）
 
 |image0|
 
-Picture adapted from the public archive of the `U.S. Naval Historical Center
-<http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm>`__
+图片剪切自 `美国海军历史中心（U.S. Naval Historical Center）
+<https://www.history.navy.mil/content/history/nhhc/our-collections/photography/numerical-list-of-images/nhhc-series/nh-series/NH-96000/NH-96566-KN.html>`__ 的公开档案。
 
 
-Actually, the word bug in a technological context is attributed by the
-Oxford English Dictionary to Thomas Edison. According to the Oxford
-Dictionary, the following text can apparently be found in the March 11,
-1889 edition of the Pall Mall Gazette:
+实际上，在学术语境里的臭虫（bug）这个词，牛津英语词典认为和 Thomas Edison （托马斯爱迪生）有关。根据牛津词典的解释，下面这段话出自1889年3月11日的颇尔商城公报（Pall Mall Gazette）：
 
-    Mr. Edison, I was informed, had been up the two previous nights
+    我听说爱迪生先生前两个晚上一直在他的留声机里寻找“一只臭虫”。这是一种表达方式——表示某人正在解决一个困难的问题。这里用一只虚构的昆虫来做比喻，说它藏了起来并且造成了很多麻烦。（Mr. Edison, I was informed, had been up the two previous nights
     discovering 'a bug' in his phonograph - an expression for solving a
     difficulty, and implying that some imaginary insect has secreted
-    itself inside and is causing all the trouble.
+    itself inside and is causing all the trouble.）
 
-It thus appears that the original 'bug', though it was indeed an insect,
-was in fact imaginary.
+这样看来，“臭虫”一词最初确实指的是一个昆虫，只不过是虚构的昆虫。
 
-Unfortunately, computer bugs, while they are not insects, are also not
-imaginary.
+不走运的是，计算机臭虫不是昆虫，更不是虚构的。
 
-Dealing with bugs
+对付臭虫
 -----------------
 
-In computer jargon, a bug is an error that causes a program to behave in
-an unexpected way. If you are writing computer programs, you are going
-to have bugs in them sooner or later - everybody does. Good programmers
-seek to "remove" bugs or "fix" them as soon as they find that their
-program behaves unexpectedly.
+在计算机领域里，一个臭虫表示一个造成程序不按照预期的行为运行的错误。如果你写了一个计算机程序，那么里面早晚会有臭虫——每个人都如此。好的程序员一旦发现他们的程序不能按照预期执行，就会马上开始寻求“移除”或者“修正”臭虫。
 
-Not so good programmers state that "bugs" are not really bugs but that
-they are "features" of their programs. **You** are going to be a good
-programmer, unlike the maker of Reeborg, whose program is littered with
-bugs.
+不怎么好的程序员会说，“臭虫”不是真正的错误，只是一种“功能”。**你** 要做一个好的程序员，不要像乐跑的作者一样——在他的程序里到处是臭虫。
 
 .. figure:: ../../images/reeborg_costume.jpg
    :figwidth: 40%
    :align: right
 
-   Reeborg, full-scale (New Jersey, USA)
+   全尺寸的乐跑（美国新泽西州）
 
-   *Courtesy picture of A. Judkis.*
+   *图片来自 A. Judkis。*
    
-#. Reeborg has an oil leak. Oil leaks are damaging for the environment
-   and inconvenient for Reeborg who must replenish its supplies when
-   it's not busy accomplishing tasks. The maker of Reeborg claims that
-   it is a feature, as it enables you to follow Reeborg's path, just
-   like any programmer can learn to "trace" a program. You will learn
-   how to fix Reeborg's leak later. More advanced techniques to trace bugs,
-   like using what is known as a *debugger*,
-   are beyond the scope of these lessons.
-#. Reeborg's steering mechanism is not handled properly by Reeborg's
-   program: it can only turn left. The maker of Reeborg, once again,
-   claims that this is a feature as it present you with an opportunity
-   to learn about **functions**. Reeborg disagrees. You will soon learn how
-   to program a *workaround solution*, enabling Reeborg to turn right,
-   although in a wasteful fashion. Much later, you will learn how to
-   truly fix Reeborg so that it can turn right just as easily as it can
-   turn left.
-#. Reeborg has a compass, enabling him to determine which direction he
-   is facing. Unfortunately, yet again, the program that enables Reeborg
-   to get the information from the compass has a bug: it only tells
-   Reeborg if he is facing North ... or not. Once again, you will first
-   learn how to implement a workaround solution and later how to fix
-   permanently Reeborg and get rid of what its maker calls a "feature".
-#. Reeborg can see if a wall is in front of him, and can also turn its
-   head to the right to see if there is a wall there. However, a
-   software "glitch" (which is another weasel term that software
-   manufacturers use to avoid having to say that their product has a
-   bug) prevents Reeborg's program from properly registering a wall when
-   it turns its head left.
+#. 乐跑曾经漏过油。漏油对环境有害，也给乐跑造成了不便——它在不急着完成任务的时候，不得不去补充燃料。乐跑的作者狡辩说这是一个功能，因为这迫使你跟随着乐跑的脚步——就像任何程序员那样，学习“跟踪”一个程序。后面你将会学到怎么修理漏油问题。更高级的跟踪臭虫的技术——比如使用 *调试器* ，超出了本教程的范围。
+#. 乐跑的转向机构没有搞好： 它只能左转。乐跑的作者又一次狡辩说这是一个功能，因为这给了你一个学习 **函数** 的机会，虽然乐跑表示不同意。你很快会学到一种 *补救方法* 让乐跑可以右转，虽然是一种很耽误工夫的做法。再晚一点，你将会学到如何从根本上解决这个问题——让乐跑可以做真正的右转，就像做左转那样。
+#. 乐跑有个罗盘，让它可以知道自己所面对的方向。但再一次不走运的是，让乐跑从罗盘里得到信息的程序有臭虫：它只能告诉乐跑北在哪儿……或者北不在哪儿。和之前一样，你得先学习实现补救的方法，然后才学习长久修复的方法，以便让乐跑摆脱作者所谓的“功能”。
+#. 当有一堵墙挡在面前时，乐跑能看到，并且还能把头转向右边，看看是否也有一堵墙。然而，有个软件上的“毛刺儿（glitch）”（软件开发商们用来避免承认其产品有臭虫的另外一种托辞）导致乐跑在把头转向左边时，不能正确识别是否有墙存在。
 
-Sometimes to find the cause of bugs, it can help to break the normal
-flow of the program. To this end you may do one or more of the
-following:
+有时，为了找到出现臭虫的原因，你必须打断程序的正常流程。为此，你可以做一次或多次以下的操作：
 
 .. index:: pause()
 
-#. You can *pause* a program as it is running by pressing the **pause**
-   button. This is similar to what people refer to as
-   setting a *breakpoint* in a computer program
-#. Instead of actually pressing the pause button, you can type in the
-   instruction ``pause()`` at any point inside a program and Reeborg
-   will pause, awaiting your permission to continue.
-#. You can *step through* a program, one instruction at a time, by
-   pressing the *execute one instruction and pause*, or **step** button.
-   By default, the line about to be executed is highlighted; you can turn off
-   the highlighting by clicking on a button above the code editor.
-#. You can change the speed of execution (the time between two instructions)
-   at any point inside a program;
-   I will explain how you can do this later.
-#. You can have Reeborg write some information at any given point inside
-   a program; again, I will explain how you can do this later.
-#. Finally, you can stop a program at any point by pressing the **stop**
-   button; this unfortunately may not work if you create
-   what is known as an infinite loop, outside of Reeborg's control. If
-   worse comes to worst, you can always just reload the web page.
+#. 你可以 *暂停（pause）* 程序：当程序运行的时候，按 **pause**
+   按钮。这和人们说的，在计算机程序里设置一个 *断点（breakpoint）* 类似。
+#. 你也可以在程序的任意一行敲进 ``pause()`` 命令来代替按暂停按钮。乐跑会停下，等到你许可时才继续。
+#. 你可以 *步进执行（step through）* 程序：按 *执行一条命令然后暂停（execute one instruction and pause）* 或者 **步进（step）** 按钮，每按一次只执行一条命令。即将被执行的命令的上一条命令会被默认高亮，你可以按代码编辑框上方的按钮来关闭高亮。
+#. 在程序的任意一行，你可以改变程序的执行速度（执行两条命令之间的时间间隙）。稍后，我会解释怎么做。
+#. 在程序的任意一行，你可以让乐跑写下一些信息。还是稍后，我会解释怎么做。
+#. 最后，在任意位置，你可以按 **停止（stop）** 按钮让乐跑停下来。不走运的是，如果你制造了一个所谓的无限循环，这个按钮可能就不管用了——这超出了乐跑的控制范围。如果最糟的情况出现了，你随时可以重新加载该网页。
 
 .. |image0| image:: ../../../src/images/first_bug.jpg

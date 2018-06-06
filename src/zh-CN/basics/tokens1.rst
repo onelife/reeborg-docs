@@ -1,45 +1,30 @@
-A token of appreciation
+有趣的纪念品
 =======================
 
 .. index:: take(), put()
 
-Reeborg likes to collect tokens. When he finds one on the ground, most
-often he takes it; sometimes he puts one down as well. The commands for
-having him do so can be simply written as follows::
+乐跑喜欢收集纪念品。当它在地上发现有趣的东西时，一般会捡起来带走；有时它也会放一个东西在地上。让它做这个动作的命令如下：
+
+.. code-block:: python
 
     take()
     put()
 
-Select world **Tokens 1**. There is a token right next to Reeborg. Note the
-number 1 in red next to it: the number will change depending on the number of
-tokens at that location.  The fact that the number is written in red indicates
-that this does not correspond to the expected final result.
-Next square, we see the a token in shades of grey. This tells us that we should have Reeborg
-put one token at that location. Once this is done, we can see that it
-has been done correctly by, the number of tokens should be written in green.
-Finally, after the grey token, there is a pale green square: this indicates where
-Reeborg should end up after having accomplished its task.
+让我们选择名为 **一号纪念品（Tokens 1）** 的世界。这里有一个有趣的东西，就在乐跑的旁边。请注意上面有一个红色的数字1：当在这个格子里的物品数量发生变化时，这个数字也会发生相应的变化。实际上，红色的数字表示，物品的数量在该格子里不符和要求。在下一个格子里，有同样的一个东西，但却是灰颜色的。这表示，我们需要让乐跑在该格子里放这样一个东西。一旦乐跑做好了，我们就可以看到刚才的数字变成了绿色。最后，再下一个格子里有一面旗子：这表示终点，当乐跑完成任务后，应该站在该格子里。
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-   Write a program to accomplish this task. Can your program also work,
-   without any changes for world **Tokens 2**? The answer should be no, for now
-   ... but, later, you will learn how to write a single program that can
-   work properly for both worlds.
+   写个程序让乐跑完成任务。然后，试试同样的程序在名为 **二号纪念品（Tokens 2）** 的世界里行得通么？此时，答案应该是否定的……稍后你可以学到怎样写一个程序在这两个世界里都能完成任务。
 
-.. topic:: Try something else!
+.. topic:: 试试别的！
 
-    What happens if Reeborg attempts to put down a token when he does not
-    carry one? What happens if Reeborg attempts to take a token where there
-    is none to be found?
+    当乐跑试图放下一个东西但手里什么也没有时，会发生什么？当乐跑试图捡起一个东西但地上什么也没有时，会发生什么？
 
-.. admonition:: For educators
+.. admonition:: 写给教育工作者的内容
 
-    For the first tasks mentioned in this tutorial, worlds have been
-    designed such that only one type of object is present.
-    When more than one type of objects are present, it is sometimes
-    required to include a function argument specifying which
-    object is to be handled, as in::
+    在前面的任务里只出现了一种物品。当有多种物品在同一个世界出现时，我们很可能需要传递一个参数来区分物品，比如：
+
+    .. code-block:: python
 
         take("token")
         put('token')

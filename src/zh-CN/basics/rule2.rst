@@ -1,48 +1,33 @@
-Rule number 2
+规则二
 =============
 
-.. index:: Rule # 2
+.. index:: 规则二
 
-I have already mentioned the first rule for learning how to program: you
-must write programs (and test them) and not simply read about
-programming. Now, I am about to tell you the second rule which is one of
-the best-kept secret for writing good computer programs.
+我前面提到了学习编程的第一条规则：你必须动手写程序（和测试），而不仅仅是简单的阅读怎样编程。现在，我要告诉你第二条原则——一个写好计算机程序的秘密。
 
 .. important::
 
-    **Rule # 2**
+    **规则二**
 
-        Write your computer programs to make them easy for **people** to
-        read and understand.
+        把你的程序写得让 **人** 容易阅读和理解。 
 
-That's right, write your computer programs so that other people, just
-like you, would find them easy to read on their own, and figure out what
-they do. Yes, computer languages are designed to allow you to
-communicate with computers, just as human languages have evolved to
-allow humans to communicate with each other. But computer languages,
-which are much simpler than human languages, are often used by
-programmers to share their work with other programmers.
+就是这样，要把你的计算机程序写得让别人（和你一样的人）能够容易的、独立的看懂，并且知道它在干什么。计算机语言就是被设计成让你可以和计算机进行交流的工具，就像人类的语言发展为人与人交流的工具一样。但是，计算机语言和人类的语言相比，非常简单，并且经常被程序员们用来分享工作成果。
 
-.. index:: #, comments, " " " (triple), ' ' ' (triple)
+.. index:: #, 注释, " " " （三个）, ' ' ' （三个）
 
-Comments
+注释
 --------
 
-I present to you the first tool you can use to write computer programs
-that are easier for people to understand: *comments*.
+我要介绍给你的第一个工具，可以用来让人们更好的理解你的计算机程序： *注释* 。
 
-Comments are notes made by a programmer which are ignored by the
-computer; they are meant to be read and understood only by humans.
+注释，是程序员们记的笔记，会被计算机忽略掉；是给人类阅读和理解用的。
 
-When using Python, one can write comments in one of two ways:
+当使用 Python 时，你可以用下面的两种方法来记笔记：
 
--  By enclosing an arbitrary quantity of text between triple-quotes like ``""" ... """`` or ``''' ... '''``.
--  By writing some text preceded by ``#`` on any given line.
+-  把任意数量的文字放在一对由三个引号组成的标记里，比如 ``""" ... """`` 或 ``''' ... '''`` 。
+-  在任意一行，把文字放在 ``#`` 符号后面。
 
-I will first write a simple program without any comments followed by a
-second version with comments added and a third version ... slightly less
-readable; however, I will make the same error in all three programs. Can
-you spot it more easily in the first program orthe second?
+我先展示一个简单的、没有任何注释的程序，接着展示第二个有注释的版本。在这两个版本的程序里都有同样一个错误。你能够更容易地在第一个版本里指出这个错误，还是第二个？
 
 .. code-block:: python
 
@@ -62,61 +47,50 @@ you spot it more easily in the first program orthe second?
     turn_left()
     put()
 
-Contrast the above program with the same one, from Reeborg's point of
-view, but with comments added for humans; you will be able so recognize
-comments as they appear in a different colour and font style.
+和上面的版本相比，接下来的版本在乐跑的眼里根本没有任何不同，但是却增加了给人看的注释。你应该可以很容易的辨认出注释，因为其颜色和字体都有所不同。
 
 .. code-block:: python
 
-    '''  This is an example of
-    a simple program where Reeborg draws a square,
-    leaving a token behind at each corner. '''
+    '''  在这个简单的程序里，乐跑沿着一个方形的路线行走，
+    并且在方形的四个角各留下一个东西。 '''
 
-    move()  # Python commands are on separate lines
+    move()  # Python 的单行注释
     move()
-    turn_left() # Reeborg only knows to turn left
-    put()  # we assume that Reeborg carries enough tokens
+    turn_left() # 乐跑只会左转
+    put()   # 我们假设乐跑带了足够多的东西
 
-    # we repeat the above three more times to complete the square
-    move()
-    move()
-    turn_left()
-    put()
-
-    move()
-    turn_left()
-    put()
-
+    # 重复上面的步骤三次以完成任务
     move()
     move()
     turn_left()
     put()
 
-The above are not particularly good comments, but at least one of them
-should have helped you find what was wrong with the program. You might
-think this is cheating; however, how can you guess the intent behind
-some lines of code in a program on their own? The addition of comments
-explaining what a given program should do can be very helpful in finding
-mistakes.
+    move()
+    turn_left()
+    put()
 
-Note that in addition to comments, I have used blank lines to separate
-some "logical" blocks of code, to help see the pattern better. Together,
-the use of comments and insertion of blank lines can make a program much
-easier to read.
+    move()
+    move()
+    turn_left()
+    put()
+
+前面看到的例子在实践中并不算是好的注释，但至少有一条能帮你找到程序中的错误。你可能觉得这么做是作弊，然而光凭代码你怎么能猜出其背后的意图？在注释中解释这段代码应该做什么，对排查错误非常有帮助。
+
+请注意，除了注释，我还用空行隔开了代码中的各个“逻辑”部分，以便帮助你更容易的发现其中的模式。一起使用注释和空行可以大幅提高程序的可读性。
 
 
+.. admonition:: 写给教育工作者的内容
 
-.. admonition:: For educators
+    如果你已经介绍了怎样使用函数的参数，那么我建议你在上一节的例程中把
 
-    If you have already explained how to use function arguments, may I suggest
-    that you modify the example above to replace::
-
+    .. code-block:: python
+    
         put()
 
-    by::
+    替换为
 
+    .. code-block:: python
+    
         put('token')
 
-    the rationale being that this makes the intent of the program clearer
-    for someone who is just reading the code.
-
+    理由是，这样做可以让第一次阅读该程序的人更容易理解。

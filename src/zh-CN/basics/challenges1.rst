@@ -1,199 +1,130 @@
-Introduction to the challenges
+关卡介绍
 ==============================
 
+在这一节，我简要介绍一下乐跑要完成的大部分关卡（任务）。这些关卡都可以通过乐跑的世界上方的菜单来选择。你要做的就是通过写程序来让乐跑攻克关卡。 **你不一定要攻克全部的关卡。** 现阶段的目标是，熟悉乐跑的移动方式和识别重复出现的模式以找出解决方案。
 
-In this lesson, I introduce briefly most of the challenges (tasks) that
-Reeborg has to accomplish and which you can select from the menu
-above Reeborg's world. What you
-have to do, is to write programs that accomplish what is being described
-as being Reeborg's task. **You do not have to do all the challenges.**
-The idea at this point is to get familiar with the way that Reeborg
-moves and to identify patterns that reoccur when finding a given
-solution.
+你写的每一个程序，都包含一系列特定的指令。和乐跑相比，你可以看到全局，而它只能看到它所在的格子。所以，你应该开始以这种方式思考：乐跑如何才能根据它所得到的线索来决定下一步的行动。这种思考方式在后面将很有用。
 
-While you write your programs, each of which will consist of a specific
-of series of instructions, you have the advantage of seeing the entire
-world all at once. You should start to think about how Reeborg, who only sees the
-grid square where he is located, could take advantage of clues to
-determine its next action; this will be useful later on.
+关于保存工作进度的重要说明
+--------------------------------
 
-Important information about saving your work
---------------------------------------------
+由于使用了所谓的 *本地存储空间* ，乐跑的世界记得你上一次在浏览器（Firefox 或 Chrome）里的工作进度。但是，把你的程序存在电脑或 U 盘里仍然很有必要。你可以通过首先点击乐跑的世界上方的 **Additional options （更多选项）** 按钮，然后点击 **Save program to file （把程序保存为文件）** 按钮来保存。取回时，使用 **Import program from file （从文件中导入程序）** 按钮。
 
-By making use of something known as *Local Storage*, Reeborg's World remembers
-the last program you work on in a given browser (Firefox or Chrome).
-However, it might be useful for you to save your programs on your computer,
-or on a usb key.  You can do this by first clicking on
-**Additional options** at the top and then clicking on the
-**Save program to file** button.  Similarly, you can retrieve a program
-from your computer using the **Import program from file** button.
+在保存的时候，你需要记一下该程序是设计给哪个世界的。你可以像这样写个注释：
 
-If you do save your programs, you will have to note for which
-world they are designed. To do so you can use comments::
+.. code-block:: python
 
-    # Solution to world Home 1
+    # “回家之一”的解决方案
     move()
     move()
 
-Finding the center
+找到世界的中心
 -------------------
 
-This is the first of our series of mini challenges.
+这是一系列关卡的第一关。
 
-Have a look at the worlds **Center 1** to **Center 3**.
-In each case, you will have to write a
-program that has Reeborg put a token at the geometric center of the
-rectangular room he finds himself in.
+看一看名为 **Center 1 （世界的中心之一）** 和 **Center 2 （世界的中心之二）** 的世界。在每个关卡里，你需要写一段程序，让乐跑在该世界的中心放下一个东西。
 
-.. topic:: Try this!
+.. topic:: 试试这个！
 
-    Write a program for only one of these worlds for now.
+    现在，先写一段程序完成其中一个任务。
 
-Later, you will be able to write a single program that will have Reeborg
-find the geometric center of any rectangular room (with odd dimensions
-on each side) and have it put a token at that exact location.
+待会儿，你将能够写一段程序，让乐跑可以找到任何方形的世界（长、宽都是单数）的中心，并且把一个东西放在那里。
 
-Around the world
+周游世界
 ----------------
 
-Have a look at the worlds **Around 1** to **Around 4**. For at least one of
-these worlds, write a program that will have Reeborg go all around the
-world coming back at its original starting location, always moving next
-to a wall.
+看一看从名为 **Around 1 （周游世界之一）** 到名为 **Around 4 （周游世界之四）** 的世界。完成至少一个任务——写一段程序让乐跑贴着墙走，绕世界一周并回到起点。
 
-Later, we will come back to these challenges and show you how to write
-programs that are much shorter and, will work for all of these four
-worlds and any similar worlds.
+待会儿，我们还会再回到这些关卡，教你怎样把程序写得更短，并且用一段程序完成全部以及类似的任务。
 
-Lost in a maze
+迷宫
 --------------
 
-Reeborg is lost in a maze. Have a look at the worlds **Maze 1** and **Maze 2**.
-Can you think of a way to write a program that could get Reeborg out of both
-of these mazes? Later, you will learn how to do this and, in fact, you will
-write a program that could help Reeborg get out of almost any
-maze you could think of.
+乐跑在迷宫里迷路了。看一看名为 **Maze （迷宫）** 和 **Maze 2 （迷宫之二）???** 的世界。你能想出一个方法，只写一段程序并让乐跑从全部的迷宫里走出来么？待会儿你将学习如何做到，实际上你将要写的程序可以帮助乐跑走出你能想到的几乎任何迷宫。
 
-Jumping over hurdles
+跨栏
 --------------------
 
-Reeborg has entered a race. It's the 110 meters hurdles race, in
-preparation for the Olympics. Have a look at the world **Hurdles 1** and
-have Reeborg complete the race, staying as low as he can, just jumping
-over the hurdles like this:
+为了准备参加奥运会的一百一十米栏项目，乐跑参加了一个比赛。看一看名为 **Hurdles 1 （跨栏之一）** 的世界。试着让乐跑完成比赛，并尽量跳低一点，像这样刚好跨过障碍物：
 
 |hurdles|
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-   Write a program for the hurdle race.  Notice how often you repeat a certain
-   set of instructions.
+   写一个跨栏比赛的程序。留意一下同样的一组指令你重复了多少次。
 
+完成以后，???
 Once you have done that, select world **Hurdles 2**: that's an indoor race,
 and therefore shorter. (It is also the one illustrated above.) You
 should be able to remove a few lines of your program and have Reeborg
 complete that race as well.
 
-Once you are done with those races, you might want to try the unevenly
-spaced hurdles of world **Hurdles 3** or the highly irregular ones of world
-**Hurdles 4**.
+然后，你可以试试障碍物之间的距离不相等的 **Hurdles 3 （跨栏之三）** 或者障碍物的高度不规则的 **Hurdles 4 （跨栏之四）**。
 
-
-Harvest time
+丰收的季节
 ------------
 
-Reeborg has been gardening and it is time to harvest. Select world
-**Harvest 1** or **Harvest 2** and have Reeborg collect all the
-carrots.
+乐跑还种过菜，现在丰收的时刻到了。选择名为 **Harvest 1 （大丰收之一）** 或 **Harvest 2 （大丰收之二）** 的世界，并试着让乐跑收集完所有的胡萝卜。
 
-Alternatively, select world **Harvest 3** which occurred earlier in the
-season. Reeborg had been planting some carrots; some sprouted fine,
-others did not, while at some location 2 or more seeds sprouted. Reeborg
-must remove the excess plants and reseed at locations where there are
-missing ones so that each plant site has only one carrot.
+再或者，试试发生在丰收的季节之前的名为 **Harvest 3 （大丰收之三）** 的世界。此时，乐跑已经种下了胡萝卜，有的格子里有多个种子发芽了，有的格子里还没有种子发芽。乐跑要确保每个格子里有且只有一个发芽的种子，多出来的要转移到没有发芽种子的格子里。 
 
-**You do not have to write a program this time.**  Just think about how you
-would do it.
+**现在，你不必马上就动手写程序，** 只需要想一想怎么才能完成任务。
 
-Rainy weather
+下雨天
 ---------------
 
-It was a beautifully sunny day. Reeborg was playing outside with his
-friend. Suddenly, it started to rain and Reeborg remembered that the
-windows in his house were all open. So Reeborg went back to his house
-and stopped in front of the door, unsure of how to proceed.
+在晴朗的一天，乐跑正在外面和它的朋友一起玩耍。忽然，天上开始下起了雨。乐跑想起它屋子的窗户还没有关，于是赶快跑回了家。但当它站在门口时，却不确定要怎么做。
 
 .. index:: build_wall()
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-    Using the ``build_wall()`` instruction, help Reeborg close the windows
-    of his house. When Reeborg finishes his task, he will stand in the
-    doorway, watching the rain fall, waiting for it to stop before he can go
-    back and play outside. The world is **Rain 1**.
+    用 ``build_wall()`` 指令帮乐跑关窗户。当乐跑完成以后，它应该继续站在门口看雨。等雨停了以后才出去接着玩。这就是名为 **Rain 1 （下雨之一）** 的世界的任务。
 
-Reeborg's friend's turn.
+轮到乐跑的朋友了
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Erdna, Reeborg's friend, lives in a bigger house as shown on **Rain 2**.
-Erdna was playing outside with Reeborg when it started raining. Help
-Erdna close the windows in her house.
+鹅蛋（Erdna）是乐跑的朋友，它有一个更大的房子在名为 **Rain 2 （下雨之二）** 的世界里。刚开始下雨的时候， 鹅蛋正在外面和乐跑玩。帮鹅蛋也关上窗户吧。
 
-Later, you will be able to write a single program that will work for
-both Reeborg and Erdna ... however, it will be a bit tricky.
+待会儿，你将能够写一段让乐跑和鹅蛋都可以关好窗户的程序……不过，需要一点小技巧。
 
-After the storm
-~~~~~~~~~~~~~~~
+风暴过后
+---------------
 
-The wind blew really hard last night. There are fallen leaves everywhere outside
-Reeborg's house. His parents asked him to go and clean up the path
-leading to the curb, **Storm 1**, as well as the driveway: **Storm 2**.
+昨晚的风刮得实在很猛，使得现在乐跑的房子周围到处是落叶。它的家长叫它去清理通往马路的小径—— **Storm 1 （风暴过后之一）** 和车道—— **Storm 2 （风暴过后之二）** 。
 
-Reeborg should collect all the leaves, and put them in the compost bin,
-and close the lid, using ``build_wall()``.
+乐跑需要拾起全部的落叶，放进肥料桶里，并盖上盖子——用 ``build_wall()`` 指令。
 
-More yard work!
-~~~~~~~~~~~~~~~
+更多清扫院子的工作！
+~~~~~~~~~~~~~~~~~~~~~~
 
-Reeborg's parents are so proud of his work, that they ask him to pick up
-all the leaves that got blown away in their backyard during the
-windstorm, as illustrated on **Storm 3**. Have Reeborg pick up all the
-leaves and put it in the compost bin.
+乐跑的家长对于它所完成的工作感到十分骄傲，所以吩咐它把后院里的落叶也收拾了—— **Storm 3 （风暴过后之三）** 和 **Storm 4 （风暴过后之四）** 。
 
-Later, you will learn to write a single program that can help Reeborg do
-the cleanup for all three locations.
+待会儿，你将会学到怎样用一段程序帮乐跑清扫完全部四个地方。
 
-Summary
+总结
 -------
 
-Writing programs that can solve the previous challenges can be quite
-tedious as you have to write every single instruction that Reeborg must
-follow. However, they are good exercises to make you think like a robot.
-As you learn more about programming using Python, you will find ways
-to write much shorter programs to solve these challenges.
+写程序解决前面的关卡可能会有些乏味，因为你不得不把乐跑要执行的每一个指令都写出来。但是，这些练习可以很好的让你能够像机器人一样思考。当学习了更多的 Python 编程的知识以后，你就会发现把程序写得更短也能完成任务的方法。
 
 .. |hurdles| image:: ../../../src/images/hurdles.png
 
-.. admonition:: For educators
+.. admonition:: 写给教育工作者的内容
 
-    If you have already explained how to use function arguments, it might
-    be useful to suggest the use of the ``World()`` function instead
-    of simply using comments::
+    如果你已经介绍了怎样使用函数的参数，那么使用 ``World()`` 函数来代替简单的注释可能更有用：
 
+    .. code-block:: python
+    
         World("Home 1")
         move()
         move()
 
-    If the world currently displayed is not
-    **Home 1**, then running this program will result in the selected
-    world changing to **Home 1** and the rest of the program will be ignored.
-    Running it a second time (when the world shown **is** the desired
-    world **Home 1**), the ``World()`` function will be ignored and the rest
-    of the program will be executed.
+    如果当前的世界不是 **Home 1 （回家之一）** ，那么运行此程序我们将会来到名为 **Home 1 （回家之一）** 的世界，其后的指令将会被忽略。当再一次运行此程序——前的世界是 **Home 1 （回家之一）** 时， ``World()`` 指令将会被忽略，其后的指令将会被执行。
 
-    Instead of using pre-defined worlds, you can use any world accessible
-    by a URL somewhere on the web.  For example, you might want to
-    try the following::
+    除了预先定义的世界，你也可以使用任何用网址能访问到的世界。比如，你可以试试下面这个：
+
+    .. code-block:: python
 
         World("http://personnel.usainteanne.ca/aroberge/reeborg/token.json",
               "Token test")
@@ -201,7 +132,4 @@ to write much shorter programs to solve these challenges.
         move()
         take()
 
-    Running this program should add one more world to the current selection.
-    Note the second (optional) argument to ``World`` which, if provided,
-    is used as the name appearing in the world selector.
-
+    运行此程序会增加一个名为“Token test”的世界。请留意，如果给出了 ``World`` 函数的第二个（可选）参数，那么该参数将被视为新世界的名字添加到列表里。

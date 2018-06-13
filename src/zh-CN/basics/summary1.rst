@@ -1,29 +1,21 @@
-Summary
+小结
 =======
 
-It is time to review what you have learned so far. In addition to
-getting familiar with the environment on this site, you have learned the
-first two rules for learning about programming.
+让我们来复习一下到目前为止所学的内容。除了更熟悉乐跑的世界以外，你还学到了学习计算机编程的前两条规则。
 
 .. important::
 
-    **Rule # 1**
+    **规则一**
 
-        Learning about computer programming is like learning to play a
-        musical instrument: you have to **do it**, not simply read about it.
+        学习计算机编程就像学习一件乐器：你必须 **动手去练习**，而不仅仅是阅读。
 
-    **Rule # 2**
+    **规则二**
 
-        Write your computer programs to make them easy for **people** to
-        read and understand.
+        把你的程序写得让 **人** 容易阅读和理解。 
 
-Related to Rule # 2, we have seen how we can include *comments* as a
-mean to communicate some information to other humans, information that
-will be ignored by the computer.
+关于规则二，我们了解到了如何通过 *注释* 来向其他人传递某些信息，而这些信息会被计算机忽略。
 
-While I have not mentioned this explicitly, you have also learned that a
-program is a series of instructions. You have seen a total of 5
-different instructions:
+尽管我没有明确地表达，但是你应该已经知道了：一个程序就是一系列的指令。到目前为止，你已经见到了五个不同的指令：
 
 -  ``move()``
 -  ``turn_left()``
@@ -31,9 +23,4 @@ different instructions:
 -  ``put()``
 -  ``pause()``
 
-You may or may not have used the ``pause()`` instruction which I only
-mentioned in passing when talking about bugs. If you have not done so,
-you might want to write a short program that includes it just to see
-what happens; make sure that the ``pause()`` instruction is neither the
-first instruction nor the last one so that you can plainly see what it does.
-
+``pause()`` 指令我只在谈论臭虫的时候提了一下，你可能尝试过了，也可能还没有。如果还没有的话，请写个小程序尝试一下。要注意，不要把 ``pause()`` 指令放在第一或最后一行。这样你才能更清楚地看到发生了什么。

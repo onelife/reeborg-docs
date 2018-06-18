@@ -1,69 +1,62 @@
 
-Turn around
+调头
 ===========
 
-In addition to having Reeborg making right turns, you *might* have had
-him turn around a few times; by turning around, I mean changing
-direction so that Reeborg is heading back to where it was coming from.
-We can define a function ``turn_around()`` as follows::
+除了让乐跑向右转，你 *可能* 还需要让它调头。我所谓的调头就是让乐跑向后转、转向它来的方向。我们可以像下面这样定义一个 ``turn_around()`` 函数：
+
+.. code-block:: python
 
     def turn_around():
         turn_left()
         turn_left()
 
-Try it!
+试试吧！
 
-Back to ``turn_right()``
+再回到 ``turn_right()``
 ------------------------
 
-Remember ``turn_right()``? Here it is again::
+还记得 ``turn_right()`` 么？再看一次：
+
+.. code-block:: python
 
     def turn_right():
         turn_left()
         turn_left()
         turn_left()
 
-Notice how the first two instructions are identical to the function
-definition for ``turn_around()``. When this happens, we have to remember
-Rule # 3:
+请注意，前面的两个指令就是 ``turn_around()`` 函数所定义的内容。当这种情况发生时，我们必须要记起规则三：
 
 .. important::
 
-    Rule # 3
-        When writing computer programs, do not repeat yourself.
-        I repeat: **do not repeat yourself!**
+    规则三
+        写计算机程序时，不要重复你自己。我再强调一遍： **不要重复你自己！**
 
-So, we have some repeated instruction. While ``turn_right()`` is already
-very simple, a good programming practice is to replace parts of code
-that are repeated by a simple function. Thus, we should rewrite
-``turn_right()`` as follows::
+我们现在有了重复的指令。当 ``turn_right()`` 已经很简单的时候，一个好的编程实践是：把部分代码替换成一个简单的函数。因此，我们应该像下面这样重写 ``turn_right()`` :
+
+.. code-block:: python
 
     def turn_right():
         turn_around()
         turn_left()
 
-The idea behind this is that, the shorter a function is, the least
-likely there will be bugs in it. Furthermore, once we have a well-tested
-bug-free function, we make sure that we use it whenever we can when
-writing longer functions. I admit, this is almost a silly example ...
-but I don't have more complicated examples at this point to illustrate
-this important idea.
+这背后的想法是：函数越短，出错的可能性就越小。此外，一旦我们有了经过严格测试的、没有问题的函数，我们就应该在编写比较长的函数时尽可能地使用到它。我承认，这是一个很傻的例子……但此时，我还没有一个更复杂的例子来表达这个重要的概念。
 
-.. topic:: Your turn
+.. topic:: 轮到你了
 
-    Define a ``step_back()`` function that would undo a ``move()`` function.
-    By this, I mean that you should have::
+    定义一个 ``step_back()`` 函数来抵消 ``move()`` 函数的效果。也就是说：
 
-        # starting somewhere at location x,y
+    .. code-block:: python
+    
+        # 假设当前的坐标为 x，y
         move()
         step_back()
-        # back at the same location,
-        # facing in the same direction as before
+        # 此时应该回到和之前同样的位置
+        # 并且和之前面朝的方向一致
 
-    Make sure you to test it!
+    请一定要测试你的程序！
 
-Do not use the hint unless you feel you absolutely can not do it otherwise!
+不要看提示，除非你觉得绝对做不出来！
 
 .. hint::
 
-   You might want to use ``turn_around()`` twice in defining ``step_back()``.
+   在定义 ``step_back()`` 时，你可能要用到 ``turn_around()`` 两次。

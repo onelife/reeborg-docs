@@ -1,129 +1,99 @@
 
-Rule number 3
+规则三
 =============
 
-.. index:: Rule # 3
+.. index:: 规则三
 
-By now, you should be ready to learn about the third rule for writing
-computer programs efficiently.
+现在，是时候学习把计算机程序写得更有效率的第三条规则了。
 
 .. important::
 
-    **Rule # 3**
-        When writing computer programs, do not repeat yourself.
-        I repeat: **do not repeat yourself!**
+    **规则三**
+        写计算机程序时，不要重复你自己。我再强调一遍： **不要重复你自己！**
 
-Three lefts can make a right
+三次左转就是右转
 ----------------------------
 
-Since you have written quite a few programs by now (you have done the
-exercises, didn't you?), you must have realized that having Reeborg make
-three left turns in a row gives the same final result as if he were to
-make a single right turn. You are probably starting to find it quite
-tedious to have to write three ``turn_left()`` instructions each time
-you want to have Reeborg turn right. Wouldn't it be nicer if you could
-simply write ``turn_right()``?
+到目前为止，你已经写了不少程序（你有做之前的练习吧？），应该已经发现：连续三次左转的最终效果和一次右转是一样的。而且你大概开始觉得：每次让乐跑右转都要连续写三个 ``turn_left()`` 指令很无趣——简单的写一个 ``turn_right()`` 不是更好么？
 
-By the end of this lesson, you will be able to do just that.
+别急，在本节结束时，你就能够做到。
 
-Defining functions
+定义函数
 ------------------
 
-What we have called *instructions* or *commands* so far are examples of
-Python **functions**. So, ``turn_left()`` is a function and so is
-``move()``. We can define a new Python function as follows:
+到目前为止，我们所提到的 *指令* 或 *命令* 都是 Python **函数** 。因此， ``turn_left()`` 是函数， ``move()`` 也是函数。我们可以像下面这样定义一个新的函数：
 
 .. index:: ! def
 
 .. code-block:: python
 
     def some_well_chosen_name ():
-        # some lines of code
-        # indented at the same level
+        # 一些代码……
+        # 缩进同样的位置
 
 
-``def`` is our first Python **keyword**. Keywords are words that
-have a special meaning in a given programming language.
-Notice how a colon ``:`` precedes what
-is known as a *block of code* and constitutes the *body* of the
-function. It is **required** in Python to *indent* such blocks of code
-with the same number of spaces at the beginning of each line which, as a side-effect, makes it
-easy to identify the function body for a human reader.
+``def`` 是我们见到的第一个 Python **关键字** 。关键字，就是在特定的编程语言里有特殊意义的词。请注意，在函数的 *主体* ——所谓的 *代码块* ，之前有一个分号 ``:`` 。使用 Python 时，在行首使用相同数量的空格 *缩进* 这段代码块是 **必须的**。这带来的、额外的好处是：让人容易识别出函数的主体。
 
-Let's write our first Python function::
+来动手写我们的第一个 Python 函数吧：
+
+.. code-block:: python
 
     def turn_right():
         turn_left()
         turn_left()
         turn_left()
 
-That's it! You will now be able to avoid having to write three
-``turn_left()`` functions in a row to simulate a right turn!
+就是这样！你现在可以不用连续写三个 ``turn_left()`` 函数了！
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-    Define the ``turn_right()`` function in a program and try to use it,
-    perhaps using the world Alone. If you don't know what to try, just have
-    Reeborg go around a square by alternating ``turn_right()`` and
-    ``move()`` **functions** four times in a row.
+    在一段程序中，定义并使用 ``turn_right()`` 函数。你可以用名为“Alone (空白)”的世界试试。如果你不知道要做什么，就试着让乐跑沿着一个方形的路径走一周——交替使用 ``turn_right()`` 和 ``move()`` **函数** ，并重复四次。
 
-How to think about ``def``
+怎样理解 ``def``
 -------------------------------
 
 .. note::
 
-   Please note that this simplified explanation does not take into account what is known
-   as *variable scope* which is something that we will cover later.
+   请注意，这个简化了的说明并没有把所谓的 *变量的作用域* 考虑在内，其将在后面的章节里介绍。
 
-You have just seen how to define a function in Python. Chances are,
-you understood right away how to think about them but, just in case,
-here's a more detailed explanation which will help you to not only
-understand how functions work, but also other Python construct that
-involve blocks of code.
+你刚刚看到了如何定义 Python 函数，或许你立刻就理解了；但是为了以防万一，我再解释得详细一些。这不仅能够帮助你理解函数是怎么回事，也能够帮助你理解其它涉及到代码块的 Python 结构。
 
-Suppose we have the following:
+假设我们有如下的代码：
 
 .. code-block:: python
    :emphasize-lines: 7
 
-    def turn_right():  # begin of code block follows
+    # 定义一个函数
+    def turn_right():   # 下面开始是代码块
         turn_left()
         turn_left()
-        turn_left()   # end of code block
+        turn_left()     # 代码块结束
 
     move()
     turn_right()
     move()
 
-This is equivalent to the following:
+这和接下来的代码是等价的：
 
 .. code-block:: python
    :emphasize-lines: 9, 10, 11
 
-    # define a function
+    # 定义一个函数
     def turn_right():
         turn_left()
         turn_left()
         turn_left()
 
     move()
-    # begin of code block inside turn_right()
+    # 开始和 turn_right() 里面的一样的代码块
     turn_left()
     turn_left()
     turn_left()
-    # end of code block
+    # 代码块结束
     move()
 
-In other words, ``def`` defines a name that we can use as a synonym
-for all the code that appears inside the code block, and whenever we see
-the synonym being **called** [that is, the name appears followed by
-``()``], we can think of it as being equivalent to inserting the code
-block *as is* at that location.
+换句话说， ``def`` 定义了一个名字，我们可以将其作为代号来代表分号后面的代码块中的内容；并且，每当我们看到这个代号被 **引用** （名字后面跟着 ``()`` ）时，我们就可以认为这等价于把分号后面的代码块中的内容 *原封不动的* 插入到了该代号所在的位置。
 
-.. topic:: Try this!
+.. topic:: 试试这个！
 
-   See if you can simplify your program for the newspaper delivery
-   and making it easier to read and understand
-   by using a ``turn_right()`` function.  Once you have done so, perhaps
-   you can think of other ways in which you can simplify your program by
-   defining other functions.
+   通过定义 ``turn_right()`` 函数，简化你之前的送报纸程序，并且使之更容易阅读和理解。完成之后，请想一想：你是否还能通过定义一些其它的函数，来进一步简化你的程序。

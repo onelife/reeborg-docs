@@ -1,16 +1,16 @@
-Reading exercise
+阅读练习
 ================
 
-Remember the following?
+还记得规则二么？
 
 .. important::
 
-    **Rule # 2**
-        Write your computer programs to make them easy for **people** to
-        read and understand.
+    **规则二**
+        把你的程序写得让 **人** 容易阅读和理解。
 
-Can you figure out on your own what the following program does, without
-copying it in the editor and having Reeborg obey the instructions?::
+你能够自己搞明白——而不是复制到代码编辑框里让乐跑告诉你，下面这段程序在做什么吗？
+
+.. code-block:: python
 
     def a():
         turn_left()
@@ -38,12 +38,10 @@ copying it in the editor and having Reeborg obey the instructions?::
     e()
     b()
 
-Not so easy, is it?
+不是很容易吧？
 
-.. topic:: Test it!
+.. topic:: 测试一下！
 
-    Once you think you have figured out what the above code does, copy it in
-    the editor and run it to confirm your understanding.
+    一旦你认为搞明白了上面的代码在干什么，请把它复制到代码编辑框里并运行，以验证你的理解。
 
-This should help you to understand why it is important to write programs
-for humans, by choosing function names that are meaningful.
+这可以帮助你理解为什么在写给人看的程序里，给函数起一个有意义的名字很重要。

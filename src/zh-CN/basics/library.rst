@@ -1,43 +1,28 @@
 
-Using the Library
+使用库（Library）
 =================
 
 .. index:: ! from ... import
 
-When programmer make use of a given function in different programs,
-rather than redefining it in each program they write, they put them in
-special programs called **libraries** and they have a way to ensure that
-their other programs can use the functions that are found in the
-library.
+当要使用一些在别的程序里定义过的函数时，一个程序员并不会重新定义它们；取而代之的是，他会把这些函数放在一个特别的、名为 **库（libraries）** 的程序里，这样就可以在别的程序里面使用了。
 
-You are going to use the function ``turn_right()`` **a lot!** Instead of
-rewriting it each time (remember Rule # 3), what you are going to do is
-to write it **once** (more) but, this time, instead of writing it in the
-editor with the **Python Code** tab, you will click on the **library** tab and
-write it there. Oh, and you should also write ``turn_around()`` there as
-well.
+你还会使用 ``turn_right()`` 函数 **很多次！** 为了避免每次都重写一遍（记住规则三），你应该只（再）写 **一次** ，但不是写在代码编辑框的 **Python Code（代码）** 标签页里，而是点击并写在 **library（库）** 标签页里。对了， ``turn_around()`` 函数也应该写在那里。
 
 .. image:: ../../../src/images/library.png
 
 
-Then, when you want to use the functions defined in your library, you will
-simply type ``from library import`` (followed by the function names, separated
-by commas) on its own line in the Python Code editor.
+现在，当你要使用库里的函数时，只需在 Python 代码标签页里的单独的一行写下 ``from library import`` （后面跟以逗号 ``,`` 分割的函数名）。
 
-.. topic:: Do this!
+.. topic:: 这样做！
 
-   After writing the functions ``turn_right()`` and ``turn_around()`` in
-   the library, go back to the Python Code editor (so you no longer see your
-   functions) and write a short
-   program that nonetheless uses them to make sure that they work as
-   expected. If they don't, go back and fix them.  Remember to use
-   ``from library import turn_right, turn_around`` in your main program.
+   在库标签页里定义好 ``turn_right()`` 和 ``turn_around()`` 函数，然后回到 Python 代码标签页（现在应该看不到刚才定义的函数了），并用刚刚定义好的函数写一段小程序，以确保它们能正确工作。如果不能正确工作，请返回并修正。记得要在主程序里使用 ``from library import turn_right, turn_around`` 。
 
 .. hint::
 
-   With the appropriate functions defined in the library,
-   here is such a program::
+   定义好两个库函，然后使用下面的程序进行测试：
 
+   .. code-block:: python
+   
        from library import turn_right, turn_around
        move()
        turn_around()
@@ -46,38 +31,30 @@ by commas) on its own line in the Python Code editor.
        move()
        turn_around()
        move()
-       turn_left()  # back at starting position
+       turn_left()  # 应该回到初始位置并且朝向和开始时一致
 
 
-From now on, whenever you define a function that you use more than once,
-add it to your library so that you don't have to redefine it every time.
+从现在开始，每当你要定义一个会被使用很多次的函数时，就把它放进库里，而不是每次都重新定义。
 
 
-Reeborg can understand French
+乐跑懂中文
 ---------------------------------
 
-There exists a special library which enables Reeborg to understand
-French.  For example, instead of writing ``move()``, one can write ``avance()``
-and Reeborg will do the right thing.  For example, try the following::
+有一个特殊的库使乐跑能懂中文。比如，用 ``前进()`` 代替 ``move()``，乐跑也能明白。试试下面这段程序：
 
-    from reeborg_fr import avance, tourne_a_gauche
+.. code-block:: python
 
-    avance()
-    tourne_a_gauche()
+    from reeborg_cn import 前进, 左转
 
-.. topic:: Your turn!
+    前进()
+    左转()
 
-    Write a short program which uses the functions of the French library.
+.. topic:: 轮到你了！
 
-.. admonition:: For educators
+    使用中文库（“reeborg_cn”）里的函数，写一段小程序。
 
-    When the French library is imported, the online help
-    (available via "Addition options" -> "Help") is updated to include
-    all the French functions available.  The only restriction however
-    is that function arguments, such as ``"token"`` in ``take("token")``
-    **must** still be specified in English.  To use a version
-    completely translated in French, you must go to
-    `Le monde de Reeborg <http://reeborg.ca/monde.html>`_
+.. admonition:: 写给教育工作者的内容
 
-    If you would like to create a new version, a Spanish version for example,
-    please contact me.
+    当导入中文库以后，使用帮助函数可以查看中文函数说明，例如： ``help(前进)`` 。当前唯一的局限是：中文函数的参数的值，例如：``拾起(物品="token")`` 中的 ``"token"``，还 **必须** 使用指定的英文单词。如果想使用更彻底的中文版本，请移步至 `Le monde de Reeborg <http://reeborg.ca/monde.html>`_ 。
+
+    如果你想创建一个新的语言分支，比如西班牙语版本，请联系我。

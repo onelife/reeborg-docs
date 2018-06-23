@@ -1,27 +1,16 @@
 
 
-Newspaper delivery revisited
+重温送报纸
 ============================
 
-Let's go back to our newspaper delivery example; we'll consider the
-delivery to Richard Pattis in **Newspaper 0**. Below is a solution to that
-problem, with a few added comments.
+让我们回到名为 **送报纸之零** 的世界，重温一下给 Richard Pattis 送报纸的任务。下面是该任务的一种解决方案并包含了注释。
 
 .. code-block:: python
    :linenos:
 
-    take() # the star newspaper
+    take()  # 北极星报
 
-    # climb up first floor
-    turn_left()
-    move()
-    turn_left()
-    turn_left()
-    turn_left()
-    move()
-    move()
-
-    # climb up second floor
+    # 爬上一层楼
     turn_left()
     move()
     turn_left()
@@ -30,7 +19,7 @@ problem, with a few added comments.
     move()
     move()
 
-    # climb up third floor
+    # 爬上两层楼
     turn_left()
     move()
     turn_left()
@@ -39,31 +28,22 @@ problem, with a few added comments.
     move()
     move()
 
-    put() # put down the newspaper
+    # 爬上三层楼
+    turn_left()
+    move()
+    turn_left()
+    turn_left()
+    turn_left()
+    move()
+    move()
 
-    # turn around
-    turn_left()
-    turn_left()
+    put()   # 放下报纸
 
-    # climb down floor
-    move()
-    move()
-    turn_left()
-    move()
-    turn_left()
-    turn_left()
-    turn_left()
-
-    # climb down floor
-    move()
-    move()
-    turn_left()
-    move()
-    turn_left()
+    # 调头
     turn_left()
     turn_left()
 
-    # climb down floor
+    # 爬下一层楼
     move()
     move()
     turn_left()
@@ -72,11 +52,25 @@ problem, with a few added comments.
     turn_left()
     turn_left()
 
-This solution is quite long ... and it is easy to make mistakes when
-typing it. We note however that there are quite a few repeated code
-segments for which we could create functions. We have already defined
-``turn_right()`` and ``turn_around()``; let's use them and define a few
-others.
+    # 爬下两层楼
+    move()
+    move()
+    turn_left()
+    move()
+    turn_left()
+    turn_left()
+    turn_left()
+
+    # 爬下三层楼
+    move()
+    move()
+    turn_left()
+    move()
+    turn_left()
+    turn_left()
+    turn_left()
+
+这个解决方案很长……并且在打字的时候很容易出错。我们注意到：里面有很多重复的代码片段，可以提取出来做成函数。我们已经定义过 ``turn_right()`` 和 ``turn_around()`` ，现在让我们再多定义一些。
 
 .. code-block:: python
    :linenos:
@@ -108,32 +102,18 @@ others.
         climb_down_one_floor()
 
 
-    # === End of definitions ===
+    # === 定义结束 ===
 
-    take()  # the star newspaper
+    take()  # 北极星报
     climb_up_three_floors()
-    put() # leave paper
+    put()   # 放下报纸
     turn_around()
     climb_down_three_floors()
 
-Each function contains no more than 5 instructions; it's much easier to
-verify that each function does what it is supposed to do than verifying
-an entire list of commands like we have previously. Once we know that
-the functions do what they are supposed to do, making use of them allow
-us to write a complete program in 5 more lines of code - again, much
-easier to verify that it is right. All together, using functions to
-avoid repetitions, we end up with a shorter program that is also much
-easier to read.
+上面的每一个函数都不超过五行。和验证一大段指令（比如第一段程序）相比，验证上面的每一个函数能否够按照预期工作，很轻松。一旦确定了这些函数都能够正确工作，那么我们再多写五行便可完成任务，而且同样容易验证。综上所述，利用函数来避免重复，可以使我们写出更短、更具可读性的程序。
 
-.. topic:: Your turn!
+.. topic:: 轮到你了！
 
-    Write the above program and make sure it works correctly.
-    Once this is done, you will be ready to learn another trick
-    to make it even simpler.
+    写出上面的程序并确保其工作正确。完成之后，你就可以学习另外一个能把程序写得更简单的技巧了。
 
-Since functions like ``climb_up_one_floor()``, ``climb_up_three_floors``, etc.,
-are specific to this problem, it is probably **not** a good idea to save
-them in the library; you don't want to have too many functions in your
-library so that you are always able to remember all that are there. If
-you do find that you use a function many times in different programs,
-then it is a good idea to put it in your library.
+由于 ``climb_up_one_floor()`` 、``climb_up_three_floors()`` 等函数都是专门为单一的关卡写的，把它们放在库里可能 **不合适** 。你也不希望库里有太多的函数，不然就记不住了。只有在不同的程序里被多次使用到的函数才适合被放进库里。

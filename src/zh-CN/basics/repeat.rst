@@ -1,69 +1,56 @@
-Repeat
-======
+重复（repeat）
+================
 
 .. index:: repeat
 
-Often, we will find that we want to repeat a series of instructions a
-fixed number of times. There is a way in Python to do so ... but it
-has too many new concepts to explain at this time. I will just show you
-the code, and immediately introduce ``repeat``, a simpler replacement
-for it, unique to Reeborg's World.  The standard way
-is known as a **for loop** and is written as follows:
+我们常常需要固定次数的重复一系列的指令， 使用 Python ，有好几种方法可以做到……但我不想一次介绍太多新概念。所以我只展示其中的一种方法，然后马上开始介绍 ``repeat`` ——一个乐跑的世界所独有的、简单的替代指令。一个标准的实现方法是像下面这样，使用所谓的 **for 循环** ：
 
 .. code-block:: python
 
     for i in range(n):
-        # some
-        # instructions
-        # here
+        # 在这里
+        # 写一些
+        # 代码
 
 .. note::
 
-   Using ``repeat`` will not work in Python programs meant to be
-   run outside of Reeborg's World. A **loop** is a block of
-   instructions that is repeated.
+   ``repeat`` 不能在乐跑的世界以外使用。一个 **循环** 表示一个需要重复的代码块。
 
-In Reeborg's World, we can write a ``repeat`` *loop* as follows::
+在乐跑的世界里，我们可以写一个 ``repeat（重复）`` *循环* ：
 
-    repeat n:    # "n" is a whole number
-        # some
-        # instructions
-        # here
+.. code-block:: python
 
-For example, the following code will make Reeborg trace a square::
+    repeat n:   # “n”是一个整数
+        # 在这里
+        # 写一些
+        # 代码
+
+例如，下面这段代码可以让乐跑沿着一个正方形的路径行走：
+
+.. code-block:: python
 
     repeat 4:
         move()
         turn_left()
 
 
-By using ``repeat``, we can rewrite some function definitions without
-having to repeat instructions::
+通过使用 ``repeat`` ，我们可以重写一些函数并去掉重复的指令：
+
+.. code-block:: python
 
     def turn_right():
         repeat 3:
             turn_left()
 
 
-So, by using ``repeat`` we have yet
-another way to eliminate repetitions in our code.
+因此，``repeat`` 使我们又多了一个方法来消除代码中的重复。
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-    Change your program for the newspaper problem so that
-    you use ``repeat`` wherever it would shorten the code.
-    If you did not save it,
-    go back to the previous lesson and redo it using ``repeat``.
+    再次修改一下你的送报纸程序，使用 ``repeat`` 以尽可能的缩短代码。如果你并没有保存上一次的进度，请回到上一节并使用 ``repeat`` 改写程序。
 
-.. admonition:: For educators
+.. admonition:: 写给教育者的内容
 
-    My reason for having ``repeat`` as an addition to Python's
-    standard notation was to avoid having to introduce 4 concepts
-    at the same time (loops, variables as in ``_`` in ``for _ in range(n)``,
-    builtin functions like ``range`` as well as the concept of
-    function arguments).
+    我之所以引入 ``repeat`` 这个额外的 Python 符号的原因是，避免一次介绍四个新概念（循环、变量——比如 ``for _ in range(n)`` 中的 ``_`` 、内建函数——比如 ``range`` ，以及函数的参数）。
 
-    By design the ``n`` in ``repeat n`` **must** be an integer literal;
-    it cannot be a variable.  When students learn about variables, they
-    should learn the proper Python syntax to do loops and forget about
-    the non-standard ``repeat``.
+    在设计时规定了， ``repeat n`` 中的 ``n`` **必须** 是一个整型立即数（integer literal），而不能是一个变量（variable）。当学生们学过变量以后，他们应该学习更合适的 Python 语法来完成循环并且忘记不标准的 ``repeat`` 。

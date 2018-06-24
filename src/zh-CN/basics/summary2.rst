@@ -1,15 +1,13 @@
-Summary
+小结
 =======
 
-It is now time to review what we have learned since the last Summary.
+是时候回顾一下，从上一次小结到现在为止所学的内容了。
 
-We have seen our first Python keywords, ``def``, ``from``, ``import``.
+其间，我们第一次见到了 Python 关键字：``def`` 、 ``from`` 和 ``import`` ，还有怎样把函数存在库里备用。
 
-We have seen the concept of looping, and a keyword unique
-to Reeborg's World: ``repeat``.
+我们学习了新概念——“循环”，和乐跑的世界所独有的关键字—— ``repeat`` 。
 
-We have seen a sixth function specific to Reeborg's World, that is
-``build_wall()``, in addition to the five we had seen before:
+我们用到了五个乐跑的世界所专用的函数：
 
 -  ``move()``
 -  ``turn_left()``
@@ -17,5 +15,4 @@ We have seen a sixth function specific to Reeborg's World, that is
 -  ``put()``
 -  ``pause()``
 
-We are now ready to learn about some very important programming concepts
-dealing with deciding automatically between different possibilities.
+现在，我们要开始学习一些非常重要的编程概念，涉及在不同的可能性之间自动地进行选择。

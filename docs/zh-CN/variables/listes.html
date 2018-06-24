@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>10. Lists &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="Variables" href="index.html" />
+    <link rel="next" title="11. A character in a string" href="string_index.html" />
+    <link rel="prev" title="9. Return" href="return.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="string_index.html" title="11. A character in a string"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="return.html" title="9. Return"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">Variables</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">10. Lists</a><ul>
+<li><a class="reference internal" href="#accessing-list-elements">10.1. Accessing list elements</a></li>
+<li><a class="reference internal" href="#using-lists-as-conditions">10.2. Using lists as conditions</a></li>
+<li><a class="reference internal" href="#more-harvesting-challenges">10.3. More harvesting challenges</a></li>
+<li><a class="reference internal" href="#one-last-experiment">10.4. One last experiment</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="return.html"
+                        title="previous chapter">9. Return</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="string_index.html"
+                        title="next chapter">11. A character in a string</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/variables/listes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="lists">
+<h1>10. Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h1>
+<p>Run the following program, first to select the correct world,
+and a second time to run the rest of it.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">World</span><span class="p">(</span><span class="s2">&quot;/worlds/many.json&quot;</span><span class="p">,</span> <span class="s2">&quot;Many&quot;</span><span class="p">)</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">object_here</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The result likely looks as follows:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="s1">&#39;triangle&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;carrot&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is also a Python function named <tt class="docutils literal">list</tt> which can be used to
+create lists!  You have seen that we can use the <tt class="docutils literal">=</tt> sign to assign a name
+to an object; you should avoid using <tt class="docutils literal">list</tt> as the name of a variable
+since this would prevent you from using the <tt class="docutils literal">list()</tt> function in Python.</p>
+</div>
+<p>This is an example of a Python <strong>list</strong>.
+A Python list is represented by square brackets, <tt class="docutils literal">[ ]</tt>,
+that contains zero, one, or many items.  In the example
+above, the list contains 4 items, each of which is
+a Python string.   Using the “bracket notation”, I could create a list containing
+different types of objects:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Reeborg&quot;</span><span class="p">,</span> <span class="n">move</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="accessing-list-elements">
+<h2>10.1. Accessing list elements<a class="headerlink" href="#accessing-list-elements" title="Permalink to this headline">¶</a></h2>
+<p>When you saw the first newspaper delivery task, you read the following:</p>
+<blockquote>
+<div>In computer programming, we generally start counting at zero instead of 1.
+Since these worlds refer to three famous
+people in computer science, I thought it would be appropriate
+to number these worlds starting at zero.</div></blockquote>
+<p>Given a list, we can retrieve a single element using a bracket notation.</p>
+<div class="topic">
+<p class="topic-title first">Try this!</p>
+<p>Try the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">odd_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">odd_numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">odd_numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">odd_numbers</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;length = &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The Python function <tt class="docutils literal">len()</tt> gives us the length of the list, which
+is equal to the total number of items of that list.</p>
+<p>The number in brackets which is used to get a single item from the
+list is called the <strong>index</strong> of that item.</p>
+</div>
+<p>Sometimes, it is useful to get the last element of a list, or the one before
+that.  One could use the <tt class="docutils literal">len()</tt> function to figure out the position of the
+last item, but Python has a convenient shortcut.</p>
+<div class="topic">
+<p class="topic-title first">Try this!</p>
+<p>Try the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">odd_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">odd_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>  <span class="c1"># last item</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">odd_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>  <span class="c1"># second last item</span>
+</pre></div>
+</div>
+<p>Notice how including a minus sign can be used as a convenient way to get
+item starting at the end of a list.</p>
+</div>
+</div>
+<div class="section" id="using-lists-as-conditions">
+<h2>10.2. Using lists as conditions<a class="headerlink" href="#using-lists-as-conditions" title="Permalink to this headline">¶</a></h2>
+<p>When used as a condition, in an <tt class="docutils literal">if</tt> or a <tt class="docutils literal">while</tt> statement, lists behave
+differently depending on whether or not they have items in them.</p>
+<div class="topic">
+<p class="topic-title first">Figure it out by yourself!</p>
+<p>Run the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only one of the following is correct.</span>
+
+<span class="k">if</span> <span class="p">[]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An empty list is considered to be equivalent to True,&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">[</span><span class="s1">&#39;Reeborg&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An empty list is considered to be equivalent to False.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;But a non-empty list is considered to be equivalent to True.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A list is considered to be equivalent to True&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;ONLY if it contains many items&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Perhaps lists are always considered to be False ...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you know, branches that contain a condition considered to be <tt class="docutils literal">False</tt>
+are skipped; the first branch that contain a <tt class="docutils literal">True</tt> condition is the
+one that is executed.</p>
+</div>
+</div>
+<div class="section" id="more-harvesting-challenges">
+<h2>10.3. More harvesting challenges<a class="headerlink" href="#more-harvesting-challenges" title="Permalink to this headline">¶</a></h2>
+<div class="topic">
+<p class="topic-title first">First, a quick test</p>
+<p>Run the following program, that will print the first type of objects found by
+Reeborg.  Then change the program to print the second type of objects found.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">World</span><span class="p">(</span><span class="s2">&quot;/worlds/many.json&quot;</span><span class="p">,</span> <span class="s2">&quot;Many&quot;</span><span class="p">)</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">object_here</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>Reeborg’s aunt is a fruit farmer. In her fields, many types of fruits
+can be found. On a given day, only a certain kind of fruit needs to be
+harvested.
+Have a look at worlds <strong>Harvest 4a</strong>, <strong>Harvest 4b</strong>, <strong>Harvest 4c</strong> and
+<strong>Harvest 4d</strong>. As he enters the field, Reeborg sees the type of fruit that
+needs to be harvested as his aunt put a sample there. He picks it up and
+proceed to harvest all fruits of the similar type.</p>
+<p>Reeborg uses the function <tt class="docutils literal">object_here()</tt> which, as we saw,
+returns a <strong>list</strong> containing the names of the objects found at that location;
+for the <strong>Harvest 4</strong> worlds, the possible objects are
+<tt class="docutils literal">&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;</tt> or <tt class="docutils literal">&quot;strawberry&quot;</tt>.</p>
+<p>Below is an incomplete program that would make Reeborg accomplish
+the required task in any of the four worlds mentioned.
+We use the variable <tt class="docutils literal">FRUIT</tt> which we wrote using uppercase letters
+since it is the same variable used inside and outside some functions;
+it is essentially a <strong>global</strong> variable. However, since we do <strong>not</strong>
+assign it a value inside a function using the <tt class="docutils literal">=</tt> sign,
+we do not need to use the <tt class="docutils literal">global</tt> keyword.</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">harvest_one_row</span> <span class="p">():</span>
+    <span class="k">while</span> <span class="n">front_is_clear</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">object_here</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">FRUIT</span><span class="p">:</span>
+            <span class="n">take</span><span class="p">(</span><span class="n">FRUIT</span><span class="p">)</span>
+        <span class="n">move</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">go_back_to_beginning_of_row</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">move_to_next_row</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">go_to_first_row</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">complete_one_row</span><span class="p">():</span>
+    <span class="n">harvest_one_row</span><span class="p">()</span>
+    <span class="n">go_back_to_beginning_of_row</span><span class="p">()</span>
+    <span class="n">move_to_next_row</span><span class="p">()</span>
+
+<span class="n">move</span><span class="p">()</span>
+<span class="n">FRUIT</span> <span class="o">=</span> <span class="n">object_here</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">take</span><span class="p">(</span><span class="n">FRUIT</span><span class="p">)</span>
+<span class="n">go_to_first_row</span><span class="p">()</span>
+<span class="n">repeat</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="n">complete_one_row</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Your turn!</p>
+<p>Complete the above program so that it works in all four worlds:
+<strong>Harvest 4a</strong>, <strong>Harvest 4b</strong>, <strong>Harvest 4c</strong> and <strong>Harvest 4d</strong>.</p>
+</div>
+</div>
+<div class="section" id="one-last-experiment">
+<h2>10.4. One last experiment<a class="headerlink" href="#one-last-experiment" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, when a program becomes too big,
+it makes sense to put it into many files.
+Here, your programs are not in files: they are in the
+Code Editor but parts of them can also be in the library.
+Imagine that your program above is so big that it has to be broken up
+in two pieces.  Put the definition of the function
+<tt class="docutils literal">harvest_one_row()</tt> in the library, and import it into the main
+program using</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">library</span> <span class="k">import</span> <span class="n">harvest_one_row</span>
+</pre></div>
+</div>
+<p>Does your program still work? Does using the <tt class="docutils literal">global</tt> keyword makes it work?
+The result of these experiments might point out some problems when using
+global variables, that is variable used inside a function but defined elsewhere.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="string_index.html" title="11. A character in a string"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="return.html" title="9. Return"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >Variables</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>11. 使用库（Library） &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="12. 阅读练习" href="reading.html" />
+    <link rel="prev" title="10. 调头" href="turn_around.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="reading.html" title="12. 阅读练习"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="turn_around.html" title="10. 调头"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">11. 使用库（Library）</a><ul>
+<li><a class="reference internal" href="#id1">11.1. 乐跑懂中文</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="turn_around.html"
+                        title="previous chapter">10. 调头</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="reading.html"
+                        title="next chapter">12. 阅读练习</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/library.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="library">
+<h1>11. 使用库（Library）<a class="headerlink" href="#library" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">当要使用一些在别的程序里定义过的函数时，一个程序员并不会重新定义它们；取而代之的是，他会把这些函数放在一个特别的、名为 <strong>库（libraries）</strong> 的程序里，这样就可以在别的程序里面使用了。</p>
+<p>你还会使用 <tt class="docutils literal">turn_right()</tt> 函数 <strong>很多次！</strong> 为了避免每次都重写一遍（记住规则三），你应该只（再）写 <strong>一次</strong> ，但不是写在代码编辑框的 <strong>Python Code（代码）</strong> 标签页里，而是点击并写在 <strong>library（库）</strong> 标签页里。对了， <tt class="docutils literal">turn_around()</tt> 函数也应该写在那里。</p>
+<img alt="../_images/library.png" src="../_images/library.png" />
+<p>现在，当你要使用库里的函数时，只需在 Python 代码标签页里的单独的一行写下 <tt class="docutils literal">from library import</tt> （后面跟以逗号 <tt class="docutils literal">,</tt> 分割的函数名）。</p>
+<div class="topic">
+<p class="topic-title first">这样做！</p>
+<p>在库标签页里定义好 <tt class="docutils literal">turn_right()</tt> 和 <tt class="docutils literal">turn_around()</tt> 函数，然后回到 Python 代码标签页（现在应该看不到刚才定义的函数了），并用刚刚定义好的函数写一段小程序，以确保它们能正确工作。如果不能正确工作，请返回并修正。记得要在主程序里使用 <tt class="docutils literal">from library import turn_right, turn_around</tt> 。</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>定义好两个库函，然后使用下面的程序进行测试：</p>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">library</span> <span class="kn">import</span> <span class="n">turn_right</span><span class="p">,</span> <span class="n">turn_around</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_around</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_right</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_around</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>  <span class="c1"># 应该回到初始位置并且朝向和开始时一致</span>
+</pre></div>
+</div>
+</div>
+<p>从现在开始，每当你要定义一个会被使用很多次的函数时，就把它放进库里，而不是每次都重新定义。</p>
+<div class="section" id="id1">
+<h2>11.1. 乐跑懂中文<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>有一个特殊的库使乐跑能懂中文。比如，用 <tt class="docutils literal">前进()</tt> 代替 <tt class="docutils literal">move()</tt>，乐跑也能明白。试试下面这段程序：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>from reeborg_cn import 前进, 左转
+
+前进()
+左转()
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">轮到你了！</p>
+<p>使用中文库（“reeborg_cn”）里的函数，写一段小程序。</p>
+</div>
+<div class="admonition- admonition">
+<p class="first admonition-title">写给想使用其它语言版本的教育者的内容</p>
+<p class="last">在乐跑的世界右上方的语言菜单里，可以选择使用完全法语（界面和编程都用法语）。也可能存在由志愿者贡献的其它语言版本……或许你能成为一名志愿者并贡献你所翻译的版本！ ;-)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="reading.html" title="12. 阅读练习"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="turn_around.html" title="10. 调头"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

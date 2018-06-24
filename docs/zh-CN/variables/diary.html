@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>2. Reeborg’s diary &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="Variables" href="index.html" />
+    <link rel="next" title="3. Pause and think" href="think.html" />
+    <link rel="prev" title="1. Many names for the same object" href="variables.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="think.html" title="3. Pause and think"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="variables.html" title="1. Many names for the same object"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">Variables</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Reeborg’s diary</a><ul>
+<li><a class="reference internal" href="#a-function-can-have-an-argument">2.1. A function can have an argument</a></li>
+<li><a class="reference internal" href="#writing-text">2.2. Writing text</a></li>
+<li><a class="reference internal" href="#reeborg-knows-mathematics">2.3. Reeborg knows mathematics</a></li>
+<li><a class="reference internal" href="#using-variables">2.4. Using variables</a></li>
+<li><a class="reference internal" href="#multiple-arguments">2.5. Multiple arguments</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="variables.html"
+                        title="previous chapter">1. Many names for the same object</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="think.html"
+                        title="next chapter">3. Pause and think</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/variables/diary.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="reeborg-s-diary">
+<h1>2. Reeborg’s diary<a class="headerlink" href="#reeborg-s-diary" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">Have Reeborg execute the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You should see a pop-up window appear with the title <strong>Reeborg writes:</strong>.
+This window is Reeborg’s diary.  Feel free to move it around
+on your computer screen.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Important:</strong> the example on the right does not execute the
+function <tt class="docutils literal">move</tt>; however, if we do:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">move</span><span class="p">()</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">so that <tt class="docutils literal">move</tt> is executed, the Python keyword <tt class="docutils literal">None</tt> will
+be printed.  Why that is the case will be explained later.</p>
+</div>
+<p>Now, run the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At the time I revised this tutorial, the result in Reeborg’s diary was:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">function</span> <span class="n">move</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>(previously, instead of <tt class="docutils literal">move</tt>, <tt class="docutils literal">_move_</tt> was the name that appeared for
+reason that you might guess after having read this page.)
+What if we were to define another variable (name) for the same object (function)?</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">step</span> <span class="o">=</span> <span class="n">move</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result is:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">function</span> <span class="n">move</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">function</span> <span class="n">move</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>This shows clearly that <tt class="docutils literal">=</tt> simply gives a name to an object,
+the object in this case being what Python calls <tt class="docutils literal">&lt;function move&gt;</tt>
+when asked to print it.
+On the other hand, if we define a completely new function, like:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  step = move</span>
+<span class="k">def</span> <span class="nf">step</span><span class="p">():</span>
+    <span class="n">move</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>the result will be:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">function</span> <span class="n">step</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>which is a different object from <tt class="docutils literal">&lt;function move&gt;</tt> even though,
+if called, <tt class="docutils literal">step()</tt> would have the exact same result as <tt class="docutils literal">move()</tt>.</p>
+<div class="section" id="a-function-can-have-an-argument">
+<h2>2.1. A function can have an argument<a class="headerlink" href="#a-function-can-have-an-argument" title="Permalink to this headline">¶</a></h2>
+<p>In computer programs, the word <strong>argument</strong> refers to a variable
+that determines the result of a function.
+For example, as we have seen:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>the variable <tt class="docutils literal">move</tt> is the argument of the function <tt class="docutils literal">print()</tt>.
+The argument of a function appears between the parentheses which
+indicate that the function is called.</p>
+</div>
+<div class="section" id="writing-text">
+<h2>2.2. Writing text<a class="headerlink" href="#writing-text" title="Permalink to this headline">¶</a></h2>
+<p>Writing the name of a function like we have done above by
+using the <tt class="docutils literal">print()</tt> function is something that is done
+<strong>extremely</strong> rarely when writing programs.
+What is done much, much more often is to write text.</p>
+<p>In programming terms, a <em>character</em> is any letter, number or symbol that
+can be printed and a <em>string of characters</em>, or simply <em>string</em>, is any
+sequence of character that can be printed. For example, try the
+following:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello again.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p id="index-1">Note that the quotes that surround the <em>string</em> have to be the same,
+either double quotes like “, or single quotes like ‘. To have a string
+that contains some quote characters, we can either surround it by quotes
+of a different type or use the <em>escape character</em> <tt class="docutils literal">\</tt>:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let&#39;s go.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Let</span><span class="se">\&#39;</span><span class="s1">s go.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can combine strings using the <tt class="docutils literal">+</tt> symbol:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye! &quot;</span> <span class="o">+</span> <span class="s2">&quot;And thanks for all the fish.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can also start on a new line using the following <em>escape sequence</em>:
+<tt class="docutils literal">\n</tt>:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thank you. </span><span class="se">\n</span><span class="s2">Try again&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Try it!</p>
+<p>Make sure you try to run the above code samples or some similar.</p>
+</div>
+</div>
+<div class="section" id="reeborg-knows-mathematics">
+<h2>2.3. Reeborg knows mathematics<a class="headerlink" href="#reeborg-knows-mathematics" title="Permalink to this headline">¶</a></h2>
+<div class="topic" id="index-2">
+<p class="topic-title first">Try this!</p>
+<p>Try running the following program and look at the output in Reeborg’s
+diary.</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="p">)</span>  <span class="c1"># adding numbers</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="p">)</span>  <span class="c1"># multiplying numbers</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span> <span class="p">)</span>  <span class="c1"># subtracting numbers</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">2</span> <span class="p">)</span>  <span class="c1"># dividing numbers</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">)</span> <span class="c1"># multiplication is done before addition</span>
+
+<span class="c1"># using parentheses to change normal order of operations</span>
+<span class="nb">print</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">5</span> <span class="p">)</span> <span class="c1"># power ... 2**5 = 2 * 2 * 2 * 2* 2</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that spaces around the operators like <tt class="docutils literal">+</tt> and <tt class="docutils literal">*</tt>
+are ignored by Python; however, they can make it easier for humans
+to read the code.</p>
+</div>
+<p>In the above examples, the result was always an integer (or whole number)
+except when dividing numbers which gave a <strong>floating point</strong> number:
+<tt class="docutils literal">6 / 2</tt> gives <tt class="docutils literal">3.0</tt>.</p>
+<p>If we want the result of dividing two numbers to be an integer,
+we use the double division sign instead:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="mi">6</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">)</span>  <span class="c1"># integer division</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-variables">
+<h2>2.4. Using variables<a class="headerlink" href="#using-variables" title="Permalink to this headline">¶</a></h2>
+<p>We have already seen the idea of using different names (variables) as synonyms.
+Let’s use this idea again as explore
+mathematical operations some more:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>  <span class="c1"># area of a rectangle</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>            <span class="c1"># will output 24</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Try it!</p>
+<p>Make up your own examples and run them.</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>The <em>character</em> “2” is not the same as the <em>number</em> 2.  Try out
+the following:</p>
+<div class="last highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2&quot;</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="multiple-arguments">
+<h2>2.5. Multiple arguments<a class="headerlink" href="#multiple-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Some functions, like <tt class="docutils literal">print()</tt>, can take many arguments: the
+various arguments are separated by commas.
+To illustrate this, try out the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The area of a rectangle of length&quot;</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span>
+      <span class="s2">&quot;and width&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="think.html" title="3. Pause and think"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="variables.html" title="1. Many names for the same object"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >Variables</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

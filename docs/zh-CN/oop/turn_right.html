@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>4. Many right turns &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="Introduction to OOP in Python with Reeborg" href="index.html" />
+    <link rel="next" title="5. Argument de méthode" href="arguments2.html" />
+    <link rel="prev" title="3. dir et help" href="dir.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="arguments2.html" title="5. Argument de méthode"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="dir.html" title="3. dir et help"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">Introduction to OOP in Python with Reeborg</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Many right turns</a><ul>
+<li><a class="reference internal" href="#derived-classes">4.1. Derived classes</a></li>
+<li><a class="reference internal" href="#designing-a-new-class">4.2. Designing a new class</a><ul>
+<li><a class="reference internal" href="#explanation">4.2.1. Explanation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dir.html"
+                        title="previous chapter">3. <tt class="docutils literal">dir</tt> et <tt class="docutils literal">help</tt></a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="arguments2.html"
+                        title="next chapter">5. Argument de méthode</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/oop/turn_right.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="many-right-turns">
+<h1>4. Many right turns<a class="headerlink" href="#many-right-turns" title="Permalink to this headline">¶</a></h1>
+<p>Select the world Empty which has no robot in it. Next define the
+following function:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">turn_right</span><span class="p">(</span><span class="n">robot</span><span class="p">):</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note how we pass the variable <tt class="docutils literal">robot</tt> as an argument to the function
+and how we use it inside the function; this variable will be the robot’s
+name.</p>
+<p>After defining this function, you can use it as follows:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">Reeborg</span> <span class="o">=</span> <span class="n">UsedRobot</span><span class="p">()</span>
+<span class="n">Erdna</span> <span class="o">=</span> <span class="n">UsedRobot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># creating a robot at a different location!</span>
+
+<span class="n">Reeborg</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+<span class="n">turn_right</span><span class="p">(</span><span class="n">Reeborg</span><span class="p">)</span>
+<span class="n">Erdna</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+<span class="n">turn_right</span><span class="p">(</span><span class="n">Erdna</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Try it!</p>
+<p>Define <tt class="docutils literal">turn_right</tt> and use it with a program like the one written just
+above.</p>
+</div>
+<p>This works … but it does not look right since the <em>function</em> that is
+used to make the robots turn right uses a different syntax from the
+<em>method</em> that is used to make them turn left. There has to be a better way…</p>
+<div class="section" id="derived-classes">
+<h2>4.1. Derived classes<a class="headerlink" href="#derived-classes" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal">UsedRobot</tt> is an example of a Python <tt class="docutils literal">class</tt>.  You can think of a
+“class” as a collection of objects that have common methods (functions) and
+attributes.  What I am going to show
+you now is to create a new <tt class="docutils literal">class</tt> that inherits from an existing one.
+After having done that, we’ll see how we can create new classes that do more
+than simply inheriting from existing ones.</p>
+<div class="topic">
+<p class="topic-title first">Try this!</p>
+<p>Try the following code:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UsedRobotClone</span><span class="p">(</span><span class="n">UsedRobot</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">Reeborg</span> <span class="o">=</span> <span class="n">UsedRobotClone</span><span class="p">()</span>
+<span class="n">Erdna</span> <span class="o">=</span> <span class="n">UsedRobotClone</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># As before, we define a function to make right turns</span>
+
+<span class="k">def</span> <span class="nf">turn_right</span><span class="p">(</span><span class="n">robot</span><span class="p">):</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+    <span class="n">robot</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+
+<span class="n">Reeborg</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+<span class="n">turn_right</span><span class="p">(</span><span class="n">Reeborg</span><span class="p">)</span>
+<span class="n">Erdna</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+<span class="n">turn_right</span><span class="p">(</span><span class="n">Erdna</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It should do the exact same thing as the previous example, even though
+we use a different <tt class="docutils literal">class</tt> to create new robots.</p>
+</div>
+<p><tt class="docutils literal">pass</tt> is a Python keyword that means “do nothing”.  It is inserted when we
+do not want to do anything special but need something so that the block
+structure (indentation) is interpreted correctly by Python.</p>
+<p>Time to do a little be more than just creating a clone of the existing class.</p>
+</div>
+<div class="section" id="designing-a-new-class">
+<h2>4.2. Designing a new class<a class="headerlink" href="#designing-a-new-class" title="Permalink to this headline">¶</a></h2>
+<p>I will show you first how we can fix our robot so that it knows how to turn right,
+and explain what I did afterwords.</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RepairedRobot</span><span class="p">(</span><span class="n">UsedRobot</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">turn_right</span><span class="p">(</span> <span class="n">this_RepairedRobot</span> <span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">this_RepairedRobot</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here’s how we can then use this new class of objects:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_Reeborg</span> <span class="o">=</span> <span class="n">RepairedRobot</span><span class="p">()</span>
+<span class="n">new_Erdna</span> <span class="o">=</span> <span class="n">RepairedRobot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">new_Reeborg</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>    <span class="c1"># as before</span>
+<span class="n">new_Reeborg</span><span class="o">.</span><span class="n">turn_right</span><span class="p">()</span>   <span class="c1"># new method!</span>
+
+<span class="n">new_Erdna</span><span class="o">.</span><span class="n">turn_right</span><span class="p">()</span>     <span class="c1"># this one works too!</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">Try it!</p>
+<p>Try the above code and make sure it works.  <strong>However</strong>, you might want
+to choose a slightly shorter name than <tt class="docutils literal">this_RepairedRobot</tt>.</p>
+</div>
+<div class="section" id="explanation">
+<h3>4.2.1. Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h3>
+<p>The Python keyword <tt class="docutils literal">class</tt> indicates that we are going to define a new
+type of function, one that creates objects.
+What follows class is <tt class="docutils literal">RepairedRobot(UsedRobot)</tt>.
+<tt class="docutils literal">RepairedRobot</tt> is the name of our new class;
+by writing <tt class="docutils literal">UsedRobot</tt> between the parentheses,
+we ensure that the new class <tt class="docutils literal">RepairedRobot</tt> inherits all the methods and
+attributes that <tt class="docutils literal">UsedRobot</tt> had. Thus, when we write:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_Reeborg</span> <span class="o">=</span> <span class="n">RepairedRobot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>we create a new robot “named” <tt class="docutils literal">new_Reeborg</tt> which can do (at least all)
+the same things that the old:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">Reeborg</span> <span class="o">=</span> <span class="n">UsedRobot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>could do.</p>
+<p>Next, inside the new class, as indicated by the indented block,
+we define a new method, <tt class="docutils literal">turn_right()</tt>.
+By defining it inside the class, we take the first step to insure that all the
+robots that are created by calling <tt class="docutils literal">RepairedRobot()</tt> will be able to turn right!</p>
+<p>The second step that is required is to tell Python that the method will
+“belong” to the particular object that has been created.
+To do so, we used above the variable <tt class="docutils literal">this_RepairedRobot</tt>
+which will refer to new_Reeborg, new_Erdna, etc., depending on what object is created.
+When we write:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_Reeborg</span> <span class="o">=</span> <span class="n">RepairedRobot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Python creates a new instance of the class <tt class="docutils literal">RepairedRobot</tt> and defines
+all the methods, effectively replacing the first argument of the method
+(<tt class="docutils literal">this_RepairedRobot</tt>) by the name of the instance (<tt class="docutils literal">new_Reeborg</tt>).</p>
+<p>Now, <tt class="docutils literal">this_RepairedRobot</tt> is rather a long name to type.
+By convention, another variable name is used: <tt class="docutils literal">self</tt>.
+Thus, to follow the normal convention, I should have written:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RepairedRobot</span><span class="p">(</span><span class="n">UsedRobot</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">turn_right</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">It is extremely important that you try the code for the <tt class="docutils literal">RepairedRobot</tt>
+class, either using <tt class="docutils literal">self</tt> or <tt class="docutils literal">this_RepairedRobot</tt>
+before moving on to the next lesson.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="arguments2.html" title="5. Argument de méthode"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="dir.html" title="3. dir et help"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >Introduction to OOP in Python with Reeborg</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>6. 小结 &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="7. 关卡介绍" href="challenges1.html" />
+    <link rel="prev" title="5. 规则二" href="rule2.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="challenges1.html" title="7. 关卡介绍"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="rule2.html" title="5. 规则二"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rule2.html"
+                        title="previous chapter">5. 规则二</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="challenges1.html"
+                        title="next chapter">7. 关卡介绍</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/summary1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>6. 小结<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>让我们来复习一下到目前为止所学的内容。除了更熟悉乐跑的世界以外，你还学到了学习计算机编程的前两条规则。</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p><strong>规则一</strong></p>
+<blockquote>
+<div>学习计算机编程就像学习一件乐器：你必须 <strong>动手去练习</strong>，而不仅仅是阅读。</div></blockquote>
+<p><strong>规则二</strong></p>
+<blockquote class="last">
+<div>把你的程序写得让 <strong>人</strong> 容易阅读和理解。</div></blockquote>
+</div>
+<p>关于规则二，我们了解到了如何通过 <em>注释</em> 来向其他人传递某些信息，而这些信息会被计算机忽略。</p>
+<p>尽管我没有明确地表达，但是你应该已经知道了：一个程序就是一系列的指令。到目前为止，你已经见到了五个不同的指令：</p>
+<ul class="simple">
+<li><tt class="docutils literal">move()</tt></li>
+<li><tt class="docutils literal">turn_left()</tt></li>
+<li><tt class="docutils literal">take()</tt></li>
+<li><tt class="docutils literal">put()</tt></li>
+<li><tt class="docutils literal">pause()</tt></li>
+</ul>
+<p><tt class="docutils literal">pause()</tt> 指令我只在谈论臭虫的时候提了一下，你可能尝试过了，也可能还没有。如果还没有的话，请写个小程序尝试一下。要注意，不要把 <tt class="docutils literal">pause()</tt> 指令放在第一或最后一行。这样你才能更清楚地看到发生了什么。</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="challenges1.html" title="7. 关卡介绍"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="rule2.html" title="5. 规则二"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

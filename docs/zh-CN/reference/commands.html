@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>2. Basic commands &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="Reeborg’s World Reference" href="index.html" />
+    <link rel="next" title="3. Objects, background images, etc." href="objects.html" />
+    <link rel="prev" title="1. Quick tour of Reeborg’s World" href="tour.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="objects.html" title="3. Objects, background images, etc."
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="tour.html" title="1. Quick tour of Reeborg’s World"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">Reeborg’s World Reference</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Basic commands</a><ul>
+<li><a class="reference internal" href="#movement">2.1. Movement</a><ul>
+<li><a class="reference internal" href="#move">2.1.1. <tt class="docutils literal">move()</tt></a></li>
+<li><a class="reference internal" href="#turn-left">2.1.2. <tt class="docutils literal">turn_left()</tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#handling-objects">2.2. Handling objects</a><ul>
+<li><a class="reference internal" href="#take">2.2.1. <tt class="docutils literal">take()</tt></a></li>
+<li><a class="reference internal" href="#put">2.2.2. <tt class="docutils literal">put()</tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getting-information-about-the-world-around">2.3. Getting information about the world around</a><ul>
+<li><a class="reference internal" href="#is-facing-north">2.3.1. <tt class="docutils literal">is_facing_north()</tt></a></li>
+<li><a class="reference internal" href="#at-goal">2.3.2. <tt class="docutils literal">at_goal()</tt></a></li>
+<li><a class="reference internal" href="#front-is-clear">2.3.3. <tt class="docutils literal">front_is_clear()</tt></a></li>
+<li><a class="reference internal" href="#right-is-clear">2.3.4. <tt class="docutils literal">right_is_clear()</tt></a></li>
+<li><a class="reference internal" href="#object-here">2.3.5. <tt class="docutils literal">object_here()</tt></a></li>
+<li><a class="reference internal" href="#carries-object">2.3.6. <tt class="docutils literal">carries_object()</tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#interruptions">2.4. Interruptions</a><ul>
+<li><a class="reference internal" href="#pause">2.4.1. <tt class="docutils literal">pause()</tt></a></li>
+<li><a class="reference internal" href="#done">2.4.2. <tt class="docutils literal">done()</tt></a></li>
+<li><a class="reference internal" href="#think">2.4.3. <tt class="docutils literal">think()</tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#changing-the-world">2.5. Changing the world</a><ul>
+<li><a class="reference internal" href="#build-wall">2.5.1. <tt class="docutils literal">build_wall()</tt></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tour.html"
+                        title="previous chapter">1. Quick tour of Reeborg’s World</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="objects.html"
+                        title="next chapter">3. Objects, background images, etc.</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/commands.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="basic-commands">
+<h1>2. Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">Note for advanced readers</p>
+<p>Reeborg’s World uses Python 3 syntax (thanks to Brython) and follows
+the PEP 8 naming convention (with some minor exceptions).</p>
+</div>
+<div class="topic">
+<p class="topic-title first">Note for complete beginners</p>
+<p><em>We have a problem!</em>  As a complete beginner, if you don’t know
+anything about Python (and programming), you might find the following
+descriptions confusing as I use Python syntax to illustrate how the basic
+commands work.  However, in order to explain the Python syntax, I need
+you to know what the basic commands do …</p>
+<p>My suggestion:  read through this once, not spending
+too much time if you find something confusing.  Then read the next
+two sections, first the one about objects that you can find in
+Reeborg’s World, followed by the other page,
+which gives you a quick introduction to Python, where I will
+once again make use of similar examples.  After having read
+through these pages, come back here … and everything should
+make a lot more sense.</p>
+</div>
+<p>In this section, we focus on simple worlds and document
+commands that Reeborg can follow.  Commands are Python functions.
+In Python, a function named <tt class="docutils literal">my_function</tt> is executed when
+it is “called” by having its name followed by parentheses:
+<tt class="docutils literal">my_function()</tt>.</p>
+<p>In this section, except for one example near the end,
+we consider only functions with no arguments. [If you don’t
+know what an <em>argument</em> to a function is, we will
+explain it below.]
+There are two types that we will consider:</p>
+<ol class="arabic simple">
+<li>Simple actions that Reeborg can execute, like <tt class="docutils literal">move()</tt>.</li>
+<li>Information gathering that Reeborg can do, like <tt class="docutils literal">front_is_clear()</tt>
+which instructs Reeborg to determine if there are immediate
+obstacle in its path.</li>
+</ol>
+<p>In the examples we show, we make use of some special Python keywords,
+like <tt class="docutils literal">while</tt>, <tt class="docutils literal">True</tt>, and <tt class="docutils literal">not</tt> which you may have not see yet.</p>
+<div class="section" id="movement">
+<h2>2.1. Movement<a class="headerlink" href="#movement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="move">
+<h3>2.1.1. <tt class="docutils literal">move()</tt><a class="headerlink" href="#move" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg’s World is defined on a grid.  Reeborg’s action take place
+on a single grid location <strong>or</strong> Reeborg can move from one grid
+location to another when told to <tt class="docutils literal">move()</tt>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Before <tt class="docutils literal">move()</tt></td>
+<td>After <tt class="docutils literal">move()</tt></td>
+</tr>
+<tr class="row-even"><td><img alt="move_e_before" src="../_images/move_e_before.png" /></td>
+<td><img alt="move_e_after" src="../_images/move_e_after.png" /></td>
+</tr>
+<tr class="row-odd"><td><img alt="move_n_before" src="../_images/move_n_before.png" /></td>
+<td><img alt="move_n_after" src="../_images/move_n_after.png" /></td>
+</tr>
+<tr class="row-even"><td><img alt="move_w_before" src="../_images/move_w_before.png" /></td>
+<td><img alt="move_w_after" src="../_images/move_w_after.png" /></td>
+</tr>
+<tr class="row-odd"><td><img alt="move_s_before" src="../_images/move_s_before.png" /></td>
+<td><img alt="move_s_after" src="../_images/move_s_after.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>A <tt class="docutils literal">move()</tt> instruction can fail, and cause the program to come
+to a halt if Reeborg’s path is blocked.</p>
+</div>
+<div class="section" id="turn-left">
+<h3>2.1.2. <tt class="docutils literal">turn_left()</tt><a class="headerlink" href="#turn-left" title="Permalink to this headline">¶</a></h3>
+<p>A <tt class="docutils literal">turn_left()</tt> command instructs Reeborg to turn 90 degrees
+to its left.  Such a command can never fail.</p>
+<p><img alt="turn_left" src="../_images/turn_left.gif" /></p>
+</div>
+</div>
+<div class="section" id="handling-objects">
+<h2>2.2. Handling objects<a class="headerlink" href="#handling-objects" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">In this section, we assume that the world in which Reeborg is
+has only one kind of object at a given time.</p>
+</div>
+<div class="section" id="take">
+<h3>2.2.1. <tt class="docutils literal">take()</tt><a class="headerlink" href="#take" title="Permalink to this headline">¶</a></h3>
+<p>A <tt class="docutils literal">take()</tt> command instructs Reeborg to pick up an object
+located at its position.  This command can fail if there
+are no object at that location; it can also fail if there
+are two different kinds of objects, since Reeborg would not
+know which one to take.</p>
+</div>
+<div class="section" id="put">
+<h3>2.2.2. <tt class="docutils literal">put()</tt><a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h3>
+<p>A <tt class="docutils literal">put()</tt> command instructs Reeborg to put down an object
+that it is carrying.  This command can fail if Reeborg
+carries no object, or if Reeborg carries more than
+one type of objects since it would have no way to know
+which one to put down.</p>
+<p><img alt="take_put" src="../_images/take_put1.gif" /></p>
+</div>
+</div>
+<div class="section" id="getting-information-about-the-world-around">
+<h2>2.3. Getting information about the world around<a class="headerlink" href="#getting-information-about-the-world-around" title="Permalink to this headline">¶</a></h2>
+<p>Reeborg has limited senses which are nonetheless sufficient
+to help him accomplish the required tasks.</p>
+<div class="section" id="is-facing-north">
+<h3>2.3.1. <tt class="docutils literal">is_facing_north()</tt><a class="headerlink" href="#is-facing-north" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg is able to determine whether or not it is facing
+North (towards the top of the computer screen).</p>
+<p><img alt="is_facing_north" src="../_images/is_facing_north.gif" /></p>
+</div>
+<div class="section" id="at-goal">
+<h3>2.3.2. <tt class="docutils literal">at_goal()</tt><a class="headerlink" href="#at-goal" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg can determine if it has reached its final destination,
+as indicated in the task.</p>
+<p><img alt="at_goal" src="../_images/at_goal1.gif" /></p>
+</div>
+<div class="section" id="front-is-clear">
+<h3>2.3.3. <tt class="docutils literal">front_is_clear()</tt><a class="headerlink" href="#front-is-clear" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg is able to determine if there are immediate obstacles
+(like a wall) in its path.  In the example shown immediately
+below, we also use <tt class="docutils literal">think()</tt> which is explained near the
+end of this page.</p>
+<p><img alt="think" src="../_images/think.gif" /></p>
+</div>
+<div class="section" id="right-is-clear">
+<h3>2.3.4. <tt class="docutils literal">right_is_clear()</tt><a class="headerlink" href="#right-is-clear" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg is able to determine if there would be obstacles to
+its right.  In the example below, Reeborg follows the
+wall to its right until there is a gap (and <tt class="docutils literal">right_is_clear()</tt>
+is true).  At that point, we ask Reeborg to fill the gap
+in the wall using <tt class="docutils literal">build_wall()</tt> explained near the
+end of this page.</p>
+<p><img alt="build_wall" src="../_images/build_wall.gif" /></p>
+</div>
+<div class="section" id="object-here">
+<h3>2.3.5. <tt class="docutils literal">object_here()</tt><a class="headerlink" href="#object-here" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg can determine whether or not there is at least one
+object at his location.</p>
+</div>
+<div class="section" id="carries-object">
+<h3>2.3.6. <tt class="docutils literal">carries_object()</tt><a class="headerlink" href="#carries-object" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg can determine whether or not it carries at least
+one object.</p>
+<p>In the example below, we use both <tt class="docutils literal">object_here()</tt> and
+<tt class="docutils literal">carries_object()</tt> to have Reeborg collect all objects
+and put them all at one location.  Whenever there is
+more than one object at a given location, a number appears
+indicating how many objects are at that location.</p>
+<p><img alt="object_here" src="../_images/object_here.gif" /></p>
+</div>
+</div>
+<div class="section" id="interruptions">
+<h2>2.4. Interruptions<a class="headerlink" href="#interruptions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pause">
+<h3>2.4.1. <tt class="docutils literal">pause()</tt><a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h3>
+<p>Instructs Reeborg to pause the execution of the program
+at that point and wait until someone clicks on either
+the “run” button or the “step” button to resume.</p>
+</div>
+<div class="section" id="done">
+<h3>2.4.2. <tt class="docutils literal">done()</tt><a class="headerlink" href="#done" title="Permalink to this headline">¶</a></h3>
+<p>Instructs Reeborg to ends its program, whether or not
+all other lines of code have been executed.</p>
+<p>In the example below, we use both <tt class="docutils literal">pause()</tt> and <tt class="docutils literal">done()</tt>
+to interrupt the normal execution of a program.</p>
+<p><img alt="pause" src="../_images/pause.gif" /></p>
+</div>
+<div class="section" id="think">
+<h3>2.4.3. <tt class="docutils literal">think()</tt><a class="headerlink" href="#think" title="Permalink to this headline">¶</a></h3>
+<p>You may have noticed that Reeborg takes a bit of time
+between each commands; that is because it must “think”
+about what you are asking it to do.  However, one can
+change the amount of time Reeborg takes to think by using
+the <tt class="docutils literal">think()</tt> function with an argument, like
+this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">think</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The number <tt class="docutils literal">500</tt> which appears between the parentheses
+is what we call an <em>argument</em> of a function. The smaller
+the number, the less time Reeborg will take before
+considering each action.  A value of 1000 means that
+Reeborg takes about 1 second to think.  I should note however
+that Reeborg has something to think about certain things
+that you are not aware of and may sometimes seem to think
+for longer than you’d expect it to.</p>
+<p><img alt="think" src="../_images/think.gif" /></p>
+</div>
+</div>
+<div class="section" id="changing-the-world">
+<h2>2.5. Changing the world<a class="headerlink" href="#changing-the-world" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-wall">
+<h3>2.5.1. <tt class="docutils literal">build_wall()</tt><a class="headerlink" href="#build-wall" title="Permalink to this headline">¶</a></h3>
+<p>Reeborg can build walls, right it front of where it stands, as we
+have seen before.  Note that this instruction can fail if
+there is already a wall at that location.</p>
+<p><img alt="build_wall" src="../_images/build_wall.gif" /></p>
+<p><img alt="build_wall_fail" src="../_images/build_wall_fail.gif" /></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="objects.html" title="3. Objects, background images, etc."
+             >next</a> |</li>
+        <li class="right" >
+             <a href="tour.html" title="1. Quick tour of Reeborg’s World"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >Reeborg’s World Reference</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

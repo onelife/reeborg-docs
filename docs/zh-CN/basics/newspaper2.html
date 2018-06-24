@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>13. 重温送报纸 &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="14. 重复（repeat）" href="repeat.html" />
+    <link rel="prev" title="12. 阅读练习" href="reading.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="repeat.html" title="14. 重复（repeat）"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="reading.html" title="12. 阅读练习"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="reading.html"
+                        title="previous chapter">12. 阅读练习</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="repeat.html"
+                        title="next chapter">14. 重复（repeat）</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/newspaper2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>13. 重温送报纸<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>让我们回到名为 <strong>送报纸之零</strong> 的世界，重温一下给 Richard Pattis 送报纸的任务。下面是该任务的一种解决方案并包含了注释。</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="n">take</span><span class="p">()</span>  <span class="c1"># 北极星报</span>
+
+ <span class="c1"># 爬上一层楼</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+
+ <span class="c1"># 爬上两层楼</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+
+ <span class="c1"># 爬上三层楼</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+
+ <span class="n">put</span><span class="p">()</span>   <span class="c1"># 放下报纸</span>
+
+ <span class="c1"># 调头</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+
+ <span class="c1"># 爬下一层楼</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+
+ <span class="c1"># 爬下两层楼</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+
+ <span class="c1"># 爬下三层楼</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">move</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+ <span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>这个解决方案很长……并且在打字的时候很容易出错。我们注意到：里面有很多重复的代码片段，可以提取出来做成函数。我们已经定义过 <tt class="docutils literal">turn_right()</tt> 和 <tt class="docutils literal">turn_around()</tt> ，现在让我们再多定义一些。</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kn">from</span> <span class="nn">library</span> <span class="kn">import</span> <span class="n">turn_right</span><span class="p">,</span> <span class="n">turn_around</span>
+
+ <span class="k">def</span> <span class="nf">climb_up_one_floor</span><span class="p">():</span>
+     <span class="n">turn_left</span><span class="p">()</span>
+     <span class="n">move</span><span class="p">()</span>
+     <span class="n">turn_right</span><span class="p">()</span>
+     <span class="n">move</span><span class="p">()</span>
+     <span class="n">move</span><span class="p">()</span>
+
+ <span class="k">def</span> <span class="nf">climb_up_three_floors</span><span class="p">():</span>
+     <span class="n">climb_up_one_floor</span><span class="p">()</span>
+     <span class="n">climb_up_one_floor</span><span class="p">()</span>
+     <span class="n">climb_up_one_floor</span><span class="p">()</span>
+
+ <span class="k">def</span> <span class="nf">climb_down_one_floor</span><span class="p">():</span>
+     <span class="n">move</span><span class="p">()</span>
+     <span class="n">move</span><span class="p">()</span>
+     <span class="n">turn_left</span><span class="p">()</span>
+     <span class="n">move</span><span class="p">()</span>
+     <span class="n">turn_right</span><span class="p">()</span>
+
+ <span class="k">def</span> <span class="nf">climb_down_three_floors</span><span class="p">():</span>
+     <span class="n">climb_down_one_floor</span><span class="p">()</span>
+     <span class="n">climb_down_one_floor</span><span class="p">()</span>
+     <span class="n">climb_down_one_floor</span><span class="p">()</span>
+
+
+ <span class="c1"># === 定义结束 ===</span>
+
+ <span class="n">take</span><span class="p">()</span>  <span class="c1"># 北极星报</span>
+ <span class="n">climb_up_three_floors</span><span class="p">()</span>
+ <span class="n">put</span><span class="p">()</span>   <span class="c1"># 放下报纸</span>
+ <span class="n">turn_around</span><span class="p">()</span>
+ <span class="n">climb_down_three_floors</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>上面的每一个函数都不超过五行。和验证一大段指令（比如第一段程序）相比，验证上面的每一个函数能否够按照预期工作，很轻松。一旦确定了这些函数都能够正确工作，那么我们再多写五行便可完成任务，而且同样容易验证。综上所述，利用函数来避免重复，可以使我们写出更短、更具可读性的程序。</p>
+<div class="topic">
+<p class="topic-title first">轮到你了！</p>
+<p>写出上面的程序并确保其工作正确。完成之后，你就可以学习另外一个能把程序写得更简单的技巧了。</p>
+</div>
+<p>由于 <tt class="docutils literal">climb_up_one_floor()</tt> 、<tt class="docutils literal">climb_up_three_floors()</tt> 等函数都是专门为单一的关卡写的，把它们放在库里可能 <strong>不合适</strong> 。你也不希望库里有太多的函数，不然就记不住了。只有在不同的程序里被多次使用到的函数才适合被放进库里。</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="repeat.html" title="14. 重复（repeat）"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="reading.html" title="12. 阅读练习"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

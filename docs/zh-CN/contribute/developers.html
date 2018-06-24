@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>4. Information for developers &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="Contribute!" href="index.html" />
+    <link rel="next" title="5. Idées à explorer" href="future_ideas.html" />
+    <link rel="prev" title="3. Information for artists" href="artists.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="future_ideas.html" title="5. Idées à explorer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="artists.html" title="3. Information for artists"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">Contribute!</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Information for developers</a><ul>
+<li><a class="reference internal" href="#conventions-used">4.1. Conventions used</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="artists.html"
+                        title="previous chapter">3. Information for artists</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="future_ideas.html"
+                        title="next chapter">5. Idées à explorer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/contribute/developers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="information-for-developers">
+<h1>4. Information for developers<a class="headerlink" href="#information-for-developers" title="Permalink to this headline">¶</a></h1>
+<p>Reeborg’s World code is on Github
+<a class="reference external" href="https://github.com/aroberge/reeborg">https://github.com/aroberge/reeborg</a></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>The code is in a state of constant flux.</strong>  My goal is to make Reeborg’s
+World as useful as possible to both learners <strong>and</strong> educators: too
+often I find that sites/tools designed to “teach” programming follow
+a prescriptive approach with a constrained “learning path” that leaves
+very little flexibility to students … and as to be used “as is” by
+educators.   I try to follow almost the opposite approach.  When I am
+contacted by educators who would like to do X, I try to find a way to
+enable them to do so if it does not already exist.  As a result, new
+features get constantly added and pushed to the site almost immediately.</p>
+<p class="last">Before you do any serious work on it,
+you might want to get in touch with me to make sure that the information
+given here is really up to date.</p>
+</div>
+<div class="topic">
+<p class="topic-title first">There are no traditional unit tests</p>
+<p>However, there are some quasi-unit tests run from within the browser
+(using QUnit) and a few fairly comprehensive integration tests.
+To see one of these, run thefollowing:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">World</span><span class="p">(</span><span class="s2">&quot;/test/worlds/main_py_en.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The main html file is <a class="reference external" href="https://github.com/aroberge/reeborg/blob/master/world.html">https://github.com/aroberge/reeborg/blob/master/world.html</a></p>
+<p>By commenting/uncommenting some lines, you can change it so that it can work
+without any Internet access, using local version of files instead of CDN ones.
+If you look at the source, it should be obvious which ones need to be changed.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p>In addition to the English world.html, there is a French one (monde.html)
+and a Korean one (world_ko.html).  I am currently planning to create
+a single file with a language selector allowing to switch from one language
+version to another without reloading the page.</p>
+<p class="last">As part of this planned change, I would like to automate the build and
+create a separate version that could run offline.</p>
+</div>
+<p>The main Javascript files are in
+<a class="reference external" href="https://github.com/aroberge/reeborg/tree/master/src/js">https://github.com/aroberge/reeborg/tree/master/src/js</a>
+The code is split up in various files,
+which are then concanetated into a single
+one (<a class="reference external" href="https://github.com/aroberge/reeborg/blob/master/src/js/reeborg_dev.js">https://github.com/aroberge/reeborg/blob/master/src/js/reeborg_dev.js</a>)
+which is the one loaded by the html file.  This concatenation is done using
+a Windows batch file (combine_js.bat).  I have not found the need
+to write a cross-platform solution (using a Python script) to do this.</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">I am planning to change this and use browserify, and mostly getting rid
+of the global RUR namespace.</p>
+</div>
+<p>Note that no minification is done.  My original motivation was to make
+it easier to explore the code.  For example, in Reeborg’s World,
+select <strong>Javascript</strong> as a
+programming language and run the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">view_source_js</span><span class="p">(</span><span class="n">RUR</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">turn_left</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will see the code of that function extracted from the source and
+inserted into a CodeMirror instance with formatting intact.
+If you attempt to do the same from Python, you will see some Javascript
+code translated by Brython … which will be less than useful.</p>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">This will likely change when using browserify; however, apparently
+CodeMirror has a plugin that makes it possible to format the code;
+I plan to explore using this plugin when invoking <cite>view_source_js</cite>
+which would allow me to minify the code while making it possible for
+people to still view a readable version of the code.</p>
+</div>
+<p>Human-language specific Javascript files are found in
+<a class="reference external" href="https://github.com/aroberge/reeborg/tree/master/src/lang">https://github.com/aroberge/reeborg/tree/master/src/lang</a></p>
+<p>If you work with Python, use the javascript console in the browser
+and define:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">RUR</span><span class="o">.</span><span class="n">__debug</span> <span class="o">=</span> <span class="n">any_value</span>   <span class="c1"># I suggest to use false</span>
+</pre></div>
+</div>
+<p>As a result, the modified version of the user’s program,
+including the highlighting information will be printed to the console;
+this could be helpful if errors occur when highlighting is turned on,
+but not if it is turned off.</p>
+<p>If <tt class="docutils literal">RUR.__debug</tt> is set to any <tt class="docutils literal">true</tt> value, additional information
+is printed to the Javascript console.  I use this occasionnally if I want
+to roughly “trace” a program’s execution, to help find an error.</p>
+<p>The information given above is probably enough to get you started.
+Please feel free to contact me if you have any questions.</p>
+<div class="section" id="conventions-used">
+<h2>4.1. Conventions used<a class="headerlink" href="#conventions-used" title="Permalink to this headline">¶</a></h2>
+<p>Four spaces should normally be used for indentation.
+Note that some javascript files may be using two spaces;
+when refactoring code, you should change this for
+the functions you are working on.</p>
+<p>Currently, there is support for programming using Python, Javascript and
+using a Blockly interface, in both French and English.
+Consider the <tt class="docutils literal">move()</tt> instruction.  When called in a user program,
+it will invoke a function (currently <tt class="docutils literal">RUR.control.move()</tt>) which
+is rather complicated (nearly 100 lines of code) as it must check if
+a move is allowed (<em>is there an object blocking the way? etc.</em>).
+Suppose I find that I need to refactor the code (which I have done many
+times) with the result that this function would have a different
+name (perhaps something like <tt class="docutils literal">RUR.instructions.move()</tt>) or be invoked
+with different (hidden) arguments.  Suppose I defined
+the end-user Python version of that instruction as follows:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Move forward, by one grid position.&quot;&quot;&quot;</span>
+    <span class="n">RUR</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">RUR</span><span class="o">.</span><span class="n">current_world</span><span class="o">.</span><span class="n">robots</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>with similar definitions for the Javascript version, the Blockly versions
+(both Python and Javascript), I would have to make a name change in 4
+different location for the English version.  Four more similar changes would
+have to be made for the French version … and 4 more each for each new
+(human) language version.  To avoid having to do all these changes, I have
+created an “interface” (currently in commands.js) as follows:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">RUR</span><span class="o">.</span><span class="n">_move_</span> <span class="o">=</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">RUR</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">RUR</span><span class="o">.</span><span class="n">current_world</span><span class="o">.</span><span class="n">robots</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>and then have:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Move forward, by one grid position.&quot;&quot;&quot;</span>
+    <span class="n">RUR</span><span class="o">.</span><span class="n">_move_</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This way, I can change/refactor the “back end” without requiring changing
+the various versions used in end-user programs.</p>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">I have been working on a set of tools to facilitate translations into other
+(human) languages.  These tools will also make it easier to compare different
+language versions without requiring to have the functions/methods appearing
+in the same order in different files as it is currently the case if one wants
+to use a diff program to compare versions.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="future_ideas.html" title="5. Idées à explorer"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="artists.html" title="3. Information for artists"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >Contribute!</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

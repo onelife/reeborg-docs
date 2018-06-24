@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>1. 第一个程序 &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="2. 任务驱动型学习" href="home.html" />
+    <link rel="prev" title="基础教程" href="index.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="home.html" title="2. 任务驱动型学习"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="index.html" title="基础教程"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. 第一个程序</a><ul>
+<li><a class="reference internal" href="#id2">1.1. 应对错误</a><ul>
+<li><a class="reference internal" href="#id3">1.1.1. 发生什么情况了？</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">1.2. 规则一</a></li>
+<li><a class="reference internal" href="#id5">1.3. 一个特别的工具</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">基础教程</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="home.html"
+                        title="next chapter">2. 任务驱动型学习</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/move.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>1. 第一个程序<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-left" id="index-0">
+<img alt="../_images/move.png" src="../_images/move.png" />
+</div>
+<p>如果你遵循了本教程一开始给出的指示，那么你应该已经让乐跑走出它的第一步了。在代码编辑框里只需一个指令：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal">move()</tt> 是一个 Python <strong>函数</strong> 。每个函数都有名字，在这里是 <tt class="docutils literal">move</tt> 。合理的函数名必须以字母或下划线（“_”）开头，可以包含字母、数字或下划线（“_”）。函数名后面的 <tt class="docutils literal">()</tt> 是告诉乐跑（Python），此函数必须被 <em>执行</em> 或者 <em>调用</em> （这两个是同义词）。此函数必须自己独占一行。（我们以后会看到这条规则的例外。）</p>
+<p>我们偶尔会用到 <strong>流程图</strong> ——用图形来表示程序。在流程图里，一条指令，如 <tt class="docutils literal">move()</tt> 会这样呈现：</p>
+<div class="figure align-center">
+<img alt="../_images/move1.jpg" src="../_images/move1.jpg" />
+</div>
+<p>然后一个包含这条指令的完整程序会这样呈现：</p>
+<div class="figure align-center">
+<img alt="../_images/move.jpg" src="../_images/move.jpg" />
+</div>
+<p>在流程图里，指令的执行按照箭头顺序，从“Start（开始）”开始，到“Stop（结束）”结束。</p>
+<div class="topic">
+<p class="topic-title first">试试这个！</p>
+<p>添加第二个 <tt class="docutils literal">move()</tt> 指令，让乐跑多走一步。</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">每条指令必须自己独占一行，并且行首没有多余的空格。</p>
+</div>
+<div class="section" id="id2">
+<h2>1.1. 应对错误<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在写计算机程序的时候，你很可能会犯很多错误。为了展示乐跑如何对错误作出反应，我也会请你在程序里故意引入一个错误。</p>
+<div class="topic">
+<p class="topic-title first">试试这个！</p>
+<p>把 <tt class="docutils literal">move()</tt> 改成 <tt class="docutils literal">Move()</tt> （使用大写的 M），然后再尝试运行一下。</p>
+</div>
+<div class="section" id="id3">
+<h3>1.1.1. 发生什么情况了？<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Python ——乐跑的语言是“大小写敏感的”，使用小写字母名称的函数和使用大写字母名称的函数是不同的函数。现在你应该知道乐跑是怎么应对错误的了。让我们把程序改回来，运行一下正确的版本。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>1.2. 规则一<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>你试过我在前面建议你做的了么？如果没有，我敦促你回去试试。你瞧，如果想学习编程，你必须遵守的最重要的规则如下：</p>
+<div class="admonition important" id="index-1">
+<p class="first admonition-title">Important</p>
+<dl class="last docutils">
+<dt>规则一</dt>
+<dd>学习计算机编程就像学习一件乐器：你必须 <strong>动手去练习</strong>，而不仅仅是阅读。</dd>
+</dl>
+</div>
+<p>每当我建议你试试什么的时候，都是有原因的。有时原因不会立刻出现，但我真的鼓励你去试试。我甚至建议，你应该做更多的尝试，比我建议的还多，试试不同的东西，以便探索的更深入。</p>
+</div>
+<div class="section" id="id5">
+<h2>1.3. 一个特别的工具<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>在乐跑的世界的最顶部，你会发现一个名为 <strong>乐跑键盘</strong> 的按钮，按一下就会出现一个特别的键盘。再按一下键盘上的按钮，相应的指令—— Python 关键字等等，就会被自动插入编辑器。在需要确保函数名拼写正确和避免漏掉括号时，这个功能很实用。</p>
+<div class="admonition- admonition">
+<p class="first admonition-title">写给教育者的内容</p>
+<p>乐跑键盘对于三类用户可能特别有用：小朋友——用一般的键盘输入对他们来说可能比较困难；触摸屏用户；以及使用非英语键盘，并且感觉输入一些 Python 符号很麻烦的用户。</p>
+<p class="last">另外，在我写这段内容的时候，乐跑键盘包含的一个指令（ <tt class="docutils literal">no_highlight()</tt> ）既没有记录在本教程里，也没有记录在在线帮助里。这类的疏忽也有可能出现在其它的指令上……如果出现了，请联系我改正。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="home.html" title="2. 任务驱动型学习"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="index.html" title="基础教程"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

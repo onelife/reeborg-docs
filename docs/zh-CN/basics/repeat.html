@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>14. 重复（repeat） &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="15. 小结" href="summary2.html" />
+    <link rel="prev" title="13. 重温送报纸" href="newspaper2.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="summary2.html" title="15. 小结"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="newspaper2.html" title="13. 重温送报纸"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="newspaper2.html"
+                        title="previous chapter">13. 重温送报纸</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="summary2.html"
+                        title="next chapter">15. 小结</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/repeat.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="repeat">
+<h1>14. 重复（repeat）<a class="headerlink" href="#repeat" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">我们常常需要固定次数的重复一系列的指令， 使用 Python ，有好几种方法可以做到……但我不想一次介绍太多新概念。所以我只展示其中的一种方法，然后马上开始介绍 <tt class="docutils literal">repeat</tt> ——一个乐跑的世界所独有的、简单的替代指令。一个标准的实现方法是像下面这样，使用所谓的 <strong>for 循环</strong> ：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># 在这里</span>
+    <span class="c1"># 写一些</span>
+    <span class="c1"># 代码</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal">repeat</tt> 不能在乐跑的世界以外使用。一个 <strong>循环</strong> 表示一个需要重复的代码块。</p>
+</div>
+<p>在乐跑的世界里，我们可以写一个 <tt class="docutils literal">repeat（重复）</tt> <em>循环</em> ：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">repeat</span> <span class="n">n</span><span class="p">:</span>   <span class="c1"># “n”是一个整数</span>
+    <span class="c1"># 在这里</span>
+    <span class="c1"># 写一些</span>
+    <span class="c1"># 代码</span>
+</pre></div>
+</div>
+<p>例如，下面这段代码可以让乐跑沿着一个正方形的路径行走：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">repeat</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">move</span><span class="p">()</span>
+    <span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>通过使用 <tt class="docutils literal">repeat</tt> ，我们可以重写一些函数并去掉重复的指令：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">turn_right</span><span class="p">():</span>
+    <span class="n">repeat</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>因此，<tt class="docutils literal">repeat</tt> 使我们又多了一个方法来消除代码中的重复。</p>
+<div class="topic">
+<p class="topic-title first">试试这个！</p>
+<p>再次修改一下你的送报纸程序，使用 <tt class="docutils literal">repeat</tt> 以尽可能的缩短代码。如果你并没有保存上一次的进度，请回到上一节并使用 <tt class="docutils literal">repeat</tt> 改写程序。</p>
+</div>
+<div class="admonition- admonition">
+<p class="first admonition-title">写给教育者的内容</p>
+<p>我之所以引入 <tt class="docutils literal">repeat</tt> 这个额外的 Python 符号的原因是，避免一次介绍四个新概念（循环、变量——比如 <tt class="docutils literal">for _ in range(n)</tt> 中的 <tt class="docutils literal">_</tt> 、内建函数——比如 <tt class="docutils literal">range</tt> ，以及函数的参数）。</p>
+<p class="last">在设计时规定了， <tt class="docutils literal">repeat n</tt> 中的 <tt class="docutils literal">n</tt> <strong>必须</strong> 是一个整型立即数（integer literal），而不能是一个变量（variable）。当学生们学过变量以后，他们应该学习更合适的 Python 语法来完成循环并且忘记不标准的 <tt class="docutils literal">repeat</tt> 。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="summary2.html" title="15. 小结"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="newspaper2.html" title="13. 重温送报纸"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>和乐跑一起学 Python！ &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="#" />
+    <link rel="next" title="基础教程" href="basics/index.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="basics/index.html" title="基础教程"
+             accesskey="N">next</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="#">和乐跑一起学 Python</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">和乐跑一起学 Python！</a><ul>
+<li><a class="reference internal" href="#id5">你想学习计算机编程么？</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basics/index.html"
+                        title="next chapter">基础教程</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="python">
+<h1>和乐跑一起学 Python！<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>和乐跑一起学 Python 很简单。你所要做的就是一边读本教程，一边在 <a class="reference external" href="http://reeborg.ca/reeborg.html?lang=en&amp;mode=python">乐跑的世界</a> 里运行所有的例程。建议你分别在浏览器的不同窗口或标签页打开本教程和乐跑的世界。</p>
+<p>在你正式开始阅读本教程之前，让我们通过在 <a class="reference external" href="http://reeborg.ca/reeborg.html?lang=en&amp;mode=python">乐跑的世界</a>  里运行一个程序来开始乐跑第一步吧。</p>
+<p>“Hint（提示）”是可以点击展开的。当你不知道要怎么继续下去的时候，这里会提供指南。</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">在 <a class="reference external" href="http://reeborg.ca/reeborg.html?lang=en&amp;mode=python">乐跑的世界</a> 里点击“run（运行）”按钮（蓝色背景的白色小三角）并且观察乐跑走出它的第一步。你也可以通过观看 <a class="reference external" href="http://youtu.be/yTdw97KNgGM">一个短视频</a>
+来了解这个过程……尽管版本稍微旧了点。如果愿意，你可以使用全屏来观看高清版。</p>
+</div>
+<div class="section" id="id5">
+<h2>你想学习计算机编程么？<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id6" style="width: 40%">
+<img alt="_images/student.jpg" src="_images/student.jpg" />
+<p class="caption"><span class="caption-text">美国加利福尼亚州的学生在玩乐跑的世界。</span></p>
+<div class="legend">
+<em>照片来自 A. Castano。</em></div>
+</div>
+<p><strong>乐跑的世界就是为你而设计的！</strong></p>
+<p>我在创造乐跑的世界的时候，脑袋里想的是要通过创造一个友好的环境，来学习编程的一些概念。虽然使用“通常的”网络编程语言—— JavaScript 来实现乐跑也是可以的，但是我决定专注于
+Python —— 这个用途十分广泛、萌新和老司机都容易上手的语言。</p>
+<p>本教程首先是写给你，帮助你学习计算机编程的。然后，这里面也有一些写给教师和其他乐跑的世界用户的内容。你可以放心地忽略这部分内容，不用担心错过重要的、有关编程概念的信息。</p>
+<p>本文档分为九个主要章节。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basics/index.html">一、基础教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recursion/index.html">二、递归</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables/index.html">三、变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop/index.html">四、面向对象编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional/index.html">五、高阶函数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/index.html">六、编程练习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">七、乐跑的世界参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/index.html">八、Python：简要介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute/index.html">九、做贡献！</a></li>
+</ul>
+</div>
+<p>如果点击上面任何一个标题，你就会跳转到相应的页面。那里面还有一个更详细的相应章节的目录。</p>
+<div class="admonition- admonition">
+<p class="first admonition-title">写给教育者的内容</p>
+<div class="figure" id="id7">
+<img alt="_images/rurple_book.png" src="_images/rurple_book.png" />
+<p class="caption"><span class="caption-text"><em>韩国三星出版的两本书（红色的是教师版，蓝色的是学生版），内容基于 RUR-PLE（RUR Python 学习环境）——乐跑的世界的前身。</em></span></p>
+</div>
+<p>乐跑的世界的灵感受到了 Richard Pattis 的 <a class="reference external" href="http://www.amazon.ca/Karel-Robot-Gentle-Introduction-Programming/dp/0471089281/ref=sr_1_6?s=books&amp;ie=UTF8&amp;qid=1440177128&amp;sr=1-6">机器人查尔斯（Karel the robot）</a> 的启发。里面的虚拟机器人，可以用三种编程语言（Python、JavaScript 和 CoffeeScript）来控制。不过，本教程专注于 Python
+——我最喜欢的编程语言，也是公认用于传授编程概念给初学者的理想语言。</p>
+<p>在本教程里，我把对变量的介绍尽可能的延后了。函数的参数也是如此。这种方法反映了在 Pattis 原版的查尔斯（Karel）里，根本没有任何变量。就像本教程的前两个章节—— <strong>基础教程</strong> 和 <strong>递归</strong> 。</p>
+<p>乐跑的世界的创造目标是：在尽可能的简化 Pattis 的理念的同时传授非常高阶的编程概念。所以没有像别的、给纯粹的初学者看的教程那样，从“简单的” <strong>第一个程序</strong> 开始：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, World&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>在乐跑的世界，最简单、完整的程序是这样的：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>就这么简单：只有一个指令。还有比这更简单的、教给初学者的东西么？</p>
+<p>当然，并不局限于简单的函数。例如，我们想使用面向对象的方法来代替最简单、完整的程序。那么，等价于上面单一的 <tt class="docutils literal">move()</tt> 指令，我们真正要乐跑做的是：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reeborg</span> <span class="o">=</span> <span class="n">UsedRobot</span><span class="p">()</span>
+<span class="n">reeborg</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>同样的，因为标准库很有用，我们可以首先让学生通过写代码来学习使用各种库。这样他们会认识到，各种库模块和其它程序也没啥区别。假设他们在自己的库里定义了一个叫 <tt class="docutils literal">turn_right()</tt> 的函数，那么下面这段代码是合理的：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">library</span> <span class="kn">import</span> <span class="n">turn_right</span>
+<span class="n">turn_right</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>本教程的理念是：让学生使用尽可能少的概念来编程；只有在打完基础后，才开始学习新概念（比如变量、面向对象的表示法，或者从库中导入代码等等）。写本教程的指导原则是：每次只介绍一个编程概念。</p>
+<p>然而，使用简单的方法，不意味着乐跑的世界就限制在了基本的虚拟机器人的世界里。Python 版本的乐跑的世界基于 <a class="reference external" href="http://brython.info">Brython</a> 并且包含了很多 Python 标准库里的模块，完全可以用来写高阶的程序。</p>
+<p><strong>任务驱动型学习</strong></p>
+<p>乐跑的世界被设计为 <em>任务驱动型学习</em> ：学生收到一个乐跑必须完成的任务，然后他们要通过写程序指示乐跑该如何完成。</p>
+<p>这些任务包括让乐跑移动物体、砌墙，或者去一个指定的地点等等。乐跑的世界里的物体很丰富；乐跑要到达的目的地会用一个在灰色阴影里的物体图片来表示。</p>
+<img alt="_images/simple_task.gif" src="_images/simple_task.gif" />
+<p>如果你能分享一些对你的学生很有帮助的例程（乐跑的任务）来改进本教程，我将十分感谢。</p>
+<p><strong>自由</strong></p>
+<p class="last">乐跑的世界是 <strong>自由</strong> 的： <em>自由</em> 使用、<em>自由</em> 复制（放在学校的网站上），并且不需要任何注册或登陆。不同于其它的学习编程的网站，乐跑的世界不勉强学员遵从预设的路线；教育者可以 <em>自由</em> 的使用乐跑的世界来创建自己的教学材料。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="basics/index.html" title="基础教程"
+             >next</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="#">和乐跑一起学 Python</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

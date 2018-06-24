@@ -1,0 +1,191 @@
+只有……（才）
+======================
+
+只有在乐跑能自己进行判断的时候，写程序才会变得非常轻松…… **等等！** 我不是在告诉你：乐跑可以自己进行判断。
+
+Python 关键字： ``if（如果）``
+--------------------------------
+
+.. index:: ! if
+.. index:: ! True
+.. index:: ! False
+
+.. topic:: 这样做！
+
+    选择一个适当的世界（也许可以用 **Alone（空白）** ），然后让乐跑执行下面的程序。
+
+.. code-block:: python
+
+    if True:
+        move()
+
+    if False:
+        turn_left()
+
+``True（是）`` 和 ``False（否）`` 也是 Python 关键字。你可以试试交换它们的位置，然后再运行一遍程序，看看会发生什么。
+
+``if`` 语句
+----------------------
+
+所谓的 ``if`` **语句** 后面所跟随的模式和 ``function（函数）`` 类似：:
+
+.. code-block:: python
+
+    def some_name():
+        # 代码块
+
+    if some_condition:
+        # 代码块
+
+怎样理解 ``if`` 语句
+---------------------------------
+
+在介绍函数的时候，我们解释了可以把 **引用** 函数理解为，相当于把该函数所定义的代码块插入到被引用的位置。因此，
+
+.. code-block:: python
+
+    move()
+    turn_right()    # 引用函数
+    move()
+
+等价于
+
+.. code-block:: python
+
+    move()
+    # 开始和 turn_right() 里面的一样的代码块
+    turn_left()
+    turn_left()
+    turn_left()
+    # 代码块结束
+    move()
+
+对于 ``if`` 语句也可以进行类似的理解，只是增加（或者甚至是 **删除** ！）了 *执行条件* 。因此，
+
+.. code-block:: python
+
+    move()
+    if True:
+        turn_left()
+        turn_left()
+    move()
+
+等价于
+
+.. code-block:: python
+
+    move()
+    turn_left()
+    turn_left()
+    move()
+
+而
+
+.. code-block:: python
+
+    move()
+    if False:
+        turn_left()
+        turn_left()
+    move()
+
+等价于
+
+.. code-block:: python
+
+    move()
+    move()
+
+Note that thinking of it this way does not mean that such a deletion
+would be done permanently: if, somehow, our program *looped back* and
+repeated this part of the code again, the ``if`` statement would be
+reevaluated each time to decide whether or not to execute the lines of
+code inside the code block.
+
+We can represent the above using a flowchart:
+
+.. figure:: ../../flowcharts/if.jpg
+   :align: center
+
+More useful that you might think...
+-----------------------------------
+
+.. note::
+
+    The general term used to describe a function that gives a result
+    equivalent to ``True`` or ``False`` in an ``if`` statement is **condition**::
+
+       if condition:
+           ...
+
+.. index:: object_here(), done()
+
+Having to specify ``True`` or ``False`` does not help Reeborg decide on
+its own. However, there are special functions that Reeborg recognizes
+that allow to decide things for himself. The first of these is
+``object_here()`` which tells Reeborg that there is at least one object at
+the grid position where he is located. For example, if we want to ask
+Reeborg to collect tokens, one part of the code could be::
+
+    if object_here():
+        take()
+
+Have a look at worlds **Tokens 1** and **Tokens 2**. In both cases, and assuming
+that Reeborg moves forward in a straight line, when he finds a token,
+all he as to do is:
+
+#. take it
+#. move to the next grid
+#. put the token down
+#. move one more step
+#. and he is ``done()``
+
+where I have introduced a new command that Reeborg understands:
+``done()``. Actually, you should think of this command as Reeborg saying
+it himself and declaring that he has finished.
+
+Let's write the outline of a program that will work in both worlds
+**Tokens 1** and **Tokens 2**::
+
+    def move_until_done():
+        move()
+        if object_here():
+            # something
+            # something else
+            # something else again
+            # yet one more
+            done()
+
+    repeat 42:
+        move_until_done()
+
+
+Why 42? ... well, I just want to be sure that Reeborg will take enough
+steps no matter what world he is in. So far, all the worlds are small
+enough that this should be fine. I agree, it does not seem very smart
+... We'll see how to fix that later.
+
+.. topic:: Try it!
+
+    Copy the above in the Code editor, filling in the missing
+    commands, and test your program on both worlds **Tokens 1** and **Tokens 2**.
+
+.. admonition:: For educators
+
+    The function ``object_here()`` returns a list of object types (as strings)
+    found at a given location.  For example, if there are stars and tokens
+    at the same location, ``object_here()`` could return ``["star", "token"]``
+    or ``["token", "star"]``. If no object is present, an empty list is
+    returned.  As you likely already know, Python treats an empty list as
+    being equivalent to ``False`` in an ``if`` statement, and a non-empty
+    list as equivalent to ``True``.
+
+    If many objects could potentially be found in a given world, and we
+    are interested in only one object type, we can specify it as a function
+    argument::
+
+        if object_here("token"):
+            take("token")
+
+    ``object_here("token")`` will either return an empty list or the list
+    ``["token"]``.

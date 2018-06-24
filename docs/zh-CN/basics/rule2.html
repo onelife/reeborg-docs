@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>5. 规则二 &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="6. 小结" href="summary1.html" />
+    <link rel="prev" title="4. 笑脸" href="tokens1.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="summary1.html" title="6. 小结"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="tokens1.html" title="4. 笑脸"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. 规则二</a><ul>
+<li><a class="reference internal" href="#index-1">5.1. 注释</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tokens1.html"
+                        title="previous chapter">4. 笑脸</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="summary1.html"
+                        title="next chapter">6. 小结</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/rule2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>5. 规则二<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">我前面提到了学习编程的第一条规则：你必须动手写程序（和测试），而不仅仅是简单的阅读怎样编程。现在，我要告诉你第二条原则——一个写好计算机程序的秘密。</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p><strong>规则二</strong></p>
+<blockquote class="last">
+<div>把你的程序写得让 <strong>人</strong> 容易阅读和理解。</div></blockquote>
+</div>
+<p>就是这样，要把你的计算机程序写得让别人（和你一样的人）能够容易的、独立的看懂，并且知道它在干什么。计算机语言就是被设计成让你可以和计算机进行交流的工具，就像人类的语言发展为人与人交流的工具一样。但是，计算机语言和人类的语言相比，非常简单，并且经常被程序员们用来分享工作成果。</p>
+<div class="section" id="index-1">
+<span id="id2"></span><h2>5.1. 注释<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h2>
+<p>我要介绍给你的第一个工具，可以用来让人们更好的理解你的计算机程序： <em>注释</em> 。</p>
+<p>注释，是程序员们记的笔记，会被计算机忽略掉；是给人类阅读和理解用的。</p>
+<p>当使用 Python 时，你可以用下面的两种方法来记笔记：</p>
+<ul class="simple">
+<li>把任意数量的文字放在一对由三个引号组成的标记里，比如 <tt class="docutils literal">&quot;&quot;&quot; ... &quot;&quot;&quot;</tt> 或 <tt class="docutils literal">''' ... '''</tt> 。</li>
+<li>在任意一行，把文字放在 <tt class="docutils literal">#</tt> 符号后面。</li>
+</ul>
+<p>我先展示一个简单的、没有任何注释的程序，接着展示第二个有注释的版本。在这两个版本的程序里都有同样一个错误。你能够更容易地在第一个版本里指出这个错误，还是第二个？</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>和上面的版本相比，接下来的版本在乐跑的眼里根本没有任何不同，但是却增加了给人看的注释。你应该可以很容易的辨认出注释，因为其颜色和字体都有所不同。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;  在这个简单的程序里，乐跑沿着一个方形的路线行走，</span>
+<span class="sd">并且在方形的四个角各留下一个东西。 &#39;&#39;&#39;</span>
+
+<span class="n">move</span><span class="p">()</span>  <span class="c1"># Python 的单行注释</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span> <span class="c1"># 乐跑只会左转</span>
+<span class="n">put</span><span class="p">()</span>   <span class="c1"># 我们假设乐跑带了足够多的东西</span>
+
+<span class="c1"># 重复上面的步骤三次以完成任务</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+
+<span class="n">move</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">turn_left</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>前面看到的例子在实践中并不算是好的注释，但至少有一条能帮你找到程序中的错误。你可能觉得这么做是作弊，然而光凭代码你怎么能猜出其背后的意图？在注释中解释这段代码应该做什么，对排查错误非常有帮助。</p>
+<p>请注意，除了注释，我还用空行隔开了代码中的各个“逻辑”部分，以便帮助你更容易的发现其中的模式。一起使用注释和空行可以大幅提高程序的可读性。</p>
+<div class="admonition- admonition">
+<p class="first admonition-title">写给教育者的内容</p>
+<p>如果你已经介绍了怎样使用函数的参数，那么我建议你在上一节的例程中把</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">put</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>替换为</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">理由是，这样做可以让第一次阅读该程序的人更容易理解。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="summary1.html" title="6. 小结"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="tokens1.html" title="4. 笑脸"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

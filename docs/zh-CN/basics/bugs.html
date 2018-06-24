@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>3. 捉虫！ &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="4. 笑脸" href="tokens1.html" />
+    <link rel="prev" title="2. 任务驱动型学习" href="home.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="tokens1.html" title="4. 笑脸"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="home.html" title="2. 任务驱动型学习"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. 捉虫！</a><ul>
+<li><a class="reference internal" href="#id2">3.1. 臭虫是什么？</a></li>
+<li><a class="reference internal" href="#id3">3.2. 对付臭虫</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="home.html"
+                        title="previous chapter">2. 任务驱动型学习</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tokens1.html"
+                        title="next chapter">4. 笑脸</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/bugs.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>3. 捉虫！<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>没人喜欢谈论计算机臭虫（bugs）！但不走运的是，你必须学习，特别是学习怎样对付它。</p>
+<p>这节课比之前的课略长，但我建议你至少完整的阅读一次。</p>
+<div class="section" id="id2">
+<h2>3.1. 臭虫是什么？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在计算机领域里， <strong>臭虫</strong> 这个词最开始是和哈佛大学的一台 Mark II 计算机的一个真实故事联系在一起的：一只蛾子使该计算机停止了工作。一个由知名的计算机科学家、数学家、年轻的海军军官—— Grace Murray Hopper 领导的团队找到了这个问题。Grace Hopper 博士后来逐渐升任成为了美国海军上将。</p>
+<p>这只蛾子后来被保留，并且粘在了 Hopper 的日志里，见下图。有趣的是，你可以看到，日志里有一行笔记写着：“第一次发现真正的臭虫。”（”First actual case of bug being found.”）</p>
+<p><img alt="image0" src="../_images/first_bug.jpg" /></p>
+<p>图片剪切自 <a class="reference external" href="https://www.history.navy.mil/content/history/nhhc/our-collections/photography/numerical-list-of-images/nhhc-series/nh-series/NH-96000/NH-96566-KN.html">美国海军历史中心（U.S. Naval Historical Center）</a> 的公开档案。</p>
+<p>实际上，在学术语境里的臭虫（bug）这个词，牛津英语词典认为和 Thomas Edison （托马斯爱迪生）有关。根据牛津词典的解释，下面这段话出自1889年3月11日的颇尔商城公报（Pall Mall Gazette）：</p>
+<blockquote>
+<div>我听说爱迪生先生前两个晚上一直在他的留声机里寻找“一只臭虫”。这是一种表达方式——表示某人正在解决一个困难的问题。这里用一只虚构的昆虫来做比喻，说它藏了起来并且造成了很多麻烦。（Mr. Edison, I was informed, had been up the two previous nights
+discovering ‘a bug’ in his phonograph - an expression for solving a
+difficulty, and implying that some imaginary insect has secreted
+itself inside and is causing all the trouble.）</div></blockquote>
+<p>这样看来，“臭虫”一词最初确实指的是一个昆虫，只不过是虚构的昆虫。</p>
+<p>不走运的是，计算机臭虫不是昆虫，更不是虚构的。</p>
+</div>
+<div class="section" id="id3">
+<h2>3.2. 对付臭虫<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>在计算机领域里，一个臭虫表示一个造成程序不按照预期的行为运行的错误。如果你写了一个计算机程序，那么里面早晚会有臭虫——每个人都如此。好的程序员一旦发现他们的程序不能按照预期执行，就会马上开始寻求“移除”或者“修正”臭虫。</p>
+<p>不怎么好的程序员会说，“臭虫”不是真正的错误，只是一种“功能”。<strong>你</strong> 要做一个好的程序员，不要像乐跑的作者一样——在他的程序里到处是臭虫。</p>
+<div class="figure align-right" id="id4" style="width: 40%">
+<img alt="../_images/reeborg_costume.jpg" src="../_images/reeborg_costume.jpg" />
+<p class="caption"><span class="caption-text">全尺寸的乐跑（美国新泽西州）</span></p>
+<div class="legend">
+<em>图片来自 A. Judkis。</em></div>
+</div>
+<ol class="arabic simple">
+<li>乐跑曾经漏过油。漏油对环境有害，也给乐跑造成了不便——它在不急着完成任务的时候，不得不去补充燃料。乐跑的作者狡辩说这是一个功能，因为这迫使你跟随着乐跑的脚步——就像任何程序员那样，学习“跟踪”一个程序。后面你将会学到怎么修理漏油问题。更高级的跟踪臭虫的技术——比如使用 <em>调试器</em> ，超出了本教程的范围。</li>
+<li>乐跑的转向机构没有搞好： 它只能左转。乐跑的作者又一次狡辩说这是一个功能，因为这给了你一个学习 <strong>函数</strong> 的机会，虽然乐跑表示不同意。你很快会学到一种 <em>补救方法</em> 让乐跑可以右转，虽然是一种很耽误工夫的做法。再晚一点，你将会学到如何从根本上解决这个问题——让乐跑可以做真正的右转，就像做左转那样。</li>
+<li>乐跑有个罗盘，让它可以知道自己所面对的方向。但再一次不走运的是，让乐跑从罗盘里得到信息的程序有臭虫：它只能告诉乐跑北在哪儿……或者北不在哪儿。和之前一样，你得先学习实现补救的方法，然后才学习长久修复的方法，以便让乐跑摆脱作者所谓的“功能”。</li>
+<li>当有一堵墙挡在面前时，乐跑能看到，并且还能把头转向右边，看看是否也有一堵墙。然而，有个软件上的“毛刺儿（glitch）”（软件开发商们用来避免承认其产品有臭虫的另外一种托辞）导致乐跑在把头转向左边时，不能正确识别是否有墙存在。</li>
+</ol>
+<p>有时，为了找到出现臭虫的原因，你必须打断程序的正常流程。为此，你可以做一次或多次以下的操作：</p>
+<ol class="arabic simple" id="index-0">
+<li>你可以 <em>暂停（pause）</em> 程序：当程序运行的时候，按 <strong>pause</strong>
+按钮。这和人们说的，在计算机程序里设置一个 <em>断点（breakpoint）</em> 类似。</li>
+<li>你也可以在程序的任意一行敲进 <tt class="docutils literal">pause()</tt> 指令来代替按暂停按钮。乐跑会停下，等到你许可时才继续。</li>
+<li>你可以 <em>步进执行（step through）</em> 程序：按 <em>执行一条指令然后暂停（execute one instruction and pause）</em> 或者 <strong>步进（step）</strong> 按钮，每按一次只执行一条指令。即将被执行的指令的上一条指令会被默认高亮，你可以按代码编辑框上方的按钮来关闭高亮。</li>
+<li>在程序的任意一行，你可以改变程序的执行速度（执行两条指令之间的时间间隙）。稍后，我会解释怎么做。</li>
+<li>在程序的任意一行，你可以让乐跑写下一些信息。还是稍后，我会解释怎么做。</li>
+<li>最后，在任意位置，你可以按 <strong>停止（stop）</strong> 按钮让乐跑停下来。不走运的是，如果你制造了一个所谓的无限循环，这个按钮可能就不管用了——这超出了乐跑的控制范围。如果最糟的情况出现了，你随时可以重新加载该网页。</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="tokens1.html" title="4. 笑脸"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="home.html" title="2. 任务驱动型学习"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

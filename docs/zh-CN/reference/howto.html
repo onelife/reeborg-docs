@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>6. Advanced features &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="Reeborg’s World Reference" href="index.html" />
+    <link rel="next" title="7. Current weaknesses" href="weakness.html" />
+    <link rel="prev" title="5. Custom worlds: making them available" href="worlds.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="weakness.html" title="7. Current weaknesses"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="worlds.html" title="5. Custom worlds: making them available"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">Reeborg’s World Reference</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">6. Advanced features</a><ul>
+<li><a class="reference internal" href="#simple-task">6.1. Simple task</a></li>
+<li><a class="reference internal" href="#different-traces-style">6.2. Different traces: style</a></li>
+<li><a class="reference internal" href="#different-traces-color">6.3. Different traces: color</a></li>
+<li><a class="reference internal" href="#different-robot-models">6.4. Different robot models</a></li>
+<li><a class="reference internal" href="#random-worlds">6.5. Random worlds</a></li>
+<li><a class="reference internal" href="#adding-code-to-be-run-in-addition-to-user-s-program">6.6. Adding code to be run in addition to user’s program</a></li>
+<li><a class="reference internal" href="#replacing-the-default-robot">6.7. Replacing the default robot</a></li>
+<li><a class="reference internal" href="#easy-collaboration-with-togetherjs">6.8. Easy collaboration with TogetherJS</a></li>
+<li><a class="reference internal" href="#stepping-back-and-forth-through-program-execution">6.9. Stepping back and forth through program execution</a></li>
+<li><a class="reference internal" href="#easy-support-for-multiple-human-languages">6.10. Easy support for multiple human languages</a></li>
+<li><a class="reference internal" href="#using-python-s-standard-library">6.11. Using Python’s standard library</a></li>
+<li><a class="reference internal" href="#possibility-to-write-programs-using-different-languages">6.12. Possibility to write programs using different languages</a></li>
+<li><a class="reference internal" href="#embedding-in-an-iframe">6.13. Embedding in an iframe</a></li>
+<li><a class="reference internal" href="#possibility-to-integrate-within-a-learning-management-system">6.14. Possibility to integrate within a Learning Management System</a></li>
+<li><a class="reference internal" href="#changing-the-user-interface">6.15. Changing the User Interface</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="worlds.html"
+                        title="previous chapter">5. Custom worlds: making them available</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="weakness.html"
+                        title="next chapter">7. Current weaknesses</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/howto.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="advanced-features">
+<h1>6. Advanced features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h1>
+<p>Reeborg’s World is designed to make it easy to set up
+programming tasks that provide automated feedback to students.
+However, sometimes some additional customization might be desired.
+This section documents various possibilities, some of which
+have already been mentioned elsewhere.</p>
+<div class="section" id="simple-task">
+<h2>6.1. Simple task<a class="headerlink" href="#simple-task" title="Permalink to this headline">¶</a></h2>
+<p>First, we consider a simple task.  Load the following:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">World</span><span class="p">(</span><span class="s2">&quot;Demo 1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The initial task to accomplish looks like:</p>
+<p><img alt="simple_demo1" src="../_images/simple_demo1.png" /></p>
+<p>and the final result is as follows:</p>
+<p><img alt="simple_demo1f" src="../_images/simple_demo1f.png" /></p>
+<p>This demo is saved as a permalink, including code in the editor
+<strong>and</strong> in the library; it is also available from the
+html <tt class="docutils literal">select</tt> element at the top.</p>
+</div>
+<div class="section" id="different-traces-style">
+<h2>6.2. Different traces: style<a class="headerlink" href="#different-traces-style" title="Permalink to this headline">¶</a></h2>
+<p>By default, Reeborg leaves a trace slightly “off-center”,
+thus showing clearly a difference between a left turn and a right turn
+(done by doing 3 left turns).
+Perhaps you want to show the path taken by Reeborg, without giving any hint about
+using 3 left turns to turn right;  this can be done using the following code:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">set_trace_style</span><span class="p">(</span><span class="s2">&quot;thick&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result looks like the following:</p>
+<p><img alt="simple_demo2" src="../_images/simple_demo2.png" /></p>
+<p>Alternatively, suppose you wish to show the robot accomplishing its task but without leaving a trace behind.
+You can use “none” instead of “thick” to do this.
+(The normal case would be “default” and is reset automatically.)</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p><tt class="docutils literal">set_trace_style</tt>, with the values of <tt class="docutils literal">&quot;thick&quot;</tt> or <tt class="docutils literal">&quot;default&quot;</tt> is a
+global function that affects the traces of all robots.  If it is called
+multiple times within a program, only its last invocation will have an effect.</p>
+<p class="last">When a value of <tt class="docutils literal">&quot;none&quot;</tt> is chosen, the trace is drawn with a completely
+transparent color which can be overriden.
+As shown below, robots can have traces of different colors.</p>
+</div>
+</div>
+<div class="section" id="different-traces-color">
+<h2>6.3. Different traces: color<a class="headerlink" href="#different-traces-color" title="Permalink to this headline">¶</a></h2>
+<p>Different robots can have different trace colors or can even change
+the color of the trace left behind at any point within a program.
+Load up:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">World</span><span class="p">(</span><span class="s2">&quot;Demo 2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to see an example of this.  Valid names color, to be used to
+the argument of <tt class="docutils literal">set_trace_color()</tt> include html named colors,
+rgb values, and rgba values - the latter being useful to make a
+trace temporarily invisible.</p>
+<p><img alt="simple_demo2b" src="../_images/simple_demo2b.png" /></p>
+</div>
+<div class="section" id="different-robot-models">
+<h2>6.4. Different robot models<a class="headerlink" href="#different-robot-models" title="Permalink to this headline">¶</a></h2>
+<p>By design, the choice of robot model is left to the user,
+who can choose their robot model by clicking on a image
+button at the top of the world.</p>
+<p><img alt="models" src="../_images/models.png" /></p>
+<p>All robots normally present will be of the same model.
+However, when creating a robot, it is possible to assign
+a specific model (integer from 0 to 3) using the following:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">reeborg</span> <span class="o">=</span> <span class="n">UsedRobot</span><span class="p">()</span>
+<span class="n">reeborg</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is also demonstrated in:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">World</span><span class="p">(</span><span class="s2">&quot;Demo 2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>mentioned above.</p>
+</div>
+<div class="section" id="random-worlds">
+<h2>6.5. Random worlds<a class="headerlink" href="#random-worlds" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to design worlds so that the initial position
+of the robot is chosen randomly from specified choices; in
+this case, a slighthly transparent image will initially appear
+at all the possible locations.</p>
+<p>Similarly, it is possible to assign a range of possible values
+for the number of objects found at a given location.  If this is done,
+it is possible to require to have all of the objects (total initial
+number unknown) of a specific type to be put at a given location.
+In these cases, a question mark initially appears next to the number of objects
+when the world is drawn. The specific values at each run appear after the
+first step of the program’s execution.</p>
+<p>Finally, it is possible to have the final position of the robot to be chosen
+amongst a given set.</p>
+<p>All of these are demonstrated in the example:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">World</span><span class="p">(</span><span class="s2">&quot;Demo 3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="simple_demo3" src="../_images/simple_demo3.png" /></p>
+</div>
+<div class="section" id="adding-code-to-be-run-in-addition-to-user-s-program">
+<h2>6.6. Adding code to be run in addition to user’s program<a class="headerlink" href="#adding-code-to-be-run-in-addition-to-user-s-program" title="Permalink to this headline">¶</a></h2>
+<p>When editing the world, you can add a extra code that will be run
+either before the user’s program is run, or after it is run, or both.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>A word of caution: if you include <em>post</em> code and the user
+include the instruction <tt class="docutils literal">done()</tt> in their program, the
+post code will never be reached when <tt class="docutils literal">done()</tt> is executed.
+In this case, a good strategy is to redefine <tt class="docutils literal">done()</tt>
+in the <strong>pre</strong> code part, perhaps replacing it with
+something like this:</p>
+<div class="last highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">done</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="n">ReeborgError</span><span class="p">(</span><span class="s2">&quot;You are not allowed to use &#39;done()&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><img alt="pre_post_code" src="../_images/pre_post_code.png" /></p>
+<p>You can see a very simple example of this by selecting the world
+<strong>Pre &amp; Post code demo</strong>
+and then run the resulting program, which simply
+insert a print statement before and another one after the
+program in the editor.  A <strong>much</strong> longer example,
+illustrating the usage of <tt class="docutils literal">narration()</tt> is the world <strong>Story</strong>.
+This program adds a “twist” to the story, simply
+included for effect: make sure to let the program
+run to the end.</p>
+</div>
+<div class="section" id="replacing-the-default-robot">
+<h2>6.7. Replacing the default robot<a class="headerlink" href="#replacing-the-default-robot" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you want to use a robot that can has enhanced capabilities in
+one of your examples while using an existing world.
+For instance, suppose I want to show a solution to jumping over the
+hurdle with a robot that can turn right directly, without doing three left turns.
+One “obvious” way might be as follows:</p>
+<ol class="arabic simple">
+<li>Create a copy of the desired world.</li>
+<li>Remove the robot</li>
+<li>Save the world under a different name
+(if using the same browser to show the example) or a usb key
+(and load it in a different browser, if planning the work at home
+and using it in the classroom)</li>
+<li>Write a program that first creates a robot with the desired attributes.</li>
+</ol>
+<p>This approach would work … except that the world initially shown will
+not have any robot visible and would thus be different than what the
+students would see when they would attempt to work on it with their robot.</p>
+<p>There is a better way!</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By using this code in the “pre” code, or in the library, we ensure that
+the line executed is not “highlighted” and have a frame with no robot
+present.</p>
+</div>
+<p>Either in the “pre” code, or in the library you can use the instruction:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">RUR</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">remove_robots</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>as the very first instruction in your program, and
+then create an instance of your robot with the desired enhanced capabilities.
+Since there will be only one robot in the world,
+basic instruction like <tt class="docutils literal"><span class="pre">move()`</span> or ``turn_left()</tt>
+will work on your robot as-is: by design,
+they work with the first robot created without requiring the instance name.</p>
+<p>Have a look at the world <strong>Robot replacement</strong>
+to see an example where a new robot, capable of turning right directly,
+is defined in the library and replaces the default robot.</p>
+</div>
+<div class="section" id="easy-collaboration-with-togetherjs">
+<h2>6.8. Easy collaboration with TogetherJS<a class="headerlink" href="#easy-collaboration-with-togetherjs" title="Permalink to this headline">¶</a></h2>
+<p>From <strong>Additional menu</strong> at the top, you can find the button
+“Collaboration”: this activates Mozilla’s TogetherJS which allows two, or
+more, users to effectively interact on the same webpage.</p>
+</div>
+<div class="section" id="stepping-back-and-forth-through-program-execution">
+<h2>6.9. Stepping back and forth through program execution<a class="headerlink" href="#stepping-back-and-forth-through-program-execution" title="Permalink to this headline">¶</a></h2>
+<p>Programs are executed in two steps: first, the program is run
+and a series of “frames”, representing the complete state of
+the world at that time, are recorded.  Second, these frames
+are played back one at a time.</p>
+<p>From the <strong>Additional menu</strong>, one has access to a “step back”
+button which steps backwards, one frame at a time, instead of
+forward.</p>
+<p>An example of such use might be to run a program quickly,
+by setting <tt class="docutils literal">think(0)</tt> up to a “crucial” point at which
+the program is paused using <tt class="docutils literal">pause()</tt>.  From that point on,
+the program could be run either forward or backward, one frame at a time,
+allowing to focus on one particular aspect being demonstrated.</p>
+</div>
+<div class="section" id="easy-support-for-multiple-human-languages">
+<h2>6.10. Easy support for multiple human languages<a class="headerlink" href="#easy-support-for-multiple-human-languages" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned elsewhere, it is fairly straightforward to
+port Reeborg’s World so that languages other than English
+can be used.  Currently, only French is completely supported.
+Thus, one can write:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reeborg_fr</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">avance</span><span class="p">()</span>           <span class="c1"># equivalent to move()</span>
+<span class="n">tourne_a_gauche</span><span class="p">()</span>  <span class="c1"># equivalent to turn_left()</span>
+</pre></div>
+</div>
+<p>However, French users should use <a class="reference external" href="http://reeborg.ca/monde.html">http://reeborg.ca/monde.html</a>
+which has a French User Interface.</p>
+</div>
+<div class="section" id="using-python-s-standard-library">
+<h2>6.11. Using Python’s standard library<a class="headerlink" href="#using-python-s-standard-library" title="Permalink to this headline">¶</a></h2>
+<p>Brython comes with a significant portion of Python’s standard
+library; however only pure Python modules are supported.</p>
+</div>
+<div class="section" id="possibility-to-write-programs-using-different-languages">
+<h2>6.12. Possibility to write programs using different languages<a class="headerlink" href="#possibility-to-write-programs-using-different-languages" title="Permalink to this headline">¶</a></h2>
+<p>Support for Python, Javascript and CoffeeScript.  Other languages
+could be supported as well if they have a javascript transpiler.</p>
+</div>
+<div class="section" id="embedding-in-an-iframe">
+<h2>6.13. Embedding in an iframe<a class="headerlink" href="#embedding-in-an-iframe" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">It is possible to embed Reeborg’s World in a different website
+using an html <tt class="docutils literal">iframe</tt>.  I need to explain how to do this.</p>
+</div>
+</div>
+<div class="section" id="possibility-to-integrate-within-a-learning-management-system">
+<h2>6.14. Possibility to integrate within a Learning Management System<a class="headerlink" href="#possibility-to-integrate-within-a-learning-management-system" title="Permalink to this headline">¶</a></h2>
+<p>One teacher in Lithuania has made Reeborg’s World accessible within Moodle
+for students tasks that are then marked automatically.  Ideally, such use
+should be made with local copies of Reeborg’s World.</p>
+</div>
+<div class="section" id="changing-the-user-interface">
+<span id="id1"></span><h2>6.15. Changing the User Interface<a class="headerlink" href="#changing-the-user-interface" title="Permalink to this headline">¶</a></h2>
+<p>If you know Javascript, html and css, and possibly how to use the jQuery library,
+you can customize the look of Reeborg’s World by running code
+with a specially crafted permalink; the changes made will
+remain until the site is reloaded.</p>
+<p>If you want to make your own changes, you might want to
+open Reeborg’s World into a separate tab and enable the javascript console.
+Then, use Javascript/jQuery commands in the console to change the UI as desired.
+Copy <strong>all</strong> of your required code (not forgetting semi-colons…) into the textarea below.</p>
+<p>For example, suppose you wanted to hide the choice of programming
+language selection; you could do so using the following jQuery code:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#header-child form&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>You can use the above as an example and copy it into the textarea below
+and then click the “Create permalink code” button; the result will
+appear below the button.  Note that you need to create all the UI
+changes into a single conversion.  Once you have the result, copy it
+and <em>append it</em> to a “normal” permalink created within Reeborg’s
+World; your new permalink, when used to update Reeborg’s world,
+will make the required changes to the UI.</p>
+
+<textarea id="permalink-css-source" style="width:600px; height:200px;"></textarea>
+<br>
+<button onclick="$('#permalink-result').html('&css='+ encodeURIComponent($('#permalink-css-source').val()));" class="blue-gradient">
+Create additional permalink code</button>
+<div id="permalink-result"></div>
+<p>If you need help with making changes to the User Interface, please do not hesitate to contact me.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="weakness.html" title="7. Current weaknesses"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="worlds.html" title="5. Custom worlds: making them available"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >Reeborg’s World Reference</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

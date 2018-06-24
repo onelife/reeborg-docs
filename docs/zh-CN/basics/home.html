@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>2. 任务驱动型学习 &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="3. 捉虫！" href="bugs.html" />
+    <link rel="prev" title="1. 第一个程序" href="move.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="bugs.html" title="3. 捉虫！"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="move.html" title="1. 第一个程序"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. 任务驱动型学习</a><ul>
+<li><a class="reference internal" href="#index-0">2.1. 向左转</a></li>
+<li><a class="reference internal" href="#id3">2.2. 不同的视角</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="move.html"
+                        title="previous chapter">1. 第一个程序</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bugs.html"
+                        title="next chapter">3. 捉虫！</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/home.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>2. 任务驱动型学习<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-left">
+<img alt="../_images/select_home.png" src="../_images/select_home.png" />
+</div>
+<p>为了帮助你学习 Python，我会给你一些小测验：你需要通过给乐跑编程来完成，乐跑自己会告诉你结果是否正确。</p>
+<p>让我们切换到名为 <strong>回家之一</strong> 的世界。乐跑的世界是由方块格子组成的，在左下角格子里的房子是乐跑的家。在 <strong>回家之一</strong> 里，乐跑一开始站在最下面一排的第三个格子里。当使用被称为“笛卡尔坐标”的系统时，这个位置被叫做 <tt class="docutils literal">x=3</tt> ， <tt class="docutils literal">y=1</tt> 。</p>
+<div class="topic">
+<p class="topic-title first">试试这个！</p>
+<p>选择 <strong>回家之一</strong> ，写一个只有一条 <tt class="docutils literal">move()</tt> 指令的程序，试着运行一下，并观察乐跑给你的反馈。然后，修改这个程序，让乐跑回家。</p>
+</div>
+<div class="topic">
+<p class="topic-title first">再试试这个！</p>
+<p>选择 <strong>回家之二</strong> ，留意乐跑的位置和朝向都有所不同。试着运行同样的程序，看看会发生什么。</p>
+<p>然后，选择 <strong>回家之三</strong> 并运行程序。</p>
+</div>
+<div class="section" id="index-0">
+<span id="id2"></span><h2>2.1. 向左转<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
+<p>在 <strong>回家之三</strong> 里，我们的程序并没有把乐跑送回家。为了把程序完成，我们还需要再添加两条指令：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">turn_left</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title first">试试这个！</p>
+<p>在 <strong>回家之三</strong> 里，把乐跑送回家。</p>
+</div>
+<div class="topic">
+<p class="topic-title first">试试别的！</p>
+<p>如果你不添加 <tt class="docutils literal">turn_left()</tt> ，只添加 <tt class="docutils literal">move()</tt> 指令，会发生什么？</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.2. 不同的视角<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>你大概注意到了，我们的一直在平视着乐跑（机器人），就像这样： <img alt="image0" src="../_images/robot_e.png" /> ，然而我们却是在俯视着它的世界……这可能会让你觉得有些混乱，尤其是在指令它左转的时候。这时，你可以通过点击乐跑的世界顶部的图片来改变视角。比如，当乐跑面向东边时，就像刚才那张图片一样，点击另外一个视角的图片，我们就可以像这样俯视乐跑了： <img alt="image1" src="../_images/rover_e.png" /></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="bugs.html" title="3. 捉虫！"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="move.html" title="1. 第一个程序"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

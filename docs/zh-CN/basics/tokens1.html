@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>4. 笑脸 &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="基础教程" href="index.html" />
+    <link rel="next" title="5. 规则二" href="rule2.html" />
+    <link rel="prev" title="3. 捉虫！" href="bugs.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="rule2.html" title="5. 规则二"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="bugs.html" title="3. 捉虫！"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">基础教程</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bugs.html"
+                        title="previous chapter">3. 捉虫！</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rule2.html"
+                        title="next chapter">5. 规则二</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/basics/tokens1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>4. 笑脸<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">乐跑喜欢收集笑脸。当它在地上发现笑脸时，一般会捡起来带走；有时它也会放一个笑脸在地上。让它做这个动作的指令如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">take</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>让我们选择名为 <strong>笑脸之一</strong> 的世界。有一个笑脸就在乐跑的旁边，请注意上面有一个红色的数字1：当在这个格子里的物品数量发生变化时，这个数字也会发生相应的变化。实际上，红色的数字表示，物品的数量在该格子里不符和要求。在下一个格子里，有同样的一个东西，但却是灰颜色的。这表示，我们需要让乐跑在该格子里放这样一个东西。一旦乐跑做好了，我们就可以看到刚才的数字变成了绿色。最后，再下一个格子里有一面旗子：这表示终点，当乐跑完成任务后，应该站在该格子里。</p>
+<div class="topic">
+<p class="topic-title first">试试这个！</p>
+<p>写个程序让乐跑完成任务。然后，试试同样的程序在名为 <strong>笑脸之二</strong> 的世界里行得通么？此时，答案应该是否定的……稍后你可以学到怎样写一个程序在这两个世界里都能完成任务。</p>
+</div>
+<div class="topic">
+<p class="topic-title first">试试别的！</p>
+<p>当乐跑试图放下一个东西但手里什么也没有时，会发生什么？当乐跑试图捡起一个东西但地上什么也没有时，会发生什么？</p>
+</div>
+<div class="admonition- admonition">
+<p class="first admonition-title">写给教育者的内容</p>
+<p>在前面的任务里只出现了一种物品。当有多种物品在同一个世界出现时，我们很可能需要传递一个参数来区分物品，比如：</p>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">take</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+<span class="n">put</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="rule2.html" title="5. 规则二"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="bugs.html" title="3. 捉虫！"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >基础教程</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

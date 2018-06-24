@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>1. A quick Python introduction: part 1 &mdash; 和乐跑一起学 Python</title>
+    
+    <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
+    <link rel="up" title="Python: A brief overview" href="index.html" />
+    <link rel="next" title="2. A quick Python introduction: part 2" href="python2.html" />
+    <link rel="prev" title="Python: A brief overview" href="index.html" /> 
+
+  <script>
+    // intelligent scrolling of the sidebar content
+    // copied from the sphinx website
+    $(window).scroll(function() {
+    var sb = $('.sphinxsidebarwrapper');
+    var win = $(window);
+    var sbh = sb.height();
+    var offset = $('.sphinxsidebar').position()['top'];
+    var wintop = win.scrollTop();
+    var winbot = wintop + win.innerHeight();
+    var curtop = sb.position()['top'];
+    var curbot = curtop + sbh;
+    // does sidebar fit in window?
+    if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+              sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+              sb.css('top', $u.min([winbot - sbh - offset - 20,
+                            $(document).height() - sbh - 200]));
+          }
+        }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+             <a href="python2.html" title="2. A quick Python introduction: part 2"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+             <a href="index.html" title="Python: A brief overview"
+             accesskey="P">previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" accesskey="U">Python: A brief overview</a></li> 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. A quick Python introduction: part 1</a><ul>
+<li><a class="reference internal" href="#what-is-a-python-program">1.1. What is a Python program?</a></li>
+<li><a class="reference internal" href="#what-is-a-function">1.2. What is a function?</a></li>
+<li><a class="reference internal" href="#what-is-a-valid-name-for-a-function-or-other-things">1.3. What is a valid name (for a function … or other “things”)?</a></li>
+<li><a class="reference internal" href="#what-is-the-meaning-of-the-symbol">1.4. What is the meaning of the symbol <tt class="docutils literal">#</tt>?</a></li>
+<li><a class="reference internal" href="#how-do-i-define-a-function-python-keyword-def">1.5. How do I define a function? (Python keyword <tt class="docutils literal">def</tt>)</a></li>
+<li><a class="reference internal" href="#how-do-we-call-a-function">1.6. How do we call a function?</a></li>
+<li><a class="reference internal" href="#are-there-other-ways-to-name-things">1.7. Are there other ways to name … <em>things</em> ?</a></li>
+<li><a class="reference internal" href="#repeating-instructions-python-keywords-for-in">1.8. Repeating instructions (Python keywords <tt class="docutils literal">for</tt>, <tt class="docutils literal">in</tt>)</a></li>
+<li><a class="reference internal" href="#python-keywords-if-true-false-and-not">1.9. Python keywords: <tt class="docutils literal">if</tt>, <tt class="docutils literal">True</tt>, <tt class="docutils literal">False</tt>, and <tt class="docutils literal">not</tt></a></li>
+<li><a class="reference internal" href="#python-keyword-while">1.10. Python keyword: <tt class="docutils literal">while</tt></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Python: A brief overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="python2.html"
+                        title="next chapter">2. A quick Python introduction: part 2</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/python/python1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+      <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
+</div>
+          <div class="body">
+            
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>The following is <strong>not</strong> a programming tutorial.
+A programming tutorial would
+give you some explanations; it would force you to think about using
+what you learn to solve problems.  It would teach you how to write
+complete programs to do something useful.</p>
+<p class="last">The following is definitely not teaching you how to write useful programs.
+However, it should help you learn a bit about Python.</p>
+</div>
+<div class="section" id="a-quick-python-introduction-part-1">
+<h1>1. A quick Python introduction: part 1<a class="headerlink" href="#a-quick-python-introduction-part-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-a-python-program">
+<h2>1.1. What is a Python program?<a class="headerlink" href="#what-is-a-python-program" title="Permalink to this headline">¶</a></h2>
+<p>A Python program is a series of <em>statements</em>; these statements are
+usually written in a file (and in the Python Code editor for Reeborg’s
+World) and, in the simples case, executed strictly
+in the order in which they appear.</p>
+<p>The example illustrated below (both in written code and in an
+animated image) contains 7 statements, each one being a <em>function call</em>
+appearing on a separate line; in this example, we use 3 different functions only.</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">take</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+<span class="n">put</span><span class="p">()</span>
+<span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="take_put" src="../_images/take_put.gif" /></p>
+</div>
+<div class="section" id="what-is-a-function">
+<h2>1.2. What is a function?<a class="headerlink" href="#what-is-a-function" title="Permalink to this headline">¶</a></h2>
+<p>A function is a <strong>name</strong> given to a series of statements we want Python
+to be able to execute when the function is <strong>called</strong>.</p>
+<p><em>Confused?…</em></p>
+<p>Please, continue reading.</p>
+</div>
+<div class="section" id="what-is-a-valid-name-for-a-function-or-other-things">
+<h2>1.3. What is a valid name (for a function … or other “things”)?<a class="headerlink" href="#what-is-a-valid-name-for-a-function-or-other-things" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The exact and probably very confusing description
+of what constitute a valid name is found at
+<a class="reference external" href="https://docs.python.org/3.4/reference/lexical_analysis.html#identifiers">identifiers</a>.</p>
+</div>
+<p>For simplicity, let’s just say that a valid name is any group of letters,
+digits and <em>underscore character</em> (<tt class="docutils literal">_</tt>), with the exclusion of a few
+reserved words (known as Python <em>keywords</em>, which we will see below).
+Valid names can start with any letter or with the underscore character,
+but not with a number.  Thus, valid names include:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">reeborg</span>
+<span class="n">_interesting_name</span>
+<span class="n">C3pio</span>
+<span class="n">_</span>      <span class="c1"># often use by Python programmers when they don&#39;t need to remember the name later</span>
+<span class="n">UsedRobot</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-is-the-meaning-of-the-symbol">
+<h2>1.4. What is the meaning of the symbol <tt class="docutils literal">#</tt>?<a class="headerlink" href="#what-is-the-meaning-of-the-symbol" title="Permalink to this headline">¶</a></h2>
+<p>The symbol <tt class="docutils literal">#</tt> is used to indicate the beginning of a <em>comment</em>.
+A <em>comment</em> is some text written by a programmer and meant to be
+read by other humans and ignored by the computer - in this case,
+ignored by Reeborg.  In the editor, comments appear in a different
+colour from the rest of the code, making them easy to identify.</p>
+</div>
+<div class="section" id="how-do-i-define-a-function-python-keyword-def">
+<h2>1.5. How do I define a function? (Python keyword <tt class="docutils literal">def</tt>)<a class="headerlink" href="#how-do-i-define-a-function-python-keyword-def" title="Permalink to this headline">¶</a></h2>
+<p>You can define a new Python function as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_well_chosen_name</span> <span class="p">():</span>
+    <span class="c1"># some lines of code</span>
+    <span class="c1"># indented at the same level</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal">def</tt> is our first Python <strong>keyword</strong>.
+Notice how a colon <tt class="docutils literal">:</tt> precedes what
+is known as a <em>block of code</em> and constitutes the <em>body</em> of the
+function. It is <strong>required</strong> in Python to <em>indent</em> such blocks of code
+with the same number of spaces at the beginning of each line which,
+as a side-effect, makes it
+easy to identify the function body for a human reader.</p>
+<p>Let’s write our first useful Python function:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">turn_right</span><span class="p">():</span>
+    <span class="n">turn_left</span><span class="p">()</span>
+    <span class="n">turn_left</span><span class="p">()</span>
+    <span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="def" src="../_images/def.gif" /></p>
+<p>Repeating what we wrote above:
+a function is a <strong>name</strong> given to a series of statements we want Python
+to be able to execute when the function is <strong>called</strong>.</p>
+</div>
+<div class="section" id="how-do-we-call-a-function">
+<h2>1.6. How do we call a function?<a class="headerlink" href="#how-do-we-call-a-function" title="Permalink to this headline">¶</a></h2>
+<p>We simply follow its name by parentheses.  Thus <tt class="docutils literal">move</tt> is the name
+of a function, and writing <tt class="docutils literal">move()</tt> tells Python to execute this
+function.</p>
+<p><strong>Note:</strong> when <em>defining</em> a function, we also write parentheses, but
+Python knows not to execute a function since using the keyword <tt class="docutils literal">def</tt>
+indicates that Python does not know (yet) how to execute this function
+(but is about to be told how).</p>
+<p>Here’s an example of a program that would result in a single <tt class="docutils literal">turn_left()</tt>
+command followed by a single <tt class="docutils literal">move()</tt>:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">turn_left</span><span class="p">()</span>
+<span class="n">move</span>     <span class="c1"># no parentheses, no execution</span>
+<span class="n">turn_left</span>
+<span class="n">move</span>
+<span class="n">put</span>
+<span class="n">take</span>
+<span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="paren" src="../_images/paren.gif" /></p>
+</div>
+<div class="section" id="are-there-other-ways-to-name-things">
+<h2>1.7. Are there other ways to name … <em>things</em> ?<a class="headerlink" href="#are-there-other-ways-to-name-things" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you know other programming languages, you almost certainly
+need to forget what <tt class="docutils literal">=</tt> does in these languages.</p>
+</div>
+<p>Python uses the equal sign <tt class="docutils literal">=</tt> to make it possible for you to name
+things.  The way it works is like this:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_given_by_you</span> <span class="o">=</span> <span class="n">something_known_to_Python</span>
+</pre></div>
+</div>
+<p>For example, if you were to write:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">five</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal">five</tt> would be the name given by you to what most people would think
+of as being <tt class="docutils literal">4</tt> and which Python would possibly know as
+<tt class="docutils literal">00000000000000000000000000000100</tt>.</p>
+<p>A given “thing” known by Python can be given many names by you; Python
+will recognize all these names as being equivalent.</p>
+<p>In Python, the technically correct term for “thing” is <strong>object</strong>; for
+Python, everything that it knows is an <strong>object</strong>.</p>
+<p><img alt="assign" src="../_images/assign.gif" /></p>
+</div>
+<div class="section" id="repeating-instructions-python-keywords-for-in">
+<h2>1.8. Repeating instructions (Python keywords <tt class="docutils literal">for</tt>, <tt class="docutils literal">in</tt>)<a class="headerlink" href="#repeating-instructions-python-keywords-for-in" title="Permalink to this headline">¶</a></h2>
+<p>I am going to give you a Python idiom used to repeat instructions
+a fixed number of times.  I am not going to explain it to you - at least
+not at this point.  It’s just something I need to be able to use
+to continue this <span class="strike">tutorial</span> introduction to Python.</p>
+<p>Suppose I want to repeat some (unspecified) instructions 42 times.
+Here’s how I could do this with Python:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">42</span><span class="p">):</span>
+   <span class="c1"># some</span>
+   <span class="c1"># instructions</span>
+   <span class="c1"># here</span>
+   <span class="c1"># all</span>
+   <span class="c1"># part</span>
+   <span class="c1"># of</span>
+   <span class="c1"># an</span>
+   <span class="c1"># indented</span>
+   <span class="c1"># code</span>
+   <span class="c1"># block</span>
+</pre></div>
+</div>
+<p>This is known as a <strong>for</strong> loop.</p>
+<p>Notice how I used <tt class="docutils literal">_</tt> above, between the Python keyword <strong>for</strong> and
+the Python keyword <strong>in</strong>;  I could have chosen any name but, as I don’t
+care for the name chosen here, I’ve adopted the Python convention
+I mentioned before of choosing this particular name.</p>
+<p>Here’s a more concrete example, revisiting a function
+definition we have seen before:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">turn_right</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">turn_left</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In this simple case, the code block to be repeated is a single
+statement.</p>
+</div>
+<div class="section" id="python-keywords-if-true-false-and-not">
+<h2>1.9. Python keywords: <tt class="docutils literal">if</tt>, <tt class="docutils literal">True</tt>, <tt class="docutils literal">False</tt>, and <tt class="docutils literal">not</tt><a class="headerlink" href="#python-keywords-if-true-false-and-not" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following program:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">move</span><span class="p">()</span>
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">turn_left</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">turn_left</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This result is illustrated below:</p>
+<p><img alt="if" src="../_images/if.gif" /></p>
+<p>The <tt class="docutils literal">if</tt> statement in general will be something like:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+   <span class="c1"># lines</span>
+   <span class="c1"># of</span>
+   <span class="c1"># code</span>
+</pre></div>
+</div>
+<p>and the “lines of code” will be executed only <strong>if</strong> the <tt class="docutils literal">condition</tt>
+is equivalent to <tt class="docutils literal">True</tt>.   We note that <tt class="docutils literal">not False</tt> is
+completely equivalent to <tt class="docutils literal">True</tt>.</p>
+<p>All this should be very easy to understand since you know English:
+the Python keywords <tt class="docutils literal">if</tt>, <tt class="docutils literal">True</tt>, <tt class="docutils literal">False</tt>, <tt class="docutils literal">not</tt>, and many
+others have been chosen based on their meaning in the English language.</p>
+</div>
+<div class="section" id="python-keyword-while">
+<h2>1.10. Python keyword: <tt class="docutils literal">while</tt><a class="headerlink" href="#python-keyword-while" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="strike">if</span> <tt class="docutils literal">while</tt> statement in general will be something like:</p>
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+   <span class="c1"># lines</span>
+   <span class="c1"># of</span>
+   <span class="c1"># code</span>
+</pre></div>
+</div>
+<p>and the “lines of code” will be executed only <strong>while</strong> the <tt class="docutils literal">condition</tt>
+is equivalent to <tt class="docutils literal">True</tt> … and will be repeated over and over, only
+stopping if the <tt class="docutils literal">condition</tt> becomes equivalent to <tt class="docutils literal">False</tt>.</p>
+<p>Here’s an example of this you have seen before when we introduced
+the basic commands:</p>
+<p><img alt="at_goal" src="../_images/at_goal.gif" /></p>
+<div class="topic">
+<p class="topic-title first">Going back!</p>
+<p>If this was your first introduction to Python’s syntax,
+it’s probably a good idea to go back to the section on basic commands
+and review them: everything should make a lot more sense than
+when you saw those commands before.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>  
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+             <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+             <a href="python2.html" title="2. A quick Python introduction: part 2"
+             >next</a> |</li>
+        <li class="right" >
+             <a href="index.html" title="Python: A brief overview"
+             >previous</a> |</li>
+        <li><a class="logo" href="/index_en.html" class="fake_button">
+              <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
+              <span class="logo">Reeborg's World</span>
+            </a></li>
+        <li><a href="../index.html">和乐跑一起学 Python</a></li>
+          <li> &raquo;<a href="index.html" >Python: A brief overview</a></li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright
+          <a href="mailto:andre.roberge@gmail.com">André Roberge </a>
+        
+       - Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+    </div>
+  <script>
+  $(document).ready(function() {
+      $('.hint').children().hide();
+      $('.hint p.admonition-title').show().css('cursor', 'pointer');
+      $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
+      $("a[href^='http']").attr('target','_blank');
+  });
+  </script>
+  </body>
+</html>

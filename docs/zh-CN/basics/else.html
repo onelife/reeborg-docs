@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>18. Listen to me … or else …. &mdash; 和乐跑一起学 Python</title>
+    <title>18. 听我说……否则…… &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="19. Hurdles yet again!" href="hurdles3.html" />
-    <link rel="prev" title="17. Finding the right spot" href="at_goal.html" /> 
+    <link rel="next" title="19. 又再回到跨栏！" href="hurdles3.html" />
+    <link rel="prev" title="17. 寻找正确的地点" href="at_goal.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="hurdles3.html" title="19. Hurdles yet again!"
+             <a href="hurdles3.html" title="19. 又再回到跨栏！"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="at_goal.html" title="17. Finding the right spot"
+             <a href="at_goal.html" title="17. 寻找正确的地点"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,19 +87,19 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">18. Listen to me … or else ….</a><ul>
-<li><a class="reference internal" href="#two-choices">18.1. Two choices…</a></li>
-<li><a class="reference internal" href="#how-to-think-about-if-else">18.2. How to think about <tt class="docutils literal">if/else</tt></a></li>
+<li><a class="reference internal" href="#">18. 听我说……否则……</a><ul>
+<li><a class="reference internal" href="#id2">18.1. 两个选择……</a></li>
+<li><a class="reference internal" href="#if-else">18.2. 怎样理解 <tt class="docutils literal">if/else</tt></a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="at_goal.html"
-                        title="previous chapter">17. Finding the right spot</a></p>
+                        title="previous chapter">17. 寻找正确的地点</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="hurdles3.html"
-                        title="next chapter">19. Hurdles yet again!</a></p>
+                        title="next chapter">19. 又再回到跨栏！</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -132,60 +132,44 @@ as placeholder.</p>
 </div>
           <div class="body">
             
-  <div class="section" id="listen-to-me-or-else">
-<h1>18. Listen to me … or else ….<a class="headerlink" href="#listen-to-me-or-else" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">While learning how to program may be fun, you should not spend all your
-time in front of the computer. <tt class="docutils literal">if</tt> it rains, keep reading, otherwise,
-go outside and play! (Yes, even you grandpa!)</p>
-<div class="section" id="two-choices">
-<h2>18.1. Two choices…<a class="headerlink" href="#two-choices" title="Permalink to this headline">¶</a></h2>
-<p>Let’s rewrite the sentence that starts with <tt class="docutils literal">if</tt> above:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">it</span> <span class="n">rains</span><span class="p">,</span>
-    <span class="n">keep</span> <span class="n">reading</span><span class="p">,</span>
-<span class="n">otherwise</span><span class="p">,</span>
-    <span class="n">go</span> <span class="n">outside</span> <span class="ow">and</span> <span class="n">play</span>
+  <div class="section" id="id1">
+<h1>18. 听我说……否则……<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">虽然学习编程很有趣，但你也不能总坐在计算机前面。 <tt class="docutils literal">if</tt> （如果）下雨了，就继续阅读；否则，出去玩吧！（是的，就算你已经当爷爷了！）</p>
+<div class="section" id="id2">
+<h2>18.1. 两个选择……<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>让我们重写一下 <tt class="docutils literal">if</tt> 开头的这句话：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">it</span> <span class="n">rains</span><span class="p">,</span>              <span class="c1"># 如果下雨了，</span>
+    <span class="n">keep</span> <span class="n">reading</span><span class="p">,</span>         <span class="c1">#   继续阅读；</span>
+<span class="n">otherwise</span><span class="p">,</span>                <span class="c1"># 否则，</span>
+    <span class="n">go</span> <span class="n">outside</span> <span class="ow">and</span> <span class="n">play</span>   <span class="c1">#   出去玩吧！</span>
 </pre></div>
 </div>
-<p>If this were Python, we might have written it like this instead:</p>
+<p>如果用 Python，我们大概可以写成这样：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">it_rains</span><span class="p">():</span>
     <span class="n">keep_reading</span><span class="p">()</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">go_outside_and_play</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Yes, Python includes the possibility of more than one choice with
-the keyword <tt class="docutils literal">else</tt>. Let’s use it with another example. Reeborg can see
-if there’s a wall right in front him. Consider world <strong>Around&nbsp;1</strong>. You will
-use a new condition, <tt class="docutils literal">front_is_clear()</tt> which Reeborg uses to
-determine if there’s a wall in front of him or not, together with the
-<tt class="docutils literal">if/else</tt> pair to write a program that will guide Reeborg around the
-world. Something like the following:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move_or_turn</span> <span class="p">():</span>
+<p>是的，使用 Python 关键字 <tt class="docutils literal">else</tt> 可以描述更多的选择。让我们用另外一个例子试试。乐跑可以看到它前面是否有墙；观察一下关卡 <strong>周游世界之一</strong> ，你将使用新的条件： <tt class="docutils literal">front_is_clear()</tt> ——乐跑能用它来判断是否有墙挡在面前。试着使用该函数和 <tt class="docutils literal">if/else</tt> 写一段程序让乐跑周游世界，大纲如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move_or_turn</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">front_is_clear</span><span class="p">():</span>
-        <span class="c1"># something</span>
+        <span class="c1"># 做一些事</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># something else</span>
+        <span class="c1"># 做一些别的事</span>
 
-<span class="n">repeat</span> <span class="mi">40</span><span class="p">:</span>
+<span class="n">repeat</span> <span class="mi">42</span><span class="p">:</span>
     <span class="n">move_or_turn</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="topic">
-<p class="topic-title first">Try it!</p>
-<p>Write a program using the code above so that Reeborg goes around world
-<strong>Around 1</strong>.
-After you are done, can you modify the program (by adding one line) so
-that Reeborg deposits a token at each corner?</p>
+<p class="topic-title first">试试这个！</p>
+<p>完成上面的大纲，让乐跑攻克 <strong>周游世界之一</strong> 。攻克之后，试试看你能否修改这个程序（增加一行代码）使乐跑在每个转角处都留下一个笑脸。</p>
 </div>
 </div>
-<div class="section" id="how-to-think-about-if-else">
-<h2>18.2. How to think about <tt class="docutils literal">if/else</tt><a class="headerlink" href="#how-to-think-about-if-else" title="Permalink to this headline">¶</a></h2>
-<p>We have seen how <tt class="docutils literal">def</tt>s and <tt class="docutils literal">if</tt> statements could be thought
-of as being (sometimes) equivalent to inserting a code block; the
-exception was when the condition of the <tt class="docutils literal">if</tt> statement was <tt class="docutils literal">False</tt>,
-in which case we ignored the code block which is equivalent to deleting
-it. <tt class="docutils literal">if/else</tt> statements can be thought as inserting one or the other
-code block. Thus</p>
+<div class="section" id="if-else">
+<h2>18.2. 怎样理解 <tt class="docutils literal">if/else</tt><a class="headerlink" href="#if-else" title="Permalink to this headline">¶</a></h2>
+<p>我们已经知道了怎样理解 <tt class="docutils literal">def</tt> 和 <tt class="docutils literal">if</tt> 语句——等价于插入一个代码块；当 <tt class="docutils literal">if</tt> 语句的条件为 <tt class="docutils literal">False</tt> （否）时是例外，此时该代码块被忽略了——等价于被删除了。 <tt class="docutils literal">if/else</tt> 语句可以被理解为插入多个代码块中的一个。因此，</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
 <span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">turn_right</span><span class="p">()</span>
@@ -194,13 +178,13 @@ code block. Thus</p>
 <span class="n">move</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>is equivalent to</p>
+<p>等价于</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
 <span class="n">turn_right</span><span class="p">()</span>
 <span class="n">move</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>whereas</p>
+<p>而</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
 <span class="k">if</span> <span class="bp">False</span><span class="p">:</span>
     <span class="n">turn_right</span><span class="p">()</span>
@@ -209,13 +193,13 @@ code block. Thus</p>
 <span class="n">move</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>is equivalent to</p>
+<p>等价于</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
 <span class="n">turn_left</span><span class="p">()</span>
 <span class="n">move</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>We can represent this as a flowchart:</p>
+<p>我们可以用下面的流程图来表示：</p>
 <div class="figure align-center">
 <img alt="../_images/else.jpg" src="../_images/else.jpg" />
 </div>
@@ -235,10 +219,10 @@ code block. Thus</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="hurdles3.html" title="19. Hurdles yet again!"
+             <a href="hurdles3.html" title="19. 又再回到跨栏！"
              >next</a> |</li>
         <li class="right" >
-             <a href="at_goal.html" title="17. Finding the right spot"
+             <a href="at_goal.html" title="17. 寻找正确的地点"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>

@@ -1,35 +1,33 @@
-Hurdles yet again!
+又再回到跨栏！
 ==================
 
 .. index:: ! elif
 
-Reeborg lives in Canada where it not only can rain or be sunny, but snow
-can also be falling ... usually not all three at the same time ... but
-it does happen... Let's suppose that only one of those can happen. Then,
-Reeborg could be faced with the following choices::
+乐跑生活在加拿大，这里不只有雨天和晴天，还会有雪花掉下来……一般来说不会同时发生……但是确实发生过……让我们假设每次只有一种情况会发生。那么，乐跑可能面临三种选择：
 
-    if it_rains():
-        play_indoors()
-    elif it_snows():
-        go_skiing()
-    else:
-        go_swimming() # assuming it is warm!
+.. code-block:: python
 
-Notice the use of ``elif`` (which means "else if") for choice 2. If we took into account other
-possible weather phenomena, like hail, thunder, fog, drizzle, etc., we
-could add other choices using additional ``elif: ...`` code blocks.
+    if it_rains():      # 如果下雨
+        play_indoors()  #    在室内玩
+    elif it_snows():    # 如果下雪
+        go_skiing()     #    去滑雪
+    else:               # 否则
+        go_swimming()   #    去游泳（假设天气很暖和）
 
-Here is a graphical representation of the choices that Reeborg faces:
+请注意，第二个选择使用了 ``elif`` ——表示 “else if”（否则，如果……）。若要把其它的天气现象也考虑在内——比如冰雹、打雷、雾、毛毛雨等等，我们可以增加 ``elif: ...`` 代码块。
+
+下面的流程图说明了乐跑所面临的选择：
 
 .. figure:: ../../flowcharts/elif.jpg
    :align: center
 
 
-How to think of ``if/elif/ ... /else`` statements
+怎样理解 ``if/elif/ ... /else`` 语句
 ----------------------------------------------------
 
-A series of ``if/elif/ ... /else`` statements is equivalent to
-inserting the **first** code block that evaluates to ``True``. Thus::
+一系列的 ``if/elif/ ... /else`` 语句等价于插入第一个条件被评估为 ``True`` （是）的代码块。因此
+
+.. code-block:: python
 
     if False:
         do_1()
@@ -40,11 +38,15 @@ inserting the **first** code block that evaluates to ``True``. Thus::
     else:
         do_4()
 
-is equivalent to::
+等价于
+
+.. code-block:: python
 
     do_2()
 
-whereas::
+而
+
+.. code-block:: python
 
     if False:
         do_1()
@@ -55,25 +57,25 @@ whereas::
     else:
         do_4()
 
-is equivalent to::
+等价于
+
+.. code-block:: python
 
     do_4()
 
-etc.
+等等。
 
-Back to hurdles
+回到跨栏
 ---------------
 
 .. index:: front_is_clear()
 
-Just two lessons ago, you wrote a program that worked for worlds
-**Hurdles 1** and **Hurdles 2** but not for **Hurdles 3**. Your program was likely
-something like this
+在上上节课，你写了一段程序可以攻克 **跨栏之一** 和 **跨栏之二** ，但不能攻克 **跨栏之三** 。你的程序可能是这样写的：
 
 .. code-block:: python
 
    def jump_over_hurdle():
-        # some suitable definition
+        # 函数的定义
 
    def move_and_jump_until_done():
         move()
@@ -84,39 +86,30 @@ something like this
     repeat 42:
         move_and_jump_until_done()
 
-The reason it is not working for **Hurdles 3** is that it is written with
-the assumption that the hurdles are evenly spaced. Let's use our new
-condition ``front_is_clear()`` and keyword ``else`` to change that.
+不能攻克 **跨栏之三** 的原因是，我们在写程序的时候，假设跨栏之间的距离是相等的。让我们用新的条件 ``front_is_clear()`` 和关键字 ``else`` 来修改一下。
 
-Here's a new program that should work for the world we mentioned above,
-provided you fill in the missing pieces.
+下面的新程序应该能攻克上面提到的三个关卡，请补全缺失的代码。
 
 .. code-block:: python
 
    def jump_over_hurdle():
-        # suitable definition
+        # 函数的定义
 
    def run_jump_or_finish ():
         if at_goal():
-            # something
+            # 做一些事
         elif front_is_clear():
-            # something
+            # 做一些事
         else:
-            # something
+            # 做一些事
 
     repeat 42:
         run_jump_or_finish()
 
-Note the structure of the ``if/elif/else`` statements; as is mentioned above,
-you should see that it gives three independent choices: only one of them
-will be executed.
+请注意 ``if/elif/else`` 语句的结构，就像之前提到的——在三个独立的选择之中，只有一个会被执行。
 
-.. topic:: Do it!
+.. topic:: 这样做！
 
-    Write such a program and make sure it works.
+    写完上面的程序，并确保能攻克上面提到的三个关卡。
 
-Could this program work without changing anything for world **Hurdles 4**?
-... Have a look and you will likely conclude that the answer is no.
-You might want to try it just to be sure. It will take a little
-``while`` until we are ready to write a program that can make Reeborg
-race **Hurdles 4** as well as the other three.
+不经任何改动，此程序能攻克 **跨栏之四** 么？……仔细观察一下，你可能会得到否定的答案。运行一下程序以证实你的想法。到我们能用一个程序攻克全部四个 **跨栏** 关卡，还需要花一些时间（ ``while`` ）。

@@ -1,23 +1,23 @@
-Listen to me ... or else ....
+听我说……否则……
 =============================
 
 .. index:: ! else
 
-While learning how to program may be fun, you should not spend all your
-time in front of the computer. ``if`` it rains, keep reading, otherwise,
-go outside and play! (Yes, even you grandpa!)
+虽然学习编程很有趣，但你也不能总坐在计算机前面。 ``if`` （如果）下雨了，就继续阅读；否则，出去玩吧！（是的，就算你已经当爷爷了！）
 
-Two choices...
+两个选择……
 --------------
 
-Let's rewrite the sentence that starts with ``if`` above::
+让我们重写一下 ``if`` 开头的这句话：
 
-    if it rains,
-        keep reading,
-    otherwise,
-        go outside and play
+.. code-block:: python
 
-If this were Python, we might have written it like this instead:
+    if it rains,              # 如果下雨了，
+        keep reading,         #   继续阅读；
+    otherwise,                # 否则，
+        go outside and play   #   出去玩吧！
+
+如果用 Python，我们大概可以写成这样：
 
 .. code-block:: python
 
@@ -26,42 +26,28 @@ If this were Python, we might have written it like this instead:
     else:
         go_outside_and_play()
 
-Yes, Python includes the possibility of more than one choice with
-the keyword ``else``. Let's use it with another example. Reeborg can see
-if there's a wall right in front him. Consider world **Around 1**. You will
-use a new condition, ``front_is_clear()`` which Reeborg uses to
-determine if there's a wall in front of him or not, together with the
-``if/else`` pair to write a program that will guide Reeborg around the
-world. Something like the following:
+是的，使用 Python 关键字 ``else`` 可以描述更多的选择。让我们用另外一个例子试试。乐跑可以看到它前面是否有墙；观察一下关卡 **周游世界之一** ，你将使用新的条件： ``front_is_clear()`` ——乐跑能用它来判断是否有墙挡在面前。试着使用该函数和 ``if/else`` 写一段程序让乐跑周游世界，大纲如下：
 
 .. code-block:: python
 
 
-    def move_or_turn ():
+    def move_or_turn():
         if front_is_clear():
-            # something
+            # 做一些事
         else:
-            # something else
+            # 做一些别的事
 
-    repeat 40:
+    repeat 42:
         move_or_turn()
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-    Write a program using the code above so that Reeborg goes around world
-    **Around 1**.
-    After you are done, can you modify the program (by adding one line) so
-    that Reeborg deposits a token at each corner?
+    完成上面的大纲，让乐跑攻克 **周游世界之一** 。攻克之后，试试看你能否修改这个程序（增加一行代码）使乐跑在每个转角处都留下一个笑脸。
 
-How to think about ``if/else``
+怎样理解 ``if/else``
 ------------------------------
 
-We have seen how ``def``\ s and ``if`` statements could be thought
-of as being (sometimes) equivalent to inserting a code block; the
-exception was when the condition of the ``if`` statement was ``False``,
-in which case we ignored the code block which is equivalent to deleting
-it. ``if/else`` statements can be thought as inserting one or the other
-code block. Thus
+我们已经知道了怎样理解 ``def`` 和 ``if`` 语句——等价于插入一个代码块；当 ``if`` 语句的条件为 ``False`` （否）时是例外，此时该代码块被忽略了——等价于被删除了。 ``if/else`` 语句可以被理解为插入多个代码块中的一个。因此，
 
 .. code-block:: python
 
@@ -72,7 +58,7 @@ code block. Thus
         turn_left()
     move()
 
-is equivalent to
+等价于
 
 .. code-block:: python
 
@@ -80,7 +66,7 @@ is equivalent to
     turn_right()
     move()
 
-whereas
+而
 
 .. code-block:: python
 
@@ -91,7 +77,7 @@ whereas
         turn_left()
     move()
 
-is equivalent to
+等价于
 
 .. code-block:: python
 
@@ -99,7 +85,7 @@ is equivalent to
     turn_left()
     move()
 
-We can represent this as a flowchart:
+我们可以用下面的流程图来表示：
 
 .. figure:: ../../flowcharts/else.jpg
    :align: center

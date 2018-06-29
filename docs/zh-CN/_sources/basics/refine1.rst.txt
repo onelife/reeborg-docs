@@ -1,12 +1,9 @@
-Refinements: part 1
+改进：第一部分
 ===================
 
-In this multi-part lesson, we are going to write a complete program to
-solve problems of increasing complexity. For each lesson, I will present
-a tentative solution that will contain one mistake. Try to find it
-before moving on to the next lesson.
+这是一节大课的第一部分，完成这节大课时我们将写出一个完整的程序来解决日益复杂的问题。在每节课里，我将提出一个试探性地解决方案，其中包含一个错误。请找出这个错误，再去下一部分。
 
-A simple problem
+一个简单的问题
 ----------------
 
 Let us start by considering a simple problem: having Reeborg go around

@@ -1,8 +1,7 @@
-Summary
+小结
 =======
 
-It is yet time again to review what we have learned.  We now have seen
-six additional Python keywords:
+又到了复习的时间。从上一次小结到现在，我们见到了六个新的 Python 关键字：
 
 -  ``if``
 -  ``elif``
@@ -11,25 +10,24 @@ six additional Python keywords:
 -  ``False``
 -  ``not``
 
-in addition to the three we had first seen.:
+之前见到的关键字有:
 
 -  ``def``
 -  ``from``
 -  ``import``
 
-We have seen four functions which help inform Reeborg about the
-state of its world:
+我们使用了四个用来告诉乐跑，有关世界的状态的新函数：
 
 -  ``object_here()``
 -  ``at_goal()``
 -  ``front_is_clear()``
 -  ``wall_in_front()``
 
-We have also seen another function:
+以及另外一个函数：
 
 -  ``done()``
 
-which is in addition to:
+之前见到的函数有:
 
 -  ``move()``
 -  ``turn_left()``

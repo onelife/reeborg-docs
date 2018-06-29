@@ -1,100 +1,81 @@
-Not ... true!
-=============
+这不……是真的！
+================
 
 .. index:: ! not
 
-Reeborg is upset. It's **not** raining; it's **not** snowing. Yet, he
-cannot go outside and practise for his hurdles race.
+乐跑有些失望。天上既 **没有** 下雨，也 **没有** 下雪。但它也不能出门，因为要练习跨栏。
 
-Why, do you ask? It's because Reeborg is waiting for you to learn about
-Python's **not**.
+为什么我要这么说话？因为乐跑在等你学习 Python 关键字 **not** （没有、不）。
 
-Time to be negative.
+到了学习否定的时间了
 --------------------
 
-Python, we can indicate that something is not true by writing ``not True``
-which is synonymous of ``False``. Likewise, ``not False`` is
-equivalent to ``True``.
+在写 Python 程序时，我们可以用 ``not True`` 来表示对某个条件的否定，它是 ``False`` （否、假）的代名词。同样的，``not False`` 等价于 ``True`` （是、真）。
 
-Please, make Reeborg happy
+请让乐跑高兴起来
 --------------------------
 
-You have already written a program that enables Reeborg to jump hurdles;
-parts of it went something like this:
+你已经写了一个能让乐跑跨栏的程序，其中的部分代码可能是这样的：
 
 .. code-block:: python
 
    def run_jump_or_finish ():
         if at_goal():
-            # something
+            # 做一些事
         elif front_is_clear():
-            # something
+            # 做一些事
         else:
-            # something
+            # 做一些事
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-    Make Reeborg happy by re-writing this program in three other versions,
-    by choosing different combinations of the negation keyword ``not`` **and**
-    different combinations of ``if/elif/else``.
+    使用 ``not`` 关键字 **和** ``if/elif/else`` 语句进行组合，再写三个不同版本的跨栏程序，以便让乐跑高兴起来。
 
-You should use the three code samples below but pay close
-attention to where the ``not`` keyword occur **and** to what is actually
-included in each code block.
+你可以使用下面的三个例子，请注意 ``not`` 关键字的位置 **以及** 每个代码块中的内容：
 
 .. code-block:: python
 
-   # first choice:
+   # 第一个版本：
 
    def run_jump_or_finish ():
         if at_goal():
-            # something
+            # 做一些事
         elif not front_is_clear():
-            # something
+            # 做一些事
         else:
-            # something
+            # 做一些事
 
-   # second choice ... trickier
+   # 第二个版本……有点棘手
 
    def run_jump_or_finish ():
         if not at_goal():
             if front_is_clear():
-                # something
+                # 做一些事
             else:
-                # something
+                # 做一些事
         else:
-            # something
+            # 做一些事
 
-   # third choice:
+   # 第三个版本
 
    def run_jump_or_finish ():
         if not at_goal():
             if not front_is_clear():
-                # something
+                # 做一些事
             else:
-                # something
+                # 做一些事
         else:
-            # something
+            # 做一些事
 
-Another option
+另外一种方式
 --------------
 
 .. index:: wall_in_front()
 
-You have just seen how it is possible to change the order
-in which the conditions appear in an ``if/elif/else`` code block while
-still accomplishing the same goal.  Two different programmers will often
-use different strategies to get the same final result.  There are other
-ways in which different programmers will write different but equivalent
-programs: by using different functions.
+你刚刚看到：改变 ``if/elif/else`` 语句中条件的出现顺序，我们仍然可以完成同样的任务。两个不同的程序员经常使用不同的策略，但得到相同的结果。还有很多其它的方式，使不同的程序员写出不同、但等价的程序——比如，使用不同的函数。
 
-The function ``front_is_clear()`` will tell Reeborg whether or not a
-wall is blocking its way.  It will do the same for **water**, **brick walls**,
-**fences**, etc., which we have not seen yet but likely will in future worlds.
-There is a function that is more specific to wall; it is called
-``wall_in_front()``; I leave it up to you to guess what it does.
+``front_is_clear()`` 函数可以告诉乐跑是否有一堵墙挡住了它的路。所谓的墙，也可能是 **水** 、 **砖墙** 、 **篱笆** 等等，我们以后都会碰到。有一个函数是专门判断有没有墙的，叫做 ``wall_in_front()`` ，你来猜猜它的作用。
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-    Write a program using ``wall_in_front()`` instead of the equivalent
-    ``not front_is_clear()``.
+    用 ``wall_in_front()`` 代替等价的 ``not front_is_clear()`` 改写程序。

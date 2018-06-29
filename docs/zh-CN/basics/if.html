@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>16. 只有……（才） &mdash; 和乐跑一起学 Python</title>
+    <title>16. 如果……（就） &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,7 +27,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="17. Finding the right spot" href="at_goal.html" />
+    <link rel="next" title="17. 寻找正确的地点" href="at_goal.html" />
     <link rel="prev" title="15. 小结" href="summary2.html" /> 
 
   <script>
@@ -69,7 +69,7 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="at_goal.html" title="17. Finding the right spot"
+             <a href="at_goal.html" title="17. 寻找正确的地点"
              accesskey="N">next</a> |</li>
         <li class="right" >
              <a href="summary2.html" title="15. 小结"
@@ -87,11 +87,11 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">16. 只有……（才）</a><ul>
+<li><a class="reference internal" href="#">16. 如果……（就）</a><ul>
 <li><a class="reference internal" href="#python-if">16.1. Python 关键字： <tt class="docutils literal">if（如果）</tt></a></li>
 <li><a class="reference internal" href="#if">16.2. <tt class="docutils literal">if</tt> 语句</a></li>
 <li><a class="reference internal" href="#id2">16.3. 怎样理解 <tt class="docutils literal">if</tt> 语句</a></li>
-<li><a class="reference internal" href="#more-useful-that-you-might-think">16.4. More useful that you might think…</a></li>
+<li><a class="reference internal" href="#id3">16.4. 可能比你想到的更有用途……</a></li>
 </ul>
 </li>
 </ul>
@@ -101,7 +101,7 @@
                         title="previous chapter">15. 小结</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="at_goal.html"
-                        title="next chapter">17. Finding the right spot</a></p>
+                        title="next chapter">17. 寻找正确的地点</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -135,13 +135,13 @@ as placeholder.</p>
           <div class="body">
             
   <div class="section" id="id1">
-<h1>16. 只有……（才）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>只有在乐跑能自己进行判断的时候，写程序才会变得非常轻松…… <strong>等等！</strong> 我不是在告诉你：乐跑可以自己进行判断。</p>
+<h1>16. 如果……（就）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>如果乐跑能自己进行判断，写程序就会变得非常轻松…… <strong>等等！</strong> 我并不是在告诉你：乐跑可以自己进行判断。</p>
 <div class="section" id="python-if">
 <h2>16.1. Python 关键字： <tt class="docutils literal">if（如果）</tt><a class="headerlink" href="#python-if" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="index-0"></span><span class="target" id="index-1"></span><div class="topic" id="index-2">
 <p class="topic-title first">这样做！</p>
-<p>选择一个适当的世界（也许可以用 <strong>Alone（空白）</strong> ），然后让乐跑执行下面的程序。</p>
+<p>选择一个适当的世界（比如 <strong>空白</strong> ），然后让乐跑执行下面的程序。</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">move</span><span class="p">()</span>
@@ -154,7 +154,7 @@ as placeholder.</p>
 </div>
 <div class="section" id="if">
 <h2>16.2. <tt class="docutils literal">if</tt> 语句<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h2>
-<p>所谓的 <tt class="docutils literal">if</tt> <strong>语句</strong> 后面所跟随的模式和 <tt class="docutils literal">function（函数）</tt> 类似：:</p>
+<p>所谓的 <tt class="docutils literal">if</tt> <strong>语句</strong> 其后所跟随的模式和 <tt class="docutils literal">function（函数）</tt> 类似：:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_name</span><span class="p">():</span>
     <span class="c1"># 代码块</span>
 
@@ -165,7 +165,7 @@ as placeholder.</p>
 </div>
 <div class="section" id="id2">
 <h2>16.3. 怎样理解 <tt class="docutils literal">if</tt> 语句<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>在介绍函数的时候，我们解释了可以把 <strong>引用</strong> 函数理解为，相当于把该函数所定义的代码块插入到被引用的位置。因此，</p>
+<p>在介绍函数的时候，我们解释了可以把 <strong>引用</strong> 函数理解为：把该函数所定义的代码块插入到被引用的位置。因此，</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
 <span class="n">turn_right</span><span class="p">()</span>    <span class="c1"># 引用函数</span>
 <span class="n">move</span><span class="p">()</span>
@@ -173,7 +173,7 @@ as placeholder.</p>
 </div>
 <p>等价于</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">move</span><span class="p">()</span>
-<span class="c1"># 开始和 turn_right() 里面的一样的代码块</span>
+<span class="c1"># 代码块开始，和 turn_right() 里面定义的一样</span>
 <span class="n">turn_left</span><span class="p">()</span>
 <span class="n">turn_left</span><span class="p">()</span>
 <span class="n">turn_left</span><span class="p">()</span>
@@ -209,92 +209,64 @@ as placeholder.</p>
 <span class="n">move</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Note that thinking of it this way does not mean that such a deletion
-would be done permanently: if, somehow, our program <em>looped back</em> and
-repeated this part of the code again, the <tt class="docutils literal">if</tt> statement would be
-reevaluated each time to decide whether or not to execute the lines of
-code inside the code block.</p>
-<p>We can represent the above using a flowchart:</p>
+<p>请注意，不要认为这样的删除是永久的：如果我们的程序以某种方式 <em>循环返回</em> 并且重复这部分代码，那么 <tt class="docutils literal">if</tt> 语句每次都会被重新评估以决定是否执行其中的代码块。</p>
+<p>我们可以用下面的流程图来表示上面的代码：</p>
 <div class="figure align-center">
 <img alt="../_images/if.jpg" src="../_images/if.jpg" />
 </div>
 </div>
-<div class="section" id="more-useful-that-you-might-think">
-<h2>16.4. More useful that you might think…<a class="headerlink" href="#more-useful-that-you-might-think" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>16.4. 可能比你想到的更有用途……<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The general term used to describe a function that gives a result
-equivalent to <tt class="docutils literal">True</tt> or <tt class="docutils literal">False</tt> in an <tt class="docutils literal">if</tt> statement is <strong>condition</strong>:</p>
-<div class="last highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+<p>用来描述 <tt class="docutils literal">if</tt> 语句里的、返回值等价于 <tt class="docutils literal">True</tt> 或 <tt class="docutils literal">False</tt> 的函数的术语是 <strong>条件（condition）</strong> ：</p>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
     <span class="o">...</span>
 </pre></div>
 </div>
 </div>
-<p id="index-3">Having to specify <tt class="docutils literal">True</tt> or <tt class="docutils literal">False</tt> does not help Reeborg decide on
-its own. However, there are special functions that Reeborg recognizes
-that allow to decide things for himself. The first of these is
-<tt class="docutils literal">object_here()</tt> which tells Reeborg that there is at least one object at
-the grid position where he is located. For example, if we want to ask
-Reeborg to collect tokens, one part of the code could be:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">object_here</span><span class="p">():</span>
+<p id="index-3">事先指定的 <tt class="docutils literal">True</tt> 或 <tt class="docutils literal">False</tt> 并不能帮助乐跑自己进行判断。然而，乐跑认识的、一些特殊的函数可以帮上忙。其中之一是 <tt class="docutils literal">object_here()</tt> ，该函数可以告诉乐跑，它所在格子里是否有至少一个物品。例如，当我们让乐跑收集笑脸时，一部分代码可以像这样：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">object_here</span><span class="p">():</span>
     <span class="n">take</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Have a look at worlds <strong>Tokens&nbsp;1</strong> and <strong>Tokens&nbsp;2</strong>. In both cases, and assuming
-that Reeborg moves forward in a straight line, when he finds a token,
-all he as to do is:</p>
+<p>观察一下关卡 <strong>笑脸之一</strong> 和 <strong>笑脸之二</strong> 。假设乐跑沿直线前进，当它发现一个笑脸时，所要做的都是：</p>
 <ol class="arabic simple">
-<li>take it</li>
-<li>move to the next grid</li>
-<li>put the token down</li>
-<li>move one more step</li>
-<li>and he is <tt class="docutils literal">done()</tt></li>
+<li>拾起笑脸</li>
+<li>前进一格</li>
+<li>把笑脸放下</li>
+<li>再前进一格</li>
+<li>完成—— <tt class="docutils literal">done()</tt></li>
 </ol>
-<p>where I have introduced a new command that Reeborg understands:
-<tt class="docutils literal">done()</tt>. Actually, you should think of this command as Reeborg saying
-it himself and declaring that he has finished.</p>
-<p>Let’s write the outline of a program that will work in both worlds
-<strong>Tokens&nbsp;1</strong> and <strong>Tokens&nbsp;2</strong>:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move_until_done</span><span class="p">():</span>
+<p>在这里，我引入了一条新指令：<tt class="docutils literal">done()</tt> 。实际上，你应该把这条指令理解为是乐跑说的——它宣布自己已经完成任务了。</p>
+<p>让我们来写一个在两个世界都能完成任务的程序大纲：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move_until_done</span><span class="p">():</span>
     <span class="n">move</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">object_here</span><span class="p">():</span>
-        <span class="c1"># something</span>
-        <span class="c1"># something else</span>
-        <span class="c1"># something else again</span>
-        <span class="c1"># yet one more</span>
+        <span class="c1"># 做一些事</span>
+        <span class="c1"># 又做一些事</span>
+        <span class="c1"># 再做一些事</span>
+        <span class="c1"># 还再做一些事</span>
         <span class="n">done</span><span class="p">()</span>
 
 <span class="n">repeat</span> <span class="mi">42</span><span class="p">:</span>
     <span class="n">move_until_done</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Why 42? … well, I just want to be sure that Reeborg will take enough
-steps no matter what world he is in. So far, all the worlds are small
-enough that this should be fine. I agree, it does not seem very smart
-… We’ll see how to fix that later.</p>
+<p>为什么是42？……嗯，我只是想确保乐跑重复的次数足够多，不管身在哪个世界。目前为止，所有的世界都不大，42应该足够了。 我同意，这看上去不太聪明……我们以后会修改的。</p>
 <div class="topic">
-<p class="topic-title first">Try it!</p>
-<p>Copy the above in the Code editor, filling in the missing
-commands, and test your program on both worlds <strong>Tokens&nbsp;1</strong> and <strong>Tokens&nbsp;2</strong>.</p>
+<p class="topic-title first">试试这个！</p>
+<p>把上面的代码复制到编辑框，填上缺失的指令，然后在 <strong>笑脸之一</strong> 和 <strong>笑脸之二</strong> 里测试。</p>
 </div>
-<div class="admonition-for-educators admonition">
-<p class="first admonition-title">For educators</p>
-<p>The function <tt class="docutils literal">object_here()</tt> returns a list of object types (as strings)
-found at a given location.  For example, if there are stars and tokens
-at the same location, <tt class="docutils literal">object_here()</tt> could return <tt class="docutils literal">[&quot;star&quot;, &quot;token&quot;]</tt>
-or <tt class="docutils literal">[&quot;token&quot;, &quot;star&quot;]</tt>. If no object is present, an empty list is
-returned.  As you likely already know, Python treats an empty list as
-being equivalent to <tt class="docutils literal">False</tt> in an <tt class="docutils literal">if</tt> statement, and a non-empty
-list as equivalent to <tt class="docutils literal">True</tt>.</p>
-<p>If many objects could potentially be found in a given world, and we
-are interested in only one object type, we can specify it as a function
-argument:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">object_here</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">):</span>
+<div class="admonition- admonition">
+<p class="first admonition-title">写给教育者的内容</p>
+<p><tt class="docutils literal">object_here()</tt> 函数返回一个当前格子里的物品类型（字符串格式）列表（list）。比如，当星星（star）和笑脸（token）在同一个格子里时， <tt class="docutils literal">object_here()</tt> 将返回 <tt class="docutils literal">[&quot;star&quot;, &quot;token&quot;]</tt> 或 <tt class="docutils literal">[&quot;token&quot;, &quot;star&quot;]</tt> ；当格子里没有任何物品时，将返回空列表。就像你知道的那样，在 <tt class="docutils literal">if</tt> 语句里，Python 把空列表视为 <tt class="docutils literal">False</tt> ，把非空列表视为 <tt class="docutils literal">True</tt> 。</p>
+<p>当一个世界里有很多物品，而我们只对其中的一种感兴趣时，可以在参数里指定物品类型：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">object_here</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">):</span>
     <span class="n">take</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="last"><tt class="docutils literal"><span class="pre">object_here(&quot;token&quot;)</span></tt> will either return an empty list or the list
-<tt class="docutils literal">[&quot;token&quot;]</tt>.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">object_here(&quot;token&quot;)</span></tt> 将只返回空列表或 <tt class="docutils literal">[&quot;token&quot;]</tt> 。</p>
 </div>
 </div>
 </div>
@@ -312,7 +284,7 @@ argument:</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="at_goal.html" title="17. Finding the right spot"
+             <a href="at_goal.html" title="17. 寻找正确的地点"
              >next</a> |</li>
         <li class="right" >
              <a href="summary2.html" title="15. 小结"

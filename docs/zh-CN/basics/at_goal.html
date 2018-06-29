@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>17. Finding the right spot &mdash; 和乐跑一起学 Python</title>
+    <title>17. 寻找正确的地点 &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="18. Listen to me … or else …." href="else.html" />
-    <link rel="prev" title="16. 只有……（才）" href="if.html" /> 
+    <link rel="next" title="18. 听我说……否则……" href="else.html" />
+    <link rel="prev" title="16. 如果……（就）" href="if.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="else.html" title="18. Listen to me … or else …."
+             <a href="else.html" title="18. 听我说……否则……"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="if.html" title="16. 只有……（才）"
+             <a href="if.html" title="16. 如果……（就）"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,11 +87,11 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">17. Finding the right spot</a><ul>
-<li><a class="reference internal" href="#another-condition">17.1. Another condition</a></li>
-<li><a class="reference internal" href="#and-now-something-different">17.2. And now, something different</a></li>
-<li><a class="reference internal" href="#hurdles-again">17.3. Hurdles again!</a><ul>
-<li><a class="reference internal" href="#a-question-for-you">17.3.1. A question for you</a></li>
+<li><a class="reference internal" href="#">17. 寻找正确的地点</a><ul>
+<li><a class="reference internal" href="#id2">17.1. 另外一个条件</a></li>
+<li><a class="reference internal" href="#id3">17.2. 现在来点不一样的</a></li>
+<li><a class="reference internal" href="#id4">17.3. 再回到跨栏</a><ul>
+<li><a class="reference internal" href="#id5">17.3.1. 提问</a></li>
 </ul>
 </li>
 </ul>
@@ -100,10 +100,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="if.html"
-                        title="previous chapter">16. 只有……（才）</a></p>
+                        title="previous chapter">16. 如果……（就）</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="else.html"
-                        title="next chapter">18. Listen to me … or else ….</a></p>
+                        title="next chapter">18. 听我说……否则……</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -136,98 +136,82 @@ as placeholder.</p>
 </div>
           <div class="body">
             
-  <div class="section" id="finding-the-right-spot">
-<h1>17. Finding the right spot<a class="headerlink" href="#finding-the-right-spot" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">While the program you just wrote works for worlds <strong>Tokens&nbsp;1</strong> and <strong>Tokens&nbsp;2</strong>,
-it will fail if you try it for worlds <strong>Tokens&nbsp;3</strong> and <strong>Tokens&nbsp;4</strong>.</p>
+  <div class="section" id="id1">
+<h1>17. 寻找正确的地点<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">虽然你的程序能攻克 <strong>笑脸之一</strong> 和 <strong>笑脸之二</strong> ，但是无法攻克 <strong>笑脸之三</strong> 和 <strong>笑脸之四</strong> 。</p>
 <div class="topic">
-<p class="topic-title first">Try it!</p>
-<p>Try your program with all four worlds.</p>
+<p class="topic-title first">试试这个！</p>
+<p>在前面提到的四个关卡里试试你的程序。</p>
 </div>
-<div class="section" id="another-condition">
-<h2>17.1. Another condition<a class="headerlink" href="#another-condition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>17.1. 另外一个条件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><tt class="docutils literal">at_goal()</tt>:  <img alt="green_home_tile" src="../_images/green_home_tile.png" /> <img alt="house" src="../_images/house.png" /> <img alt="racing_flag" src="../_images/racing_flag.png" /></p>
 </div>
-<p>In addition to being able to find out if tokens are located at the
-position where Reeborg finds himself, Reeborg can also determine if he
-reached the coloured square which we described before as Reeborg’s home.
-In many worlds, it makes more sense to think of this as Reeborg’s goal
-destination, rather than home, and the function that Reeborg uses to
-determine this is <tt class="docutils literal">at_goal()</tt>. Here’s the outline of a solution that
-should work in all four worlds mentioned above.</p>
+<p>除了能知道自己所在的位置有没有笑脸以外，乐跑还能判断自己是否已经到达了指定地点——我们之前解释为乐跑的家。在更多的世界里，把这个地点理解为乐跑需要到达的目标位置（goal），可能比乐跑的家（home）更合适。<tt class="docutils literal">at_goal()</tt> 是用来进行这项判断的函数，使用下面的解决方案应该可以攻克上面提到的全部四个关卡。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move_until_done</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">at_goal</span><span class="p">():</span>
-        <span class="c1"># something</span>
+        <span class="c1"># 做一些事</span>
     <span class="n">move</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">object_here</span><span class="p">():</span>
-        <span class="c1"># something</span>
-        <span class="c1"># something else</span>
-        <span class="c1"># something else again</span>
+        <span class="c1"># 做一些事</span>
+        <span class="c1"># 又做一些事</span>
+        <span class="c1"># 再做一些事</span>
 
 <span class="n">repeat</span> <span class="mi">42</span><span class="p">:</span>
     <span class="n">move_until_done</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Complete the above (in the Python Code editor) and make sure it works for all
-four worlds mentioned above.</p>
+<p>完成上面的程序大纲，并确保能攻克全部四个关卡。</p>
 </div>
-<div class="section" id="and-now-something-different">
-<h2>17.2. And now, something different<a class="headerlink" href="#and-now-something-different" title="Permalink to this headline">¶</a></h2>
-<p>You did complete the above exercise, didn’t you? … Good.</p>
+<div class="section" id="id3">
+<h2>17.2. 现在来点不一样的<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>你已经完成了上面的练习，对不对？……很好。</p>
 <div class="topic">
-<p class="topic-title first">Do this!</p>
-<p>Select
-either world <strong>Home&nbsp;1</strong> or <strong>Home&nbsp;2</strong>. Would the same program you use for
-the <strong>Tokens</strong> world work? After you
-have determined this, try running it to confirm your understanding.</p>
+<p class="topic-title first">这样做！</p>
+<p>选择 <strong>回家之一</strong> 或 <strong>回家之二</strong> 。思考一下，你刚才给 <strong>笑脸</strong> 关卡写的程序在这儿能用么？当你想好了，就运行一下来证实你的想法。</p>
 </div>
 </div>
-<div class="section" id="hurdles-again">
-<h2>17.3. Hurdles again!<a class="headerlink" href="#hurdles-again" title="Permalink to this headline">¶</a></h2>
-<p>Have a look at worlds <strong>Hurdles&nbsp;1</strong> and <strong>Hurdles&nbsp;2</strong>. Ignoring the end goal for
-a second, a program that Reeborg could follow to race over these hurdles
-would alternate between two instructions</p>
+<div class="section" id="id4">
+<h2>17.3. 再回到跨栏<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>观察一下关卡 <strong>跨栏之一</strong> 和 <strong>跨栏之二</strong> 。先忽略终点，如果我们适当的定义一个名为 <tt class="docutils literal">jump_over_hurdle()</tt> 的函数，那么让乐跑沿着跑道跨栏的程序可以交替使用两个指令：</p>
 <ul class="simple">
 <li><tt class="docutils literal">move()</tt></li>
 <li><tt class="docutils literal">jump_over_hurdle()</tt></li>
 </ul>
-<p>with the appropriate definition for <tt class="docutils literal">jump_over_hurdle()</tt>. If you could
-include a test (<tt class="docutils literal">if</tt> statement) at some point to see if you have
-reached the goal, you could use the above to create a new function, that
-we could call <tt class="docutils literal">move_and_jump_until_done()</tt> so that a program suitable
-for both worlds <strong>Hurdles&nbsp;1</strong> and <strong>Hurdles&nbsp;2</strong> would be:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">repeat</span> <span class="mi">42</span><span class="p">:</span>
+<p>如果在某个地方加入一个测试条件（ <tt class="docutils literal">if</tt> 语句）来判断乐跑是否已经到达终点，你就可以用上面的两个指令创建一个名为 <tt class="docutils literal">move_and_jump_until_done()</tt> 的新函数。最终，你就能用一个程序攻克 <strong>跨栏之一</strong> 和 <strong>跨栏之二</strong> ：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">repeat</span> <span class="mi">42</span><span class="p">:</span>
     <span class="n">move_and_jump_until_done</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="topic">
-<p class="topic-title first">Do it!</p>
-<p>Write such a program and make sure it works.</p>
+<p class="topic-title first">这样做！</p>
+<p>写这样一个程序并确保其能攻克 <strong>跨栏之一</strong> 和 <strong>跨栏之二</strong> 。</p>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p>Your program could look as follows:</p>
-<div class="last highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_lib</span> <span class="k">import</span> <span class="n">turn_right</span>
+<p>你的程序可以像下面这样：</p>
+<blockquote class="last">
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">library</span> <span class="kn">import</span> <span class="n">turn_right</span>
 <span class="k">def</span> <span class="nf">jump_over_hurdle</span><span class="p">():</span>
-    <span class="c1"># some definitions</span>
+    <span class="c1"># 函数的定义</span>
 
 <span class="k">def</span> <span class="nf">move_and_jump_until_done</span><span class="p">():</span>
-    <span class="c1"># something</span>
+    <span class="c1"># 做一些事</span>
     <span class="k">if</span> <span class="n">at_goal</span><span class="p">():</span>
         <span class="n">done</span><span class="p">()</span>
-    <span class="c1"># something</span>
+    <span class="c1"># 做一些事</span>
 
 <span class="n">repeat</span> <span class="mi">42</span><span class="p">:</span>
     <span class="n">move_and_jump_until_done</span><span class="p">()</span>
 </pre></div>
 </div>
+</div></blockquote>
 </div>
-<div class="section" id="a-question-for-you">
-<h3>17.3.1. A question for you<a class="headerlink" href="#a-question-for-you" title="Permalink to this headline">¶</a></h3>
-<p>Could this program work without changing anything for world
-<strong>Hurdles&nbsp;3</strong>?</p>
+<div class="section" id="id5">
+<h3>17.3.1. 提问<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>不经任何改动，此程序能攻克 <strong>跨栏之三</strong> 么？</p>
 </div>
 </div>
 </div>
@@ -245,10 +229,10 @@ for both worlds <strong>Hurdles&nbsp;1</strong> and <strong>Hurdles&nbsp;2</stro
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="else.html" title="18. Listen to me … or else …."
+             <a href="else.html" title="18. 听我说……否则……"
              >next</a> |</li>
         <li class="right" >
-             <a href="if.html" title="16. 只有……（才）"
+             <a href="if.html" title="16. 如果……（就）"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>

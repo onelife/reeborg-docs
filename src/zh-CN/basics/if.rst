@@ -1,21 +1,18 @@
-If only ...
-===========
+如果……（就）
+======================
 
-If only Reeborg could decide on its own, writing programs would be much
-simpler ... **WAIT !** Didn't I tell you: Reeborg can make decisions on
-its own.
+如果乐跑能自己进行判断，写程序就会变得非常轻松…… **等等！** 我并不是在告诉你：乐跑可以自己进行判断。
 
-Python keyword: ``if``
---------------------------
+Python 关键字： ``if（如果）``
+--------------------------------
 
 .. index:: ! if
 .. index:: ! True
 .. index:: ! False
 
-.. topic:: Do it!
+.. topic:: 这样做！
 
-    Select an appropriate world (perhaps **Alone**), and have Reeborg execute
-    the program below.
+    选择一个适当的世界（比如 **空白** ），然后让乐跑执行下面的程序。
 
 .. code-block:: python
 
@@ -25,46 +22,47 @@ Python keyword: ``if``
     if False:
         turn_left()
 
-``True`` and ``False`` are Python keywords as well. You might want
-to interchange them and run the program again to see what happens.
+``True（是）`` 和 ``False（否）`` 也是 Python 关键字。你可以试试交换它们的位置，然后再运行一遍程序，看看会发生什么。
 
-``if`` statement
-----------------
+``if`` 语句
+----------------------
 
-The so-called ``if`` **statement** follows a pattern somewhat similar to
-that of ``function``\ s :
+所谓的 ``if`` **语句** 其后所跟随的模式和 ``function（函数）`` 类似：:
 
 .. code-block:: python
 
     def some_name():
-        # block of code
+        # 代码块
 
     if some_condition:
-        # block of code
+        # 代码块
 
-How to think of ``if`` statements
+怎样理解 ``if`` 语句
 ---------------------------------
 
-When we introduced functions, we explained how we could think of a
-function **call** as being somewhat equivalent to inserting the code block for
-the function definition at that point in the program. Thus::
+在介绍函数的时候，我们解释了可以把 **引用** 函数理解为：把该函数所定义的代码块插入到被引用的位置。因此，
+
+.. code-block:: python
 
     move()
-    turn_right()  # function call
+    turn_right()    # 引用函数
     move()
 
-is equivalent to::
+等价于
+
+.. code-block:: python
 
     move()
-    # begin of code block inside turn_right()
+    # 代码块开始，和 turn_right() 里面定义的一样
     turn_left()
     turn_left()
     turn_left()
-    # end of code block
+    # 代码块结束
     move()
 
-``if`` statements can be thought in similar terms, except that we have a
-*conditional* insertion (or rather **deletion**!). Thus::
+对于 ``if`` 语句也可以进行类似的理解，只是增加（或者甚至是 **删除** ！）了 *执行条件* 。因此，
+
+.. code-block:: python
 
     move()
     if True:
@@ -72,14 +70,18 @@ is equivalent to::
         turn_left()
     move()
 
-is equivalent to::
+等价于
+
+.. code-block:: python
 
     move()
     turn_left()
     turn_left()
     move()
 
-whereas::
+而
+
+.. code-block:: python
 
     move()
     if False:
@@ -87,101 +89,83 @@ whereas::
         turn_left()
     move()
 
-is equivalent to::
+等价于
+
+.. code-block:: python
 
     move()
     move()
 
-Note that thinking of it this way does not mean that such a deletion
-would be done permanently: if, somehow, our program *looped back* and
-repeated this part of the code again, the ``if`` statement would be
-reevaluated each time to decide whether or not to execute the lines of
-code inside the code block.
+请注意，不要认为这样的删除是永久的：如果我们的程序以某种方式 *循环返回* 并且重复这部分代码，那么 ``if`` 语句每次都会被重新评估以决定是否执行其中的代码块。
 
-We can represent the above using a flowchart:
+我们可以用下面的流程图来表示上面的代码：
 
 .. figure:: ../../flowcharts/if.jpg
    :align: center
 
-More useful that you might think...
+可能比你想到的更有用途……
 -----------------------------------
 
 .. note::
 
-    The general term used to describe a function that gives a result
-    equivalent to ``True`` or ``False`` in an ``if`` statement is **condition**::
+    用来描述 ``if`` 语句里的、返回值等价于 ``True`` 或 ``False`` 的函数的术语是 **条件（condition）** ：
+
+    .. code-block:: python
 
        if condition:
            ...
 
 .. index:: object_here(), done()
 
-Having to specify ``True`` or ``False`` does not help Reeborg decide on
-its own. However, there are special functions that Reeborg recognizes
-that allow to decide things for himself. The first of these is
-``object_here()`` which tells Reeborg that there is at least one object at
-the grid position where he is located. For example, if we want to ask
-Reeborg to collect tokens, one part of the code could be::
+事先指定的 ``True`` 或 ``False`` 并不能帮助乐跑自己进行判断。然而，乐跑认识的、一些特殊的函数可以帮上忙。其中之一是 ``object_here()`` ，该函数可以告诉乐跑，它所在格子里是否有至少一个物品。例如，当我们让乐跑收集笑脸时，一部分代码可以像这样：
+
+.. code-block:: python
 
     if object_here():
         take()
 
-Have a look at worlds **Tokens 1** and **Tokens 2**. In both cases, and assuming
-that Reeborg moves forward in a straight line, when he finds a token,
-all he as to do is:
+观察一下关卡 **笑脸之一** 和 **笑脸之二** 。假设乐跑沿直线前进，当它发现一个笑脸时，所要做的都是：
 
-#. take it
-#. move to the next grid
-#. put the token down
-#. move one more step
-#. and he is ``done()``
+#. 拾起笑脸
+#. 前进一格
+#. 把笑脸放下
+#. 再前进一格
+#. 完成—— ``done()``
 
-where I have introduced a new command that Reeborg understands:
-``done()``. Actually, you should think of this command as Reeborg saying
-it himself and declaring that he has finished.
+在这里，我引入了一条新指令：``done()`` 。实际上，你应该把这条指令理解为是乐跑说的——它宣布自己已经完成任务了。
 
-Let's write the outline of a program that will work in both worlds
-**Tokens 1** and **Tokens 2**::
+让我们来写一个在两个世界都能完成任务的程序大纲：
+
+.. code-block:: python
 
     def move_until_done():
         move()
         if object_here():
-            # something
-            # something else
-            # something else again
-            # yet one more
+            # 做一些事
+            # 又做一些事
+            # 再做一些事
+            # 还再做一些事
             done()
 
     repeat 42:
         move_until_done()
 
 
-Why 42? ... well, I just want to be sure that Reeborg will take enough
-steps no matter what world he is in. So far, all the worlds are small
-enough that this should be fine. I agree, it does not seem very smart
-... We'll see how to fix that later.
+为什么是42？……嗯，我只是想确保乐跑重复的次数足够多，不管身在哪个世界。目前为止，所有的世界都不大，42应该足够了。 我同意，这看上去不太聪明……我们以后会修改的。
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-    Copy the above in the Code editor, filling in the missing
-    commands, and test your program on both worlds **Tokens 1** and **Tokens 2**.
+    把上面的代码复制到编辑框，填上缺失的指令，然后在 **笑脸之一** 和 **笑脸之二** 里测试。
 
-.. admonition:: For educators
+.. admonition:: 写给教育者的内容
 
-    The function ``object_here()`` returns a list of object types (as strings)
-    found at a given location.  For example, if there are stars and tokens
-    at the same location, ``object_here()`` could return ``["star", "token"]``
-    or ``["token", "star"]``. If no object is present, an empty list is
-    returned.  As you likely already know, Python treats an empty list as
-    being equivalent to ``False`` in an ``if`` statement, and a non-empty
-    list as equivalent to ``True``.
+    ``object_here()`` 函数返回一个当前格子里的物品类型（字符串格式）列表（list）。比如，当星星（star）和笑脸（token）在同一个格子里时， ``object_here()`` 将返回 ``["star", "token"]`` 或 ``["token", "star"]`` ；当格子里没有任何物品时，将返回空列表。就像你知道的那样，在 ``if`` 语句里，Python 把空列表视为 ``False`` ，把非空列表视为 ``True`` 。
 
-    If many objects could potentially be found in a given world, and we
-    are interested in only one object type, we can specify it as a function
-    argument::
+    当一个世界里有很多物品，而我们只对其中的一种感兴趣时，可以在参数里指定物品类型：
+
+    .. code-block:: python
 
         if object_here("token"):
             take("token")
 
-    ``object_here("token")`` will either return an empty list or the list
-    ``["token"]``.
+    ``object_here("token")`` 将只返回空列表或 ``["token"]`` 。

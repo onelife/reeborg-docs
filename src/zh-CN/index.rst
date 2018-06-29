@@ -60,12 +60,12 @@ Python —— 这个用途十分广泛、萌新和老司机都容易上手的语
        *韩国三星出版的两本书（红色的是教师版，蓝色的是学生版），内容基于 RUR-PLE（RUR Python 学习环境）——乐跑的世界的前身。*
 
 
-    乐跑的世界的灵感受到了 Richard Pattis 的 `机器人查尔斯（Karel the robot）`_ 的启发。里面的虚拟机器人，可以用三种编程语言（Python、JavaScript 和 CoffeeScript）来控制。不过，本教程专注于 Python
+    乐跑的世界的灵感受到了 Richard Pattis 的 `机器人卡雷尔（Karel the robot）`_ 的启发。里面的虚拟机器人，可以用三种编程语言（Python、JavaScript 和 CoffeeScript）来控制。不过，本教程专注于 Python
     ——我最喜欢的编程语言，也是公认用于传授编程概念给初学者的理想语言。
 
-    .. _机器人查尔斯（Karel the robot）: http://www.amazon.ca/Karel-Robot-Gentle-Introduction-Programming/dp/0471089281/ref=sr_1_6?s=books&ie=UTF8&qid=1440177128&sr=1-6
+    .. _机器人卡雷尔（Karel the robot）: http://www.amazon.ca/Karel-Robot-Gentle-Introduction-Programming/dp/0471089281/ref=sr_1_6?s=books&ie=UTF8&qid=1440177128&sr=1-6
 
-    在本教程里，我把对变量的介绍尽可能的延后了。函数的参数也是如此。这种方法反映了在 Pattis 原版的查尔斯（Karel）里，根本没有任何变量。就像本教程的前两个章节—— **基础教程** 和 **递归** 。
+    在本教程里，我把对变量的介绍尽可能的延后了。函数的参数也是如此。这种方法反映了在 Pattis 最初的卡雷尔（Karel）里，根本没有任何变量。就像本教程的前两个章节—— **基础教程** 和 **递归** 。
 
     乐跑的世界的创造目标是：在尽可能的简化 Pattis 的理念的同时传授非常高阶的编程概念。所以没有像别的、给纯粹的初学者看的教程那样，从“简单的” **第一个程序** 开始：
 

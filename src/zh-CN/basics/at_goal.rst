@@ -1,16 +1,15 @@
-Finding the right spot
+寻找正确的地点
 ======================
 
 .. index:: at_goal()
 
-While the program you just wrote works for worlds **Tokens 1** and **Tokens 2**,
-it will fail if you try it for worlds **Tokens 3** and **Tokens 4**.
+虽然你的程序能攻克 **笑脸之一** 和 **笑脸之二** ，但是无法攻克 **笑脸之三** 和 **笑脸之四** 。
 
-.. topic:: Try it!
+.. topic:: 试试这个！
 
-   Try your program with all four worlds.
+   在前面提到的四个关卡里试试你的程序。
 
-Another condition
+另外一个条件
 -----------------
 
 .. note::
@@ -22,87 +21,73 @@ Another condition
     .. |racing_flag| image:: ../../images/racing_flag.png
 
 
-In addition to being able to find out if tokens are located at the
-position where Reeborg finds himself, Reeborg can also determine if he
-reached the coloured square which we described before as Reeborg's home.
-In many worlds, it makes more sense to think of this as Reeborg's goal
-destination, rather than home, and the function that Reeborg uses to
-determine this is ``at_goal()``. Here's the outline of a solution that
-should work in all four worlds mentioned above.
+除了能知道自己所在的位置有没有笑脸以外，乐跑还能判断自己是否已经到达了指定地点——我们之前解释为乐跑的家。在更多的世界里，把这个地点理解为乐跑需要到达的目标位置（goal），可能比乐跑的家（home）更合适。``at_goal()`` 是用来进行这项判断的函数，使用下面的解决方案应该可以攻克上面提到的全部四个关卡。
 
 .. code-block:: python
 
     def move_until_done():
         if at_goal():
-            # something
+            # 做一些事
         move()
         if object_here():
-            # something
-            # something else
-            # something else again
+            # 做一些事
+            # 又做一些事
+            # 再做一些事
 
     repeat 42:
         move_until_done()
 
-Complete the above (in the Python Code editor) and make sure it works for all
-four worlds mentioned above.
+完成上面的程序大纲，并确保能攻克全部四个关卡。
 
-And now, something different
+现在来点不一样的
 ----------------------------
 
-You did complete the above exercise, didn't you? ... Good.
+你已经完成了上面的练习，对不对？……很好。
 
-.. topic:: Do this!
+.. topic:: 这样做！
 
-    Select
-    either world **Home 1** or **Home 2**. Would the same program you use for
-    the **Tokens** world work? After you
-    have determined this, try running it to confirm your understanding.
+    选择 **回家之一** 或 **回家之二** 。思考一下，你刚才给 **笑脸** 关卡写的程序在这儿能用么？当你想好了，就运行一下来证实你的想法。
 
-Hurdles again!
+再回到跨栏
 --------------
 
-Have a look at worlds **Hurdles 1** and **Hurdles 2**. Ignoring the end goal for
-a second, a program that Reeborg could follow to race over these hurdles
-would alternate between two instructions
+观察一下关卡 **跨栏之一** 和 **跨栏之二** 。先忽略终点，如果我们适当的定义一个名为 ``jump_over_hurdle()`` 的函数，那么让乐跑沿着跑道跨栏的程序可以交替使用两个指令：
 
 -  ``move()``
 -  ``jump_over_hurdle()``
 
-with the appropriate definition for ``jump_over_hurdle()``. If you could
-include a test (``if`` statement) at some point to see if you have
-reached the goal, you could use the above to create a new function, that
-we could call ``move_and_jump_until_done()`` so that a program suitable
-for both worlds **Hurdles 1** and **Hurdles 2** would be::
+如果在某个地方加入一个测试条件（ ``if`` 语句）来判断乐跑是否已经到达终点，你就可以用上面的两个指令创建一个名为 ``move_and_jump_until_done()`` 的新函数。最终，你就能用一个程序攻克 **跨栏之一** 和 **跨栏之二** ：
+
+.. code-block:: python
 
     repeat 42:
         move_and_jump_until_done()
 
-.. topic:: Do it!
+.. topic:: 这样做！
 
-    Write such a program and make sure it works.
+    写这样一个程序并确保其能攻克 **跨栏之一** 和 **跨栏之二** 。
 
 .. hint::
 
-   Your program could look as follows::
+   你的程序可以像下面这样：
 
-    from my_lib import turn_right
-    def jump_over_hurdle():
-        # some definitions
+    .. code-block:: python
 
-    def move_and_jump_until_done():
-        # something
-        if at_goal():
-            done()
-        # something
+        from library import turn_right
+        def jump_over_hurdle():
+            # 函数的定义
 
-    repeat 42:
-        move_and_jump_until_done()
+        def move_and_jump_until_done():
+            # 做一些事
+            if at_goal():
+                done()
+            # 做一些事
+
+        repeat 42:
+            move_and_jump_until_done()
 
 
-A question for you
+提问
 ~~~~~~~~~~~~~~~~~~
 
-Could this program work without changing anything for world
-**Hurdles 3**?
-
+不经任何改动，此程序能攻克 **跨栏之三** 么？

@@ -1,13 +1,9 @@
-For a ``while``
-===============
+``while`` 循环
+==============================
 
 .. index:: ! while
 
-When we want to repeat some instructions until a certain condition is
-satisfied, Python gives us a simpler way to write this using a new
-keyword: ``while``. For example, suppose we want to have Reeborg keep
-moving until it reaches a wall. Previously, we might have done something
-like the following:
+当我们需要重复一些指令直到满足一个特定的条件时，Python 给了我们一个简单的方法——使用 ``while`` 关键字。比如，我们想让乐跑持续前进直到遇上一堵墙。以前，我们会这样写：
 
 .. code-block:: python
 
@@ -18,31 +14,35 @@ like the following:
     repeat 42:
         move_until_wall()
 
-and hoped that 42 would have been a number of repetitions sufficient to
-reach a wall. Using ``while``, we can write the following::
+并且希望42这个重复次数足够大，以便能遇上一堵墙。然而，通过使用 ``while`` ，我们可以这样写：
+
+.. code-block:: python
 
     while front_is_clear():
         move()
 
-That's it! No more guessing and asking something to be performed a large
-number of time just to ensure that it will be enough.
+就这样！不用猜也不用知道需要重复多少次。
 
-Here's a flowchart for this simple program:
+下面是这段简单的程序的流程图：
 
 .. figure:: ../../flowcharts/while.jpg
    :align: center
 
-How to think about ``while``
+怎样理解 ``while``
 ----------------------------
 
-Suppose we have the following::
+假设我们有下面这段代码：
+
+.. code-block:: python
 
     while condition():
         do_1()
         do_2()
         do_3()
 
-You can think of this as being equivalent to::
+你可以认为其等价于：
+
+.. code-block:: python
 
     if condition():
         do_1()
@@ -62,47 +62,34 @@ You can think of this as being equivalent to::
         do_3()
     ....
 
-which is to say that the block of code is repeated as long as the
-condition remains ``True``. So, what happens if the condition is always
-``True``? The block of code is repeated for ever and the program never
-ends.
+也就是说只要条件被评估为真（ ``True`` ），其代码块就会被重复。那么，如果条件一直为真（ ``True`` ）会发生什么？——这个代码块将一直被重复，永不停止。
 
-This is bad.
+这就糟了。
 
-Instead of using this description of repeated blocks of code,
-programmers describe this as a **loop**: that is, you start with the
-first instruction (``do_1()``) inside the code block, continue with all
-the others until you reach the last instruction (``do_3()``), then
-***loop* back**, or go back, to the test just before the beginning of
-the block and see if the condition is satisfied; if not, you repeat once
-again the cycle. If the condition never becomes ``False``, you keep
-repeating and end up with an **infinite loop**.
+程序员会把被重复的代码块称作 **循环（loop）** ：指令从代码块里的第一条（ ``do_1()`` ）开始执行，直到最后一条（ ``do_3()`` ），然后 **循环返回** 到代码块开始处的条件判断，看看条件是否仍然满足。如果仍然满足，则再重复一遍。如果条件永远不为假（ ``False`` ），代码块将一直被重复，其结果就是一个 **无限循环（infinite loop）** 。
 
-Conclusion: you want to make sure that the condition will become
-``False`` at some point.
+注意：你应该确保循环条件能在某个时刻变为假（ ``False`` ）。
 
-Back to hurdles!
+回到跨栏！
 ----------------
 
-.. topic:: Your turn!
+.. topic:: 轮到你了！
 
-    Go back to **Hurdles 1**, **Hurdles 2** and **Hurdles 3**, and write a single
-    program for all three world, using ``while`` and without using ``repeat``.
+    回到 **跨栏之一** 、 **跨栏之二** 和 **跨栏之三** ，使用 ``while`` 代替 ``repeat`` ，用一段程序攻克全部三个关卡。
 
 .. hint::
 
-    Your program might look like the following::
+    你可以使用下面的程序大纲：
+
+   .. code-block:: python
 
        def jump_over_hurdle():
-           # suitable definition
+           # 函数的定义
 
        def run_or_jump ():
-           # suitable definition
+           # 函数的定义 definition
 
        while not at_goal():
            run_or_jump()
 
-That's it! No more arbitrary repetitions! From now on, you should only
-use ``repeat`` when you know **exactly** how many times a given
-function must be repeated.
-
+就这样！再也不用猜测要重复多少次了！从现在开始，请只有在知道一个函数 **确切的** 重复次数时才使用 ``repeat`` 。

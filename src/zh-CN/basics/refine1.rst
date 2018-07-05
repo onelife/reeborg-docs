@@ -1,28 +1,21 @@
-Refinements: part 1
+持续改进：第一部分
 ===================
 
-In this multi-part lesson, we are going to write a complete program to
-solve problems of increasing complexity. For each lesson, I will present
-a tentative solution that will contain one mistake. Try to find it
-before moving on to the next lesson.
+这是一节大课的第一部分，当完成这节大课时，我们将写出一个完整的、能解决越来越复杂的问题的程序。在每节课里，我将提出一个试探性地解决方案，其中会包含一个错误。请找出这个错误，然后再继续。
 
-A simple problem
+一个简单的问题
 ----------------
 
-Let us start by considering a simple problem: having Reeborg go around
-his world **once** and stop when it is back at its starting point. In
-concrete terms, select world **Around 1**. We have done something like this
-before, when we introduced the ``front_is_clear()`` test. Here's the
-outline of a solution which supposes that Reeborg carries at least one
-token at the beginning:
+我们从一个简单的问题开始：让乐跑沿着世界的边缘走 **一圈** ，然后停在最初开始的地方。具体而言，请选择关卡 **周游世界之一** 。我们之前在介绍 ``front_is_clear()`` 判断时，曾经做过类似的练习。这里有个解决方案大纲——其假设乐跑在开始时携带了至少一个笑脸：
 
-#. Put down a token to mark the starting (and ending) point.
-#. Move forward until facing a wall.
-#. Turn left when facing a wall.
-#. Repeat steps 2 and 3 until we find the token we had put down.
+#. 放下一个笑脸，以标记起始（结束）位置。
+#. 持续前进，直到遇上一堵墙。
+#. 遇到墙时左转。
+#. 重复2和3直到发现之前放的笑脸。
 
-Take your time to think about the above algorithm. Then, consider this
-solution in code::
+仔细思考上面的算法。然后，看看代码化的解决方案：
+
+.. code-block:: python
 
     put()
     while not object_here():
@@ -31,8 +24,6 @@ solution in code::
         else:
             turn_left()
 
-.. topic:: Your turn!
+.. topic:: 轮到你了！
 
-    Take the time to think about what the above program instructs Reeborg to
-    do before trying to run it. Can you find a problem with the proposed
-    solution?
+    在运行前面的程序之前，请仔细思考一下该程序在让乐跑做什么。你能发现其中的错误么？

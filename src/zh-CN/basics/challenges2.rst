@@ -1,152 +1,98 @@
-
-Revisiting some challenges
+重温一些关卡
 ==========================
 
-It is time to solve some of the challenges introduced early on.
+是时候解决一些以前没能攻克的关卡了。
 
-Using ``while``, ``if``, ``else``, etc., you will write programs that
-will be able to accomplish various tasks. In writing these programs, you
-should keep the following in mind:
+使用 ``while`` 、 ``if`` 、 ``else`` 等等，你应该可以写出能够解决多种问题的程序。在写程序时，请记住以下三点：
 
-#. Remember rule #2 and choose names that are descriptive for the
-   problems you are attempting to solve
-#. Follow the principles given in rule #4: start by solving simpler
-   problems first and generalize your solution so that it can be applied
-   to more than one problem
-#. Remember rule #3: avoid repeating code as much as possible.
+#. 牢记规则二；在给函数起名字时，请选择能够描述你正在试图解决的问题的名称
+#. 遵守规则四中原则：从解决简单的问题开始，然后归纳你的解决方案，使其可以应用到更多的问题上
+#. 牢记规则三；尽量避免代码重复
 
-Now, remember rule #1 ... and make sure that, this time, you solve
-**all** the challenges mentioned below.
+现在，请牢记规则一……然后，完成下面提到的 **全部** 的关卡。
 
 .. important::
 
-    Make sure you save your various solutions as you might want to come back
-    to them later.
+    请保存你的解决方案，以后可能用得上。
 
 
-Before harvesting
+收获季之前
 -----------------
 
-Select world **Harvest 3** which occurred shortly after the garden was
-seeded. Some carrot seeds sprouted well, others yielded two or three
-plants while some did not sprout at all. Help Reeborg weed out the
-excess seedlings, and plant some new seeds at locations where some were
-missing.
+关卡 **大丰收之三** ，发生在乐跑在菜园里播种后不久。有一些胡萝卜种子很好的发芽了；另外有一些在同一个格子里长出了两、三个芽；还有一些没有发芽。请让乐跑移除多长出来的芽，并且在没有种子发芽的地方补种。
 
 
-.. topic:: Do it!
+.. topic:: 这样做！
 
-    Write a program as described above.
+    写一段程序来完成前面描述的任务。
 
 
-Ready to harvest
+丰收时刻
 ----------------
 
-The weeding went well (I hope!), the growing season is over and it is
-time to harvest. Select world **Harvest 1** and/or **Harvest 2** and have Reeborg
-collect all the carrots.  You should write a single program that would
-work for both worlds.
+前面的工作进行的很顺利（希望是这样！），生长季结束了、丰收季来临了。请选择关卡 **大丰收之一** 或 **大丰收之二** ，让乐跑收集所有的胡萝卜。你需要要用一个程序来完成这两个任务。
 
 
-Stormy weather
+暴风雨
 --------------
 
-It was a beautifully sunny day. Reeborg was playing outside with his
-friend. Suddenly, it started to rain and Reeborg remembered that the
-windows in his house were all open. So Reeborg went back to his house
-and stopped in front of the door, unsure of how to proceed.
+在美丽而晴朗的一天，乐跑和朋友一起在外面玩儿。忽然，天上开始下起了雨。乐跑想起家里的窗户还没关，于是就跑回家。但走到门前时，它停住了，因为不知道要怎么做。
 
 .. index:: wall_on_right(), right_is_clear()
 
-.. topic:: Do it!
+.. topic:: 这样做！
 
-    Using the ``build_wall()`` instruction and either ``wall_on_right()``
-    or ``wall_in_front()``, or both, but **not** ``right_is_clear()``
-    nor ``front_is_clear()``, help Reeborg close the windows
-    of his house. When Reeborg finishes his task, he will stand in the
-    doorway, watching the rain fall, waiting for it to stop before he can go
-    back and play outside. The world is **Rain 1**.
+    让乐跑关上窗户。可以使用 ``build_wall()`` 、 ``wall_on_right()`` 或 ``wall_in_front()`` 指令，但 **不要** 使用 ``right_is_clear()`` 或 ``front_is_clear()`` 指令。当关好窗户后，乐跑要回到门口看雨，等雨停了才能再出去玩。这就是关卡 **下雨之一** 的任务。
 
-Reeborg's friend's turn.
+轮到乐跑的朋友了
 ------------------------
 
-Erdna, Reeborg's friend, lives in a bigger house as shown on **Rain 2**.
-Erdna was playing outside with Reeborg when it started raining. Help
-Erdna close the windows in her house.
+鹅蛋（Erdna）是乐跑的朋友，在关卡 **下雨之二** 里可以看到，它有一个更大的房子。刚开始下雨的时候，鹅蛋正在外面和乐跑玩儿。请让鹅蛋也关好窗户。
 
-.. topic:: Try it!
+.. topic:: 试一试！
 
-    Your challenge is to write a single program that will work for both
-    Reeborg and Erdna, again without using ``right_is_clear()``
-    nor ``front_is_clear()``... however, it might be a bit tricky.
+    写一段程序来让乐跑和鹅蛋都关好窗户，依然不要使用  ``right_is_clear()`` 或 ``front_is_clear()`` ……这可能会有点棘手。
 
 .. hint::
 
-    To determine if there's a window at a given location, a robot may
-    have to take an extra step and, depending on the result, may have to
-    turn around, go back and close that window.
+    机器人可能需要多走几步，来判断一个地点是否有窗户。比如先往前走一格，观察一下；根据情况再向后转、走回去、关窗户。
 
-.. topic:: Do it again!
+.. topic:: 再做一遍！
 
-    This time, write a program that does make use of ``right_is_clear()``
-    or ``front_is_clear()``, in addition to ``wall_on_right()``
-    or ``wall_in_front()`` to allow Reeborg and Erdna to close the windows
-    in their houses.  The number of steps (``move()`` and ``turn_left()``)
-    taken by the robots should be reduced since they can get more information
-    about their world directly.
+    这一次，可以使用 ``right_is_clear()`` 或 ``front_is_clear()`` ，再加上 ``wall_on_right()`` 或 ``wall_in_front()`` 指令，写一段程序让乐跑和鹅蛋都关好窗户。由于得到了更多的、直接的信息，这次机器人所花的步骤（ ``move()`` 或 ``turn_left()`` ）数量应该会下降。
 
 
-After the storm
+暴风雨过后
 ---------------
 
 .. index:: carries_object()
 
-The wind blew really hard last night. There are fallen leaves everywhere outside
-Reeborg's house. His parents asked him to go and clean up the path
-leading to the curb, **Storm 1**, as well as the driveway: **Storm 2**.
+昨晚的风刮得很猛，所以乐跑的房子周围到处是落叶。它的家长叫它去清理通往大马路的小径（ **暴风雨之一** ）和车道（ **暴风雨之二** ）。
 
-.. topic:: Your turn!
+.. topic:: 轮到你了！
 
-    Reeborg must collect all the leaves and put them in the compost bin,
-    making sure to close the lid using ``build_wall()``.  Reeborg
-    can determine if it carries objects (dead leaves here) by
-    using the condition ``carries_object()`` either in an ``if``
-    statement or a ``while`` statement.
+    让乐跑收集全部的落叶、放进堆肥箱，并且使用 ``build_wall()`` 指令盖好盖子。你可以用 ``if`` 或 ``while`` 语句加上测试条件 ``carries_object()`` 来判断乐跑是否携带了物品（落叶）。
 
 
-More yard work!
----------------
+更多整理院子的工作！
+--------------------
 
-Reeborg's parents are so proud of his work, that they ask him to pick up
-all the leaves that got blown away in their backyard during the
-windstorm, as illustrated on **Storm 3**. Have Reeborg pick up all the
-leaves and put it in the compost bin.
+乐跑的家长为它所做的工作感到很骄傲，所以把清理后院的工作也交给了它（ **暴风雨之三** ）。请让乐跑收集全部的落叶并放进堆肥箱。
 
-.. topic:: Your turn!
+.. topic:: 轮到你了！
 
-    Write a program that will work in all three **Storm** worlds.
+    写一段程序来攻克全部三个 **暴风雨** 关卡。
 
 
-Finding the center
+找到世界的中心
 ------------------
 
-Have a look at the worlds **Center 1** to **Center 3**.
+观察一下关卡 **世界的中心之一** 和 **世界的中心之二** 。
 
-.. topic:: Do this!
+.. topic:: 这样做！
 
-    Write a **single**
-    program that has Reeborg put a token at the geometric center of the
-    rectangular room he finds himself in. Begin with
-    the simplest case, making progressive improvements to tackle the
-    more complicated cases.  Note that this is a more challenging task.
+    写 **一段** 程序让乐跑把一个笑脸放在它所在的世界的中心。请从简单的关卡（ **世界的中心之一** ）开始，逐步改进以解决更复杂的问题。请注意这是一个很有挑战性的任务。
 
 .. hint::
 
-    You may find it useful to have Reeborg, who carries two tokens,
-    drop one token at each end of a line. Then,
-    by picking one token at one end and moving it one step, going back and
-    forth until both tokens are at the same position,
-    the location of the center can be
-    found. When you know how to do this in one dimension (along a horizontal
-    line), you can use that location as the starting point to find the
-    location along the other location (a vertical line).
+    乐跑带了两个笑脸，你可以在一条直路的两端各放一个。然后，拾起一个笑脸、前进一格再放下；走到另外一个笑脸处，拾起来、前进一格再放下。如此往复，直到两个笑脸都放在了相同的位置。这个位置就是这条直路的中心位置。当乐跑在一个一维的空间（比如一条水平的直路）里找到中心后，以此为起点，找到另外一维（比如一条垂直的直路）的中心，这样就找到了这个二维的世界的中心。

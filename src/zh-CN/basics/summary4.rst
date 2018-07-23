@@ -1,14 +1,12 @@
-Summary
+小结
 =======
 
-Since the last summary, we have seen one more Python keyword,
-``while``, and two additional functions,
-``right_is_clear()`` and ``carries_objects()``.
+从上一次小结到现在，我们见到一个新的 Python 关键字—— ``while`` ，和两个新的函数—— ``right_is_clear()`` 和 ``carries_objects()`` 。
 
-Python keywords
+Python 关键字
 ----------------
 
-In alphabetical order, we have seen the following Python keywords:
+按照字母顺序，我们见过下面这些 Python 关键字：
 
 -  ``def``
 -  ``elif``
@@ -21,12 +19,10 @@ In alphabetical order, we have seen the following Python keywords:
 -  ``True``
 -  ``while``
 
-Functions specific to Reeborg's World
+乐跑的世界的专用函数
 -----------------------------------------
 
-We have seen the following functions which bring
-about a change in Reeborg's behaviour or in the state
-of its world:
+我们见过下面这些能够改变乐跑的行为或其所在世界的状态的函数：
 
 -  ``move()``
 -  ``build_wall()``
@@ -36,8 +32,7 @@ of its world:
 -  ``done()``
 -  ``turn_left()``
 
-We have also seen the following functions which tell Reeborg
-something about the state of its world:
+我们也见过下面这些能够让乐跑感知其所在世界的状态的函数：
 
 -  ``at_goal()``
 -  ``object_here()``

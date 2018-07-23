@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>28. Rule number 4 &mdash; 和乐跑一起学 Python</title>
+    <title>28. 规则四 &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="29. Surprises" href="surprises.html" />
-    <link rel="prev" title="26. Refinements: part 4" href="refine4.html" /> 
+    <link rel="next" title="29. 惊喜" href="surprises.html" />
+    <link rel="prev" title="26. 持续改进：第四部分" href="refine4.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="surprises.html" title="29. Surprises"
+             <a href="surprises.html" title="29. 惊喜"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="refine4.html" title="26. Refinements: part 4"
+             <a href="refine4.html" title="26. 持续改进：第四部分"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,18 +87,18 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">28. Rule number 4</a><ul>
-<li><a class="reference internal" href="#conclusion">28.1. Conclusion</a></li>
+<li><a class="reference internal" href="#">28. 规则四</a><ul>
+<li><a class="reference internal" href="#id2">28.1. 总结</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="refine4.html"
-                        title="previous chapter">26. Refinements: part 4</a></p>
+                        title="previous chapter">26. 持续改进：第四部分</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="surprises.html"
-                        title="next chapter">29. Surprises</a></p>
+                        title="next chapter">29. 惊喜</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -123,60 +123,38 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
-  <div class="section" id="rule-number-4">
-<h1>28. Rule number 4<a class="headerlink" href="#rule-number-4" title="Permalink to this headline">¶</a></h1>
-<p>In the preceding lessons, we have designed a program that works in many
-more situations than just the original one we considered. (We could come
-up with other situations where it would not work … but we have done
-enough for this exercise.) This program, before we forget, is to allow
-Reeborg to explore his world, going around once. While the program is
-rather short, and its structure should be clear at this point, it might
-not be so obvious to someone who just happened to see it for the first
-time. It’s probably a good idea either to add comments and/or to
-introduce more meaningful words. Let’s start by adding comments,
-somewhat more verbose than we think we might need:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We mark the starting point by putting down a token</span>
+  <div class="section" id="id1">
+<h1>28. 规则四<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>在前面的课程里，我们设计了一个能够适应多种不同环境，并且完成任务的程序。（我们还有可能会遇到其它的、使该程序不能完成任务的环境……但是我们已经做了足够多的练习。）（在忘记之前，）我们来回顾一下：我们写的程序是让乐跑探索它所在的世界，并且绕世界一周。由于非常短，这个程序的结构很清晰。但是对于第一次看到的人来说，它的结构可能还不是那么明显。因此，我们可以添加一些注释，或者使用一些更有意义的名字，或者二者都采用。让我们从添加注释开始——比所需要的再啰嗦一些：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 让乐跑放下一个笑脸以标记起点</span>
 <span class="n">put</span><span class="p">()</span>
 
-<span class="c1"># We find a clear direction and start moving</span>
+<span class="c1"># 让乐跑找一个没有障碍物的方向，然后开始前进</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="n">front_is_clear</span><span class="p">():</span>
     <span class="n">turn_left</span><span class="p">()</span>
 <span class="n">move</span><span class="p">()</span>
 
-<span class="sd">&#39;&#39;&#39;  We know we will have gone around the world</span>
-<span class="sd">when we come back to the place we put the token</span>
-<span class="sd">down. &#39;&#39;&#39;</span><span class="s1">&#39;</span>
+<span class="sd">&#39;&#39;&#39; 当乐跑回到有笑脸的位置时，就知道自己已经绕世界一周了。&#39;&#39;&#39;</span><span class="s1">&#39;</span>
 
 <span class="k">while</span> <span class="ow">not</span> <span class="n">object_here</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">right_is_clear</span><span class="p">():</span>  <span class="c1"># keep to the right</span>
+    <span class="k">if</span> <span class="n">right_is_clear</span><span class="p">():</span>    <span class="c1"># 保持靠右</span>
         <span class="n">turn_right</span><span class="p">()</span>
         <span class="n">move</span><span class="p">()</span>
-    <span class="k">elif</span> <span class="n">front_is_clear</span><span class="p">():</span>    <span class="c1"># move ... following the right wall</span>
+    <span class="k">elif</span> <span class="n">front_is_clear</span><span class="p">():</span>  <span class="c1"># 前进——沿着右侧的墙</span>
         <span class="n">move</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">turn_left</span><span class="p">()</span>  <span class="c1"># follow the wall by turning left</span>
+        <span class="n">turn_left</span><span class="p">()</span> <span class="c1"># 沿着墙左转</span>
 </pre></div>
 </div>
-<p>While this sort of clarifies our intent for each instruction, it is
-not really that helpful in summarizing the method (also known as the
-<em>algorithm</em>) used in solving the problem. Therefore, these comments
-might not be as helpful to another reader as we might have wished.
-Reading over the comments, we note that the program has two parts:
-#. mark the starting point;
-#. follow the right wall until we come back to the start.</p>
-<p>Let’s rewrite this program so that these two parts become clearer,
-and writing the comments differently:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; This program instructs Reeborg to go around his world</span>
-<span class="sd">    counterclockwise, stopping when he comes</span>
-<span class="sd">    back to his starting point. &#39;&#39;&#39;</span>
+<p>尽管这些注释表明了每条指令的意图，但是对于阐明解决问题的方法（或者叫 <em>算法</em> ）并没有什么帮助。因此，这些注释对于另外一个程序员来说，可能没有我们想象的那样有帮助。通过阅读注释，我们注意到该程序包含两个部分：</p>
+<ol class="arabic simple">
+<li>标记起始点；</li>
+<li>沿着右侧墙前进，直到回到起点。</li>
+</ol>
+<p>让我们重写一下前面的程序，使这两个部分更清晰，并且用不同的方式来做注释：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; 这段程序让乐跑逆时针绕世界一周，当再次回到起点时结束。 &#39;&#39;&#39;</span>
 
 <span class="k">def</span> <span class="nf">mark_starting_point_and_move</span><span class="p">():</span>
     <span class="n">put</span><span class="p">()</span>
@@ -193,51 +171,38 @@ and writing the comments differently:</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">turn_left</span><span class="p">()</span>
 
-<span class="n">found_starting_point</span> <span class="o">=</span> <span class="n">object_here</span>
-
 <span class="c1">#######</span>
-<span class="c1">##  End of definitions above; program execution below .</span>
+<span class="c1">##  上面为定义；程序从下面开始执行。</span>
 <span class="c1">#######</span>
 
 <span class="n">mark_starting_point_and_move</span><span class="p">()</span>
 
-<span class="k">while</span> <span class="ow">not</span> <span class="n">found_starting_point</span><span class="p">():</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">object_here</span><span class="p">():</span>
     <span class="n">follow_right_wall</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Isn’t this much clearer?</p>
-<p><strong>Note: you might want to make a copy of</strong> <tt class="docutils literal">follow_right_wall()</tt> <strong>in your
-library so that you can use it if you need it again.</strong></p>
-<div class="section" id="conclusion">
-<h2>28.1. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
-<p>We started with a simple problem to solve (going around a rectangular
-world) and, by improving little by little (also called <em>stepwise
-refinement</em>), we manage to write a program that could be used to solve
-many different problems. At each step, we kept the changes small, and
-made sure we had a working solution, before considering more complex
-problems. We also used more descriptive names for parts of the
-<em>algorithm</em> which made the program easier to read and, hopefully, to
-understand. This is a strategy you should use when writing your own
-programs:</p>
+<p>是不是更清楚了？</p>
+<p><strong>提示：你可以把</strong> <tt class="docutils literal">follow_right_wall()</tt> <strong>复制到库里，这样就可以在任何需要的时候使用了。</strong></p>
+<div class="section" id="id2">
+<h2>28.1. 总结<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们设法写一个能够解决多种不同问题的程序，从解决一个简单的问题（如何绕一个矩形的世界一周）开始，然后一点一点的改进（也叫 <em>逐步改进</em> ）。在每一步，我们坚持只改动一小部分、确保其能正确工作，然后再思考更复杂的问题。在 <em>算法</em> 的每个部分，我们也使用了更具描述性的名称来让程序更容易阅读和理解（希望如此）。因此，在你自己写程序的时候，应该使用如下的策略：</p>
 <div class="admonition important" id="index-0">
 <p class="first admonition-title">Important</p>
 <dl class="last docutils">
-<dt><strong>Rule # 4</strong></dt>
-<dd><p class="first">Steps to follow when writing a program:</p>
+<dt><strong>规则四</strong></dt>
+<dd><p class="first">写程序的步骤：</p>
 <ol class="last arabic simple">
-<li>start simple;</li>
-<li>introduce small changes, one at a time;</li>
-<li>make sure that each of the changes you have introduced do not
-invalidate the work you have done before;</li>
-<li>add descriptive comments that don’t simply repeat what each instruction does; and</li>
-<li>choose descriptive names.</li>
+<li>从简单的问题开始；</li>
+<li>每次只引入一个小的改动；</li>
+<li>确保引入的改动没有影响之前的工作成果；</li>
+<li>添加描述性的注释而不是简单的复述每条指令；并且</li>
+<li>选择更具描述性的名称。</li>
 </ol>
 </dd>
 </dl>
 </div>
-<p>The last two parts are essentially the same as Rule # 2.</p>
-<p>Now, make sure you have the working program in the editor before moving
-to next lesson.</p>
+<p>后面的两条实际上和规则二相同。</p>
+<p>现在，请确保你的程序能正确工作，然后再开始下一节。</p>
 </div>
 </div>
 
@@ -254,10 +219,10 @@ to next lesson.</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="surprises.html" title="29. Surprises"
+             <a href="surprises.html" title="29. 惊喜"
              >next</a> |</li>
         <li class="right" >
-             <a href="refine4.html" title="26. Refinements: part 4"
+             <a href="refine4.html" title="26. 持续改进：第四部分"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>

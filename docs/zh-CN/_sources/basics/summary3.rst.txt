@@ -34,4 +34,3 @@
 -  ``take()``
 -  ``put()``
 -  ``pause()``
--  ``build_wall()``

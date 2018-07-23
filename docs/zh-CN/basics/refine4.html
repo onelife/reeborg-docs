@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>26. Refinements: part 4 &mdash; 和乐跑一起学 Python</title>
+    <title>26. 持续改进：第四部分 &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="28. Rule number 4" href="rule4.html" />
-    <link rel="prev" title="25. Refinements: part 3" href="refine3.html" /> 
+    <link rel="next" title="28. 规则四" href="rule4.html" />
+    <link rel="prev" title="25. 持续改进：第三部分" href="refine3.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="rule4.html" title="28. Rule number 4"
+             <a href="rule4.html" title="28. 规则四"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="refine3.html" title="25. Refinements: part 3"
+             <a href="refine3.html" title="25. 持续改进：第三部分"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,16 +87,16 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">26. Refinements: part 4</a></li>
-<li><a class="reference internal" href="#refinements-part-5">27. Refinements: part 5</a></li>
+<li><a class="reference internal" href="#">26. 持续改进：第四部分</a></li>
+<li><a class="reference internal" href="#id2">27. 持续改进：第五部分</a></li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="refine3.html"
-                        title="previous chapter">25. Refinements: part 3</a></p>
+                        title="previous chapter">25. 持续改进：第三部分</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="rule4.html"
-                        title="next chapter">28. Rule number 4</a></p>
+                        title="next chapter">28. 规则四</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -121,20 +121,12 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
-  <div class="section" id="refinements-part-4">
-<h1>26. Refinements: part 4<a class="headerlink" href="#refinements-part-4" title="Permalink to this headline">¶</a></h1>
-<p>As you most likely found out, we were too hasty in asking Reeborg to
-move forward after putting down a token. We need to check if there is a
-wall preventing him from moving first. Here’s a solution to the problem:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">put</span><span class="p">()</span>
+  <div class="section" id="id1">
+<h1>26. 持续改进：第四部分<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>就像你找到的那样，当乐跑放下一个笑脸之后，我们让它前进得太草率了。我们应该先检查一下是否有墙挡在它前面。下面是这个问题的一种解决方案：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">put</span><span class="p">()</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">front_is_clear</span><span class="p">():</span>
     <span class="n">turn_left</span><span class="p">()</span>
 <span class="n">move</span><span class="p">()</span>
@@ -149,21 +141,18 @@ wall preventing him from moving first. Here’s a solution to the problem:</p>
 </pre></div>
 </div>
 <div class="topic">
-<p class="topic-title first">Try it!</p>
-<p>Test it now and see that it works. Can you imagine situations where it
-might not work?</p>
+<p class="topic-title first">试一试！</p>
+<p>现在，测试一下前面的程序，看看能否完成任务。你能想到，在什么情况下该程序不能完成任务么？</p>
 </div>
 </div>
-<div class="section" id="refinements-part-5">
-<h1>27. Refinements: part 5<a class="headerlink" href="#refinements-part-5" title="Permalink to this headline">¶</a></h1>
-<p>Consider world <strong>Around&nbsp;4</strong></p>
+<div class="section" id="id2">
+<h1>27. 持续改进：第五部分<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>观察一下关卡 <strong>周游世界之四</strong> 。</p>
 <div class="topic">
-<p class="topic-title first">Try it!</p>
-<p>Does the program written previously work with it?</p>
+<p class="topic-title first">试一试！</p>
+<p>前面的程序能完成这个世界的任务么？</p>
 </div>
-<p>As you probably guessed, if you didn’t try it (you should, really!), it
-does not. To make it work, we need to replace the <tt class="docutils literal">if</tt> we just added
-by a <tt class="docutils literal">while</tt>. Try it!</p>
+<p>如果你还没有尝试（你真的应该尝试一下），你也应该猜到了，答案是否定的。为了能够正确的完成任务，我们可以把刚刚加进去的 <tt class="docutils literal">if</tt> 替换成 <tt class="docutils literal">while</tt> 。试试看吧！</p>
 </div>
 
 
@@ -179,10 +168,10 @@ by a <tt class="docutils literal">while</tt>. Try it!</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="rule4.html" title="28. Rule number 4"
+             <a href="rule4.html" title="28. 规则四"
              >next</a> |</li>
         <li class="right" >
-             <a href="refine3.html" title="25. Refinements: part 3"
+             <a href="refine3.html" title="25. 持续改进：第三部分"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>

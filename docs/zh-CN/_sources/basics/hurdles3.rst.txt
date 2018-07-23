@@ -70,25 +70,9 @@
 
 .. index:: front_is_clear()
 
-在上上节课，你写了一段程序可以攻克 **跨栏之一** 和 **跨栏之二** ，但不能攻克 **跨栏之三** 。你的程序可能是这样写的：
+在上上节课，你写了一段程序可以攻克 **跨栏之一** 和 **跨栏之二** ，但不能攻克 **跨栏之三** 。原因是：我们在写程序的时候，假设跨栏之间的距离是相等的。现在让我们用新的条件 ``front_is_clear()`` 和关键字 ``elif`` 来修改一下。
 
-.. code-block:: python
-
-   def jump_over_hurdle():
-        # 函数的定义
-
-   def move_and_jump_until_done():
-        move()
-        if at_goal():
-            done()
-        jump_over_hurdle()
-
-    repeat 42:
-        move_and_jump_until_done()
-
-不能攻克 **跨栏之三** 的原因是，我们在写程序的时候，假设跨栏之间的距离是相等的。让我们用新的条件 ``front_is_clear()`` 和关键字 ``else`` 来修改一下。
-
-下面的新程序应该能攻克上面提到的三个关卡，请补全缺失的代码。
+如果你能正确补全缺失的代码，下面的新程序应该能攻克上面提到的全部三个关卡。
 
 .. code-block:: python
 

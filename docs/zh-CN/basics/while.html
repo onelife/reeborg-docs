@@ -27,7 +27,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="23. 改进：第一部分" href="refine1.html" />
+    <link rel="next" title="23. 持续改进：第一部分" href="refine1.html" />
     <link rel="prev" title="21. 小结" href="summary3.html" /> 
 
   <script>
@@ -69,7 +69,7 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="refine1.html" title="23. 改进：第一部分"
+             <a href="refine1.html" title="23. 持续改进：第一部分"
              accesskey="N">next</a> |</li>
         <li class="right" >
              <a href="summary3.html" title="21. 小结"
@@ -99,7 +99,7 @@
                         title="previous chapter">21. 小结</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="refine1.html"
-                        title="next chapter">23. 改进：第一部分</a></p>
+                        title="next chapter">23. 持续改进：第一部分</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -124,17 +124,11 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
   <div class="section" id="while">
 <h1>22. <tt class="docutils literal">while</tt> 循环<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">当我们要重复一些指令直到满足一个特定的条件，Python 给了我们一个简单的方法——使用 <tt class="docutils literal">while</tt> 关键字。比如，我们想让乐跑持续前进直到遇到一堵墙。以前，我们会这样写：</p>
+<p id="index-0">当我们需要重复一些指令直到满足一个特定的条件时，Python 给了我们一个简单的方法——使用 <tt class="docutils literal">while</tt> 关键字。比如，我们想让乐跑持续前进直到遇上一堵墙。以前，我们会这样写：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">move_until_wall</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">front_is_clear</span><span class="p">():</span>
         <span class="n">move</span><span class="p">()</span>
@@ -143,12 +137,12 @@ as placeholder.</p>
     <span class="n">move_until_wall</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>并且希望42这个重复次数足够到达一堵墙。通过使用 <tt class="docutils literal">while</tt> ，我们可以这样写：</p>
+<p>并且希望42这个重复次数足够大，以便能遇上一堵墙。然而，通过使用 <tt class="docutils literal">while</tt> ，我们可以这样写：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">front_is_clear</span><span class="p">():</span>
     <span class="n">move</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>就这样！不用猜也不用问重复多少次才够。</p>
+<p>就这样！不用猜也不用知道需要重复多少次。</p>
 <p>下面是这段简单的程序的流程图：</p>
 <div class="figure align-center">
 <img alt="../_images/while.jpg" src="../_images/while.jpg" />
@@ -182,10 +176,10 @@ as placeholder.</p>
 <span class="o">....</span>
 </pre></div>
 </div>
-<p>也就是说这个代码块将一直重复，只要条件被评估为真（ <tt class="docutils literal">True</tt> ）。那么，如果条件一直为真（ <tt class="docutils literal">True</tt> ）会发生什么？这个代码块将一直被重复，永不停止。</p>
+<p>也就是说只要条件被评估为真（ <tt class="docutils literal">True</tt> ），其代码块就会被重复。那么，如果条件一直为真（ <tt class="docutils literal">True</tt> ）会发生什么？——这个代码块将一直被重复，永不停止。</p>
 <p>这就糟了。</p>
-<p>程序员会把被重复的代码块称作 <strong>循环（loop）</strong> ：指令从代码块里的第一条（ <tt class="docutils literal">do_1()</tt> ）开始执行，直到最后一条（ <tt class="docutils literal">do_3()</tt> ），然后 <strong>*循环* 返回</strong> 到代码块开始处的条件判断，看看条件是否仍然满足。如果仍然满足，则再重复一遍。如果条件永远不为假（ <tt class="docutils literal">False</tt> ），代码块将一直被重复，其结果就是一个 <strong>无限循环（infinite loop）</strong> 。</p>
-<p>注意：你应该确保循环条件在某个时刻会变为假（ <tt class="docutils literal">False</tt> ）。</p>
+<p>程序员会把被重复的代码块称作 <strong>循环（loop）</strong> ：指令从代码块里的第一条（ <tt class="docutils literal">do_1()</tt> ）开始执行，直到最后一条（ <tt class="docutils literal">do_3()</tt> ），然后 <strong>循环返回</strong> 到代码块开始处的条件判断，看看条件是否仍然满足。如果仍然满足，则再重复一遍。如果条件永远不为假（ <tt class="docutils literal">False</tt> ），代码块将一直被重复，其结果就是一个 <strong>无限循环（infinite loop）</strong> 。</p>
+<p>注意：你应该确保循环条件能在某个时刻变为假（ <tt class="docutils literal">False</tt> ）。</p>
 </div>
 <div class="section" id="id2">
 <h2>22.2. 回到跨栏！<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
@@ -195,9 +189,9 @@ as placeholder.</p>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p class="last">你的程序可以像这样：</p>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jump_over_hurdle</span><span class="p">():</span>
+<blockquote>
+<div>你可以使用下面的程序大纲：</div></blockquote>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jump_over_hurdle</span><span class="p">():</span>
     <span class="c1"># 函数的定义</span>
 
 <span class="k">def</span> <span class="nf">run_or_jump</span> <span class="p">():</span>
@@ -207,7 +201,8 @@ as placeholder.</p>
     <span class="n">run_or_jump</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>就是这样！不用猜测重复的次数！从现在开始，你应该只有在知道一个函数 <strong>确切的</strong> 重复次数时才使用 <tt class="docutils literal">repeat</tt> 。</p>
+</div>
+<p>就这样！再也不用猜测要重复多少次了！从现在开始，请只有在知道一个函数 <strong>确切的</strong> 重复次数时才使用 <tt class="docutils literal">repeat</tt> 。</p>
 </div>
 </div>
 
@@ -224,7 +219,7 @@ as placeholder.</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="refine1.html" title="23. 改进：第一部分"
+             <a href="refine1.html" title="23. 持续改进：第一部分"
              >next</a> |</li>
         <li class="right" >
              <a href="summary3.html" title="21. 小结"

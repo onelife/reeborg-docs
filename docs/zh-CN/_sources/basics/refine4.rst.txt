@@ -1,10 +1,9 @@
-
-Refinements: part 4
+持续改进：第四部分
 ===================
 
-As you most likely found out, we were too hasty in asking Reeborg to
-move forward after putting down a token. We need to check if there is a
-wall preventing him from moving first. Here's a solution to the problem::
+就像你找到的那样，当乐跑放下一个笑脸之后，我们让它前进得太草率了。我们应该先检查一下是否有墙挡在它前面。下面是这个问题的一种解决方案：
+
+.. code-block:: python
 
     put()
     if not front_is_clear():
@@ -19,20 +18,17 @@ wall preventing him from moving first. Here's a solution to the problem::
         else:
             turn_left()
 
-.. topic:: Try it!
+.. topic:: 试一试！
 
-    Test it now and see that it works. Can you imagine situations where it
-    might not work?
+    现在，测试一下前面的程序，看看能否完成任务。你能想到，在什么情况下该程序不能完成任务么？
 
-Refinements: part 5
+持续改进：第五部分
 ===================
 
-Consider world **Around 4**
+观察一下关卡 **周游世界之四** 。
 
-.. topic:: Try it!
+.. topic:: 试一试！
 
-    Does the program written previously work with it?
+    前面的程序能完成这个世界的任务么？
 
-As you probably guessed, if you didn't try it (you should, really!), it
-does not. To make it work, we need to replace the ``if`` we just added
-by a ``while``. Try it!
+如果你还没有尝试（你真的应该尝试一下），你也应该猜到了，答案是否定的。为了能够正确的完成任务，我们可以把刚刚加进去的 ``if`` 替换成 ``while`` 。试试看吧！

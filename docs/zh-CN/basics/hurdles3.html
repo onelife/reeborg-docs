@@ -124,12 +124,6 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
   <div class="section" id="id1">
@@ -184,22 +178,8 @@ as placeholder.</p>
 </div>
 <div class="section" id="id2">
 <h2>19.2. 回到跨栏<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p id="index-1">在上上节课，你写了一段程序可以攻克 <strong>跨栏之一</strong> 和 <strong>跨栏之二</strong> ，但不能攻克 <strong>跨栏之三</strong> 。你的程序可能是这样写的：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jump_over_hurdle</span><span class="p">():</span>
-     <span class="c1"># 函数的定义</span>
-
-<span class="k">def</span> <span class="nf">move_and_jump_until_done</span><span class="p">():</span>
-     <span class="n">move</span><span class="p">()</span>
-     <span class="k">if</span> <span class="n">at_goal</span><span class="p">():</span>
-         <span class="n">done</span><span class="p">()</span>
-     <span class="n">jump_over_hurdle</span><span class="p">()</span>
-
- <span class="n">repeat</span> <span class="mi">42</span><span class="p">:</span>
-     <span class="n">move_and_jump_until_done</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>不能攻克 <strong>跨栏之三</strong> 的原因是，我们在写程序的时候，假设跨栏之间的距离是相等的。让我们用新的条件 <tt class="docutils literal">front_is_clear()</tt> 和关键字 <tt class="docutils literal">else</tt> 来修改一下。</p>
-<p>下面的新程序应该能攻克上面提到的三个关卡，请补全缺失的代码。</p>
+<p id="index-1">在上上节课，你写了一段程序可以攻克 <strong>跨栏之一</strong> 和 <strong>跨栏之二</strong> ，但不能攻克 <strong>跨栏之三</strong> 。原因是：我们在写程序的时候，假设跨栏之间的距离是相等的。现在让我们用新的条件 <tt class="docutils literal">front_is_clear()</tt> 和关键字 <tt class="docutils literal">elif</tt> 来修改一下。</p>
+<p>如果你能正确补全缺失的代码，下面的新程序应该能攻克上面提到的全部三个关卡。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jump_over_hurdle</span><span class="p">():</span>
      <span class="c1"># 函数的定义</span>
 

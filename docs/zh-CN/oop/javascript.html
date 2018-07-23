@@ -115,12 +115,6 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
   <div class="section" id="javascript">
@@ -218,21 +212,20 @@ before running the following program.</p>
 turned off</strong> to
 confirm that you can add new capabilities to
 Reeborg and show its effect properly at each step.</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span>  class Teleporter(UsedRobot):
+<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Teleporter</span><span class="p">(</span><span class="n">UsedRobot</span><span class="p">):</span>
 
-     def jump(self, x, y):
-        self.body.x = x
-        self.body.y = y
-        RUR.rec.record_frame()
+    <span class="k">def</span> <span class="nf">jump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">RUR</span><span class="o">.</span><span class="n">rec</span><span class="o">.</span><span class="n">record_frame</span><span class="p">()</span>
 
-  jumper = Teleporter()
-  jumper.jump(3, 5)
-  jumper.jump(7, 2)
-
-Try again afterwards with the code highlighting turned on.  Can you
-figure out what is going on?
+<span class="n">jumper</span> <span class="o">=</span> <span class="n">Teleporter</span><span class="p">()</span>
+<span class="n">jumper</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">jumper</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Try again afterwards with the code highlighting turned on.  Can you
+figure out what is going on?</p>
 </div>
 <div class="topic">
 <p class="topic-title first">Your turn!</p>

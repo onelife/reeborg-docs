@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>25. Refinements: part 3 &mdash; 和乐跑一起学 Python</title>
+    <title>25. 持续改进：第三部分 &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="26. Refinements: part 4" href="refine4.html" />
-    <link rel="prev" title="24. Refinements: part 2" href="refine2.html" /> 
+    <link rel="next" title="26. 持续改进：第四部分" href="refine4.html" />
+    <link rel="prev" title="24. 持续改进：第二部分" href="refine2.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="refine4.html" title="26. Refinements: part 4"
+             <a href="refine4.html" title="26. 持续改进：第四部分"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="refine2.html" title="24. Refinements: part 2"
+             <a href="refine2.html" title="24. 持续改进：第二部分"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,18 +87,18 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">25. Refinements: part 3</a><ul>
-<li><a class="reference internal" href="#more-complicated-world">25.1. More complicated world</a></li>
+<li><a class="reference internal" href="#">25. 持续改进：第三部分</a><ul>
+<li><a class="reference internal" href="#id2">25.1. 更复杂的世界</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="refine2.html"
-                        title="previous chapter">24. Refinements: part 2</a></p>
+                        title="previous chapter">24. 持续改进：第二部分</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="refine4.html"
-                        title="next chapter">26. Refinements: part 4</a></p>
+                        title="next chapter">26. 持续改进：第四部分</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -123,20 +123,12 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
-  <div class="section" id="refinements-part-3">
-<h1>25. Refinements: part 3<a class="headerlink" href="#refinements-part-3" title="Permalink to this headline">¶</a></h1>
-<p>As you should have noticed the program doesn’t work. What happens is
-that Reeborg gets in an infinite loop when there is no wall around him.
-We need to have him <tt class="docutils literal">move()</tt> after turning right, as indicated below:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">put</span><span class="p">()</span>
+  <div class="section" id="id1">
+<h1>25. 持续改进：第三部分<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>你应该已经知道了前面的程序有错误：当旁边没有墙时，乐跑就会陷入无限循环。我们需要让它在右转之后 <tt class="docutils literal">move()</tt> （前进），就像下面这样：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">put</span><span class="p">()</span>
 <span class="n">move</span><span class="p">()</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="n">object_here</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">right_is_clear</span><span class="p">():</span>
@@ -148,14 +140,13 @@ We need to have him <tt class="docutils literal">move()</tt> after turning right
         <span class="n">turn_left</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="section" id="more-complicated-world">
-<h2>25.1. More complicated world<a class="headerlink" href="#more-complicated-world" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>25.1. 更复杂的世界<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="topic">
-<p class="topic-title first">Another world!</p>
-<p>Now, consider <strong>Around&nbsp;3</strong>; will our program work?</p>
+<p class="topic-title first">另外一个世界！</p>
+<p>现在，观察一下关卡 <strong>周游世界之三</strong> ，想一想我们的程序是否仍旧能完成任务。</p>
 </div>
-<p>As you probably guessed, unfortunately the answer is no. Try to figure
-out why before reading any further.</p>
+<p>就像你猜测的那样，很不走运，答案是否定的。在阅读下一节之前，请先尝试找出原因。</p>
 </div>
 </div>
 
@@ -172,10 +163,10 @@ out why before reading any further.</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="refine4.html" title="26. Refinements: part 4"
+             <a href="refine4.html" title="26. 持续改进：第四部分"
              >next</a> |</li>
         <li class="right" >
-             <a href="refine2.html" title="24. Refinements: part 2"
+             <a href="refine2.html" title="24. 持续改进：第二部分"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>

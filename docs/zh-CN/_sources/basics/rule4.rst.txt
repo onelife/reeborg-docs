@@ -1,53 +1,39 @@
-Rule number 4
+规则四
 =============
 
-In the preceding lessons, we have designed a program that works in many
-more situations than just the original one we considered. (We could come
-up with other situations where it would not work ... but we have done
-enough for this exercise.) This program, before we forget, is to allow
-Reeborg to explore his world, going around once. While the program is
-rather short, and its structure should be clear at this point, it might
-not be so obvious to someone who just happened to see it for the first
-time. It's probably a good idea either to add comments and/or to
-introduce more meaningful words. Let's start by adding comments,
-somewhat more verbose than we think we might need::
+在前面的课程里，我们设计了一个能够适应多种不同环境，并且完成任务的程序。（我们还有可能会遇到其它的、使该程序不能完成任务的环境……但是我们已经做了足够多的练习。）（在忘记之前，）我们来回顾一下：我们写的程序是让乐跑探索它所在的世界，并且绕世界一周。由于非常短，这个程序的结构很清晰。但是对于第一次看到的人来说，它的结构可能还不是那么明显。因此，我们可以添加一些注释，或者使用一些更有意义的名字，或者二者都采用。让我们从添加注释开始——比所需要的再啰嗦一些：
 
-    # We mark the starting point by putting down a token
+.. code-block:: python
+
+    # 让乐跑放下一个笑脸以标记起点
     put()
 
-    # We find a clear direction and start moving
+    # 让乐跑找一个没有障碍物的方向，然后开始前进
     while not front_is_clear():
         turn_left()
     move()
 
-    '''  We know we will have gone around the world
-    when we come back to the place we put the token
-    down. ''''
+    ''' 当乐跑回到有笑脸的位置时，就知道自己已经绕世界一周了。''''
 
     while not object_here():
-        if right_is_clear():  # keep to the right
+        if right_is_clear():    # 保持靠右
             turn_right()
             move()
-        elif front_is_clear():    # move ... following the right wall
+        elif front_is_clear():  # 前进——沿着右侧的墙
             move()
         else:
-            turn_left()  # follow the wall by turning left
+            turn_left() # 沿着墙左转
 
-While this sort of clarifies our intent for each instruction, it is
-not really that helpful in summarizing the method (also known as the
-*algorithm*) used in solving the problem. Therefore, these comments
-might not be as helpful to another reader as we might have wished.
-Reading over the comments, we note that the program has two parts:
-#. mark the starting point;
-#. follow the right wall until we come back to the start.
+尽管这些注释表明了每条指令的意图，但是对于阐明解决问题的方法（或者叫 *算法* ）并没有什么帮助。因此，这些注释对于另外一个程序员来说，可能没有我们想象的那样有帮助。通过阅读注释，我们注意到该程序包含两个部分：
 
+#. 标记起始点；
+#. 沿着右侧墙前进，直到回到起点。
 
-Let's rewrite this program so that these two parts become clearer,
-and writing the comments differently::
+让我们重写一下前面的程序，使这两个部分更清晰，并且用不同的方式来做注释：
 
-    ''' This program instructs Reeborg to go around his world
-        counterclockwise, stopping when he comes
-        back to his starting point. '''
+.. code-block:: python
+
+    ''' 这段程序让乐跑逆时针绕世界一周，当再次回到起点时结束。 '''
 
     def mark_starting_point_and_move():
         put()
@@ -64,51 +50,37 @@ and writing the comments differently::
         else:
             turn_left()
 
-    found_starting_point = object_here
-
     #######
-    ##  End of definitions above; program execution below .
+    ##  上面为定义；程序从下面开始执行。
     #######
 
     mark_starting_point_and_move()
 
-    while not found_starting_point():
+    while not object_here():
         follow_right_wall()
 
-Isn't this much clearer?
+是不是更清楚了？
 
-**Note: you might want to make a copy of** ``follow_right_wall()`` **in your
-library so that you can use it if you need it again.**
+**提示：你可以把** ``follow_right_wall()`` **复制到库里，这样就可以在任何需要的时候使用了。**
 
-Conclusion
+总结
 ----------
 
-We started with a simple problem to solve (going around a rectangular
-world) and, by improving little by little (also called *stepwise
-refinement*), we manage to write a program that could be used to solve
-many different problems. At each step, we kept the changes small, and
-made sure we had a working solution, before considering more complex
-problems. We also used more descriptive names for parts of the
-*algorithm* which made the program easier to read and, hopefully, to
-understand. This is a strategy you should use when writing your own
-programs:
+我们设法写一个能够解决多种不同问题的程序，从解决一个简单的问题（如何绕一个矩形的世界一周）开始，然后一点一点的改进（也叫 *逐步改进* ）。在每一步，我们坚持只改动一小部分、确保其能正确工作，然后再思考更复杂的问题。在 *算法* 的每个部分，我们也使用了更具描述性的名称来让程序更容易阅读和理解（希望如此）。因此，在你自己写程序的时候，应该使用如下的策略：
 
-.. index:: Rule # 4
+.. index:: 规则四
 
 .. important::
 
-    **Rule # 4**
-        Steps to follow when writing a program:
+    **规则四**
+        写程序的步骤：
 
-        #. start simple;
-        #. introduce small changes, one at a time;
-        #. make sure that each of the changes you have introduced do not
-           invalidate the work you have done before;
-        #. add descriptive comments that don't simply repeat what each instruction does; and
-        #. choose descriptive names.
+        #. 从简单的问题开始；
+        #. 每次只引入一个小的改动；
+        #. 确保引入的改动没有影响之前的工作成果；
+        #. 添加描述性的注释而不是简单的复述每条指令；并且
+        #. 选择更具描述性的名称。
 
-The last two parts are essentially the same as Rule # 2.
+后面的两条实际上和规则二相同。
 
-Now, make sure you have the working program in the editor before moving
-to next lesson.
-
+现在，请确保你的程序能正确工作，然后再开始下一节。

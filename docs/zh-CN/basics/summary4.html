@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>31. Summary &mdash; 和乐跑一起学 Python</title>
+    <title>31. 小结 &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="Recursion" href="../recursion/index.html" />
-    <link rel="prev" title="30. Revisiting some challenges" href="challenges2.html" /> 
+    <link rel="next" title="递归" href="../recursion/index.html" />
+    <link rel="prev" title="30. 重温一些关卡" href="challenges2.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="../recursion/index.html" title="Recursion"
+             <a href="../recursion/index.html" title="递归"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="challenges2.html" title="30. Revisiting some challenges"
+             <a href="challenges2.html" title="30. 重温一些关卡"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,19 +87,19 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">31. Summary</a><ul>
-<li><a class="reference internal" href="#python-keywords">31.1. Python keywords</a></li>
-<li><a class="reference internal" href="#functions-specific-to-reeborg-s-world">31.2. Functions specific to Reeborg’s World</a></li>
+<li><a class="reference internal" href="#">31. 小结</a><ul>
+<li><a class="reference internal" href="#python">31.1. Python 关键字</a></li>
+<li><a class="reference internal" href="#id2">31.2. 乐跑的世界的专用函数</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="challenges2.html"
-                        title="previous chapter">30. Revisiting some challenges</a></p>
+                        title="previous chapter">30. 重温一些关卡</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../recursion/index.html"
-                        title="next chapter">Recursion</a></p>
+                        title="next chapter">递归</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -124,22 +124,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
-  <div class="section" id="summary">
-<h1>31. Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
-<p>Since the last summary, we have seen one more Python keyword,
-<tt class="docutils literal">while</tt>, and two additional functions,
-<tt class="docutils literal">right_is_clear()</tt> and <tt class="docutils literal">carries_objects()</tt>.</p>
-<div class="section" id="python-keywords">
-<h2>31.1. Python keywords<a class="headerlink" href="#python-keywords" title="Permalink to this headline">¶</a></h2>
-<p>In alphabetical order, we have seen the following Python keywords:</p>
+  <div class="section" id="id1">
+<h1>31. 小结<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>从上一次小结到现在，我们见到一个新的 Python 关键字—— <tt class="docutils literal">while</tt> ，和两个新的函数—— <tt class="docutils literal">right_is_clear()</tt> 和 <tt class="docutils literal">carries_objects()</tt> 。</p>
+<div class="section" id="python">
+<h2>31.1. Python 关键字<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>按照字母顺序，我们见过下面这些 Python 关键字：</p>
 <ul class="simple">
 <li><tt class="docutils literal">def</tt></li>
 <li><tt class="docutils literal">elif</tt></li>
@@ -153,11 +145,9 @@ as placeholder.</p>
 <li><tt class="docutils literal">while</tt></li>
 </ul>
 </div>
-<div class="section" id="functions-specific-to-reeborg-s-world">
-<h2>31.2. Functions specific to Reeborg’s World<a class="headerlink" href="#functions-specific-to-reeborg-s-world" title="Permalink to this headline">¶</a></h2>
-<p>We have seen the following functions which bring
-about a change in Reeborg’s behaviour or in the state
-of its world:</p>
+<div class="section" id="id2">
+<h2>31.2. 乐跑的世界的专用函数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们见过下面这些能够改变乐跑的行为或其所在世界的状态的函数：</p>
 <ul class="simple">
 <li><tt class="docutils literal">move()</tt></li>
 <li><tt class="docutils literal">build_wall()</tt></li>
@@ -167,8 +157,7 @@ of its world:</p>
 <li><tt class="docutils literal">done()</tt></li>
 <li><tt class="docutils literal">turn_left()</tt></li>
 </ul>
-<p>We have also seen the following functions which tell Reeborg
-something about the state of its world:</p>
+<p>我们也见过下面这些能够让乐跑感知其所在世界的状态的函数：</p>
 <ul class="simple">
 <li><tt class="docutils literal">at_goal()</tt></li>
 <li><tt class="docutils literal">object_here()</tt></li>
@@ -194,10 +183,10 @@ something about the state of its world:</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="../recursion/index.html" title="Recursion"
+             <a href="../recursion/index.html" title="递归"
              >next</a> |</li>
         <li class="right" >
-             <a href="challenges2.html" title="30. Revisiting some challenges"
+             <a href="challenges2.html" title="30. 重温一些关卡"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>

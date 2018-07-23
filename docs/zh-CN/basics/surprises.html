@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>29. Surprises &mdash; 和乐跑一起学 Python</title>
+    <title>29. 惊喜 &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="30. Revisiting some challenges" href="challenges2.html" />
-    <link rel="prev" title="28. Rule number 4" href="rule4.html" /> 
+    <link rel="next" title="30. 重温一些关卡" href="challenges2.html" />
+    <link rel="prev" title="28. 规则四" href="rule4.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="challenges2.html" title="30. Revisiting some challenges"
+             <a href="challenges2.html" title="30. 重温一些关卡"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="rule4.html" title="28. Rule number 4"
+             <a href="rule4.html" title="28. 规则四"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,10 +87,10 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="rule4.html"
-                        title="previous chapter">28. Rule number 4</a></p>
+                        title="previous chapter">28. 规则四</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="challenges2.html"
-                        title="next chapter">30. Revisiting some challenges</a></p>
+                        title="next chapter">30. 重温一些关卡</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -115,48 +115,38 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
-  <div class="section" id="surprises">
-<h1>29. Surprises<a class="headerlink" href="#surprises" title="Permalink to this headline">¶</a></h1>
-<p>Change the program we just wrote so that:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="n">mark_starting_point_and_move</span><span class="p">()</span>
+  <div class="section" id="id1">
+<h1>29. 惊喜<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>修改一下我们之前写的程序，把：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mark_starting_point_and_move</span><span class="p">()</span>
 
 <span class="k">while</span> <span class="ow">not</span> <span class="n">found_starting_point</span><span class="p">():</span>
     <span class="n">follow_right_wall</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>becomes:</p>
-<div class="highlight-py3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="ow">not</span> <span class="n">at_goal</span><span class="p">():</span>
+<p>改写成：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="ow">not</span> <span class="n">at_goal</span><span class="p">():</span>
     <span class="n">follow_right_wall</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="topic">
-<p class="topic-title first">Try it!</p>
-<p>Run this program with the following hurdle races <strong>Hurdles&nbsp;1</strong>,
-<strong>Hurdles&nbsp;2</strong> and <strong>Hurdles&nbsp;3</strong>.</p>
+<p class="topic-title first">试一试！</p>
+<p>在关卡 <strong>跨栏之一</strong> 、 <strong>跨栏之二</strong> 和 <strong>跨栏之三</strong> 里面运行一下该程序。</p>
 </div>
-<p>You will find that this program, which is quite
-different than the ones you had written before to solve the hurdles
-challenges, works just as well.</p>
+<p>你会发现该程序——尽管和我们以前写的跨栏程序很不一样，竟然也能完成任务。</p>
 <div class="topic">
-<p class="topic-title first">Try this!</p>
-<p>Now, try it with <strong>Hurdles&nbsp;4</strong>.</p>
+<p class="topic-title first">试一试！</p>
+<p>现在，请在关卡 <strong>跨栏之四</strong> 里运行一下。</p>
 </div>
-<p>Surprise! It works whereas the previous program did not! Can you understand why
-it works?</p>
+<p>惊喜吗？尽管以前写的程序不能，但现在的程序能完成这个任务！你知道为什么吗？</p>
 <div class="topic">
-<p class="topic-title first">Try these!</p>
-<p>Run the same modified program again with both <strong>Maze&nbsp;1</strong> or <strong>Maze&nbsp;2</strong>.</p>
+<p class="topic-title first">再试一试！</p>
+<p>在关卡 <strong>迷宫</strong> 里运行一下同样的程序。</p>
 </div>
-<p>As you will see, this simple program can find the exit to the mazes!</p>
-<p>Amazing!</p>
+<p>就像你看到的，不管从哪里出发，这个简单的程序都可以让乐跑找到迷宫的出口！</p>
+<p>好神奇！</p>
 </div>
 
 
@@ -172,10 +162,10 @@ it works?</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="challenges2.html" title="30. Revisiting some challenges"
+             <a href="challenges2.html" title="30. 重温一些关卡"
              >next</a> |</li>
         <li class="right" >
-             <a href="rule4.html" title="28. Rule number 4"
+             <a href="rule4.html" title="28. 规则四"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>

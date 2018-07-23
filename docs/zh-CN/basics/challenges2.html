@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>30. Revisiting some challenges &mdash; 和乐跑一起学 Python</title>
+    <title>30. 重温一些关卡 &mdash; 和乐跑一起学 Python</title>
     
     <link rel="stylesheet" href="../_static/reeborg.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="和乐跑一起学 Python" href="../index.html" />
     <link rel="up" title="基础教程" href="index.html" />
-    <link rel="next" title="31. Summary" href="summary4.html" />
-    <link rel="prev" title="29. Surprises" href="surprises.html" /> 
+    <link rel="next" title="31. 小结" href="summary4.html" />
+    <link rel="prev" title="29. 惊喜" href="surprises.html" /> 
 
   <script>
     // intelligent scrolling of the sidebar content
@@ -69,10 +69,10 @@
              <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-             <a href="summary4.html" title="31. Summary"
+             <a href="summary4.html" title="31. 小结"
              accesskey="N">next</a> |</li>
         <li class="right" >
-             <a href="surprises.html" title="29. Surprises"
+             <a href="surprises.html" title="29. 惊喜"
              accesskey="P">previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
@@ -87,24 +87,24 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">30. Revisiting some challenges</a><ul>
-<li><a class="reference internal" href="#before-harvesting">30.1. Before harvesting</a></li>
-<li><a class="reference internal" href="#ready-to-harvest">30.2. Ready to harvest</a></li>
-<li><a class="reference internal" href="#stormy-weather">30.3. Stormy weather</a></li>
-<li><a class="reference internal" href="#reeborg-s-friend-s-turn">30.4. Reeborg’s friend’s turn.</a></li>
-<li><a class="reference internal" href="#after-the-storm">30.5. After the storm</a></li>
-<li><a class="reference internal" href="#more-yard-work">30.6. More yard work!</a></li>
-<li><a class="reference internal" href="#finding-the-center">30.7. Finding the center</a></li>
+<li><a class="reference internal" href="#">30. 重温一些关卡</a><ul>
+<li><a class="reference internal" href="#id2">30.1. 收获季之前</a></li>
+<li><a class="reference internal" href="#id3">30.2. 丰收时刻</a></li>
+<li><a class="reference internal" href="#id4">30.3. 暴风雨</a></li>
+<li><a class="reference internal" href="#id5">30.4. 轮到乐跑的朋友了</a></li>
+<li><a class="reference internal" href="#id6">30.5. 暴风雨过后</a></li>
+<li><a class="reference internal" href="#id7">30.6. 更多整理院子的工作！</a></li>
+<li><a class="reference internal" href="#id8">30.7. 找到世界的中心</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="surprises.html"
-                        title="previous chapter">29. Surprises</a></p>
+                        title="previous chapter">29. 惊喜</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="summary4.html"
-                        title="next chapter">31. Summary</a></p>
+                        title="next chapter">31. 小结</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -129,143 +129,84 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-      <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
-</div>
           <div class="body">
             
-  <div class="section" id="revisiting-some-challenges">
-<h1>30. Revisiting some challenges<a class="headerlink" href="#revisiting-some-challenges" title="Permalink to this headline">¶</a></h1>
-<p>It is time to solve some of the challenges introduced early on.</p>
-<p>Using <tt class="docutils literal">while</tt>, <tt class="docutils literal">if</tt>, <tt class="docutils literal">else</tt>, etc., you will write programs that
-will be able to accomplish various tasks. In writing these programs, you
-should keep the following in mind:</p>
+  <div class="section" id="id1">
+<h1>30. 重温一些关卡<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>是时候解决一些以前没能攻克的关卡了。</p>
+<p>使用 <tt class="docutils literal">while</tt> 、 <tt class="docutils literal">if</tt> 、 <tt class="docutils literal">else</tt> 等等，你应该可以写出能够解决多种问题的程序。在写程序时，请记住以下三点：</p>
 <ol class="arabic simple">
-<li>Remember rule #2 and choose names that are descriptive for the
-problems you are attempting to solve</li>
-<li>Follow the principles given in rule #4: start by solving simpler
-problems first and generalize your solution so that it can be applied
-to more than one problem</li>
-<li>Remember rule #3: avoid repeating code as much as possible.</li>
+<li>牢记规则二；在给函数起名字时，请选择能够描述你正在试图解决的问题的名称</li>
+<li>遵守规则四中原则：从解决简单的问题开始，然后归纳你的解决方案，使其可以应用到更多的问题上</li>
+<li>牢记规则三；尽量避免代码重复</li>
 </ol>
-<p>Now, remember rule #1 … and make sure that, this time, you solve
-<strong>all</strong> the challenges mentioned below.</p>
+<p>现在，请牢记规则一……然后，完成下面提到的 <strong>全部</strong> 的关卡。</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Make sure you save your various solutions as you might want to come back
-to them later.</p>
+<p class="last">请保存你的解决方案，以后可能用得上。</p>
 </div>
-<div class="section" id="before-harvesting">
-<h2>30.1. Before harvesting<a class="headerlink" href="#before-harvesting" title="Permalink to this headline">¶</a></h2>
-<p>Select world <strong>Harvest&nbsp;3</strong> which occurred shortly after the garden was
-seeded. Some carrot seeds sprouted well, others yielded two or three
-plants while some did not sprout at all. Help Reeborg weed out the
-excess seedlings, and plant some new seeds at locations where some were
-missing.</p>
+<div class="section" id="id2">
+<h2>30.1. 收获季之前<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>关卡 <strong>大丰收之三</strong> ，发生在乐跑在菜园里播种后不久。有一些胡萝卜种子很好的发芽了；另外有一些在同一个格子里长出了两、三个芽；还有一些没有发芽。请让乐跑移除多长出来的芽，并且在没有种子发芽的地方补种。</p>
 <div class="topic">
-<p class="topic-title first">Do it!</p>
-<p>Write a program as described above.</p>
+<p class="topic-title first">这样做！</p>
+<p>写一段程序来完成前面描述的任务。</p>
 </div>
 </div>
-<div class="section" id="ready-to-harvest">
-<h2>30.2. Ready to harvest<a class="headerlink" href="#ready-to-harvest" title="Permalink to this headline">¶</a></h2>
-<p>The weeding went well (I hope!), the growing season is over and it is
-time to harvest. Select world <strong>Harvest&nbsp;1</strong> and/or <strong>Harvest&nbsp;2</strong> and have Reeborg
-collect all the carrots.  You should write a single program that would
-work for both worlds.</p>
+<div class="section" id="id3">
+<h2>30.2. 丰收时刻<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>前面的工作进行的很顺利（希望是这样！），生长季结束了、丰收季来临了。请选择关卡 <strong>大丰收之一</strong> 或 <strong>大丰收之二</strong> ，让乐跑收集所有的胡萝卜。你需要要用一个程序来完成这两个任务。</p>
 </div>
-<div class="section" id="stormy-weather">
-<h2>30.3. Stormy weather<a class="headerlink" href="#stormy-weather" title="Permalink to this headline">¶</a></h2>
-<p>It was a beautifully sunny day. Reeborg was playing outside with his
-friend. Suddenly, it started to rain and Reeborg remembered that the
-windows in his house were all open. So Reeborg went back to his house
-and stopped in front of the door, unsure of how to proceed.</p>
+<div class="section" id="id4">
+<h2>30.3. 暴风雨<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>在美丽而晴朗的一天，乐跑和朋友一起在外面玩儿。忽然，天上开始下起了雨。乐跑想起家里的窗户还没关，于是就跑回家。但走到门前时，它停住了，因为不知道要怎么做。</p>
 <div class="topic" id="index-0">
-<p class="topic-title first">Do it!</p>
-<p>Using the <tt class="docutils literal">build_wall()</tt> instruction and either <tt class="docutils literal">wall_on_right()</tt>
-or <tt class="docutils literal">wall_in_front()</tt>, or both, but <strong>not</strong> <tt class="docutils literal">right_is_clear()</tt>
-nor <tt class="docutils literal">front_is_clear()</tt>, help Reeborg close the windows
-of his house. When Reeborg finishes his task, he will stand in the
-doorway, watching the rain fall, waiting for it to stop before he can go
-back and play outside. The world is <strong>Rain&nbsp;1</strong>.</p>
+<p class="topic-title first">这样做！</p>
+<p>让乐跑关上窗户。可以使用 <tt class="docutils literal">build_wall()</tt> 、 <tt class="docutils literal">wall_on_right()</tt> 或 <tt class="docutils literal">wall_in_front()</tt> 指令，但 <strong>不要</strong> 使用 <tt class="docutils literal">right_is_clear()</tt> 或 <tt class="docutils literal">front_is_clear()</tt> 指令。当关好窗户后，乐跑要回到门口看雨，等雨停了才能再出去玩。这就是关卡 <strong>下雨之一</strong> 的任务。</p>
 </div>
 </div>
-<div class="section" id="reeborg-s-friend-s-turn">
-<h2>30.4. Reeborg’s friend’s turn.<a class="headerlink" href="#reeborg-s-friend-s-turn" title="Permalink to this headline">¶</a></h2>
-<p>Erdna, Reeborg’s friend, lives in a bigger house as shown on <strong>Rain&nbsp;2</strong>.
-Erdna was playing outside with Reeborg when it started raining. Help
-Erdna close the windows in her house.</p>
+<div class="section" id="id5">
+<h2>30.4. 轮到乐跑的朋友了<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>鹅蛋（Erdna）是乐跑的朋友，在关卡 <strong>下雨之二</strong> 里可以看到，它有一个更大的房子。刚开始下雨的时候，鹅蛋正在外面和乐跑玩儿。请让鹅蛋也关好窗户。</p>
 <div class="topic">
-<p class="topic-title first">Try it!</p>
-<p>Your challenge is to write a single program that will work for both
-Reeborg and Erdna, again without using <tt class="docutils literal">right_is_clear()</tt>
-nor <tt class="docutils literal">front_is_clear()</tt>… however, it might be a bit tricky.</p>
+<p class="topic-title first">试一试！</p>
+<p>写一段程序来让乐跑和鹅蛋都关好窗户，依然不要使用  <tt class="docutils literal">right_is_clear()</tt> 或 <tt class="docutils literal">front_is_clear()</tt> ……这可能会有点棘手。</p>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p class="last">To determine if there’s a window at a given location, a robot may
-have to take an extra step and, depending on the result, may have to
-turn around, go back and close that window.</p>
+<p class="last">机器人可能需要多走几步，来判断一个地点是否有窗户。比如先往前走一格，观察一下；根据情况再向后转、走回去、关窗户。</p>
 </div>
 <div class="topic">
-<p class="topic-title first">Do it again!</p>
-<p>This time, write a program that does make use of <tt class="docutils literal">right_is_clear()</tt>
-or <tt class="docutils literal">front_is_clear()</tt>, in addition to <tt class="docutils literal">wall_on_right()</tt>
-or <tt class="docutils literal">wall_in_front()</tt> to allow Reeborg and Erdna to close the windows
-in their houses.  The number of steps (<tt class="docutils literal">move()</tt> and <tt class="docutils literal">turn_left()</tt>)
-taken by the robots should be reduced since they can get more information
-about their world directly.</p>
+<p class="topic-title first">再做一遍！</p>
+<p>这一次，可以使用 <tt class="docutils literal">right_is_clear()</tt> 或 <tt class="docutils literal">front_is_clear()</tt> ，再加上 <tt class="docutils literal">wall_on_right()</tt> 或 <tt class="docutils literal">wall_in_front()</tt> 指令，写一段程序让乐跑和鹅蛋都关好窗户。由于得到了更多的、直接的信息，这次机器人所花的步骤（ <tt class="docutils literal">move()</tt> 或 <tt class="docutils literal">turn_left()</tt> ）数量应该会下降。</p>
 </div>
 </div>
-<div class="section" id="after-the-storm">
-<h2>30.5. After the storm<a class="headerlink" href="#after-the-storm" title="Permalink to this headline">¶</a></h2>
-<p id="index-1">The wind blew really hard last night. There are fallen leaves everywhere outside
-Reeborg’s house. His parents asked him to go and clean up the path
-leading to the curb, <strong>Storm&nbsp;1</strong>, as well as the driveway: <strong>Storm&nbsp;2</strong>.</p>
+<div class="section" id="id6">
+<h2>30.5. 暴风雨过后<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">昨晚的风刮得很猛，所以乐跑的房子周围到处是落叶。它的家长叫它去清理通往大马路的小径（ <strong>暴风雨之一</strong> ）和车道（ <strong>暴风雨之二</strong> ）。</p>
 <div class="topic">
-<p class="topic-title first">Your turn!</p>
-<p>Reeborg must collect all the leaves and put them in the compost bin,
-making sure to close the lid using <tt class="docutils literal">build_wall()</tt>.  Reeborg
-can determine if it carries objects (dead leaves here) by
-using the condition <tt class="docutils literal">carries_object()</tt> either in an <tt class="docutils literal">if</tt>
-statement or a <tt class="docutils literal">while</tt> statement.</p>
+<p class="topic-title first">轮到你了！</p>
+<p>让乐跑收集全部的落叶、放进堆肥箱，并且使用 <tt class="docutils literal">build_wall()</tt> 指令盖好盖子。你可以用 <tt class="docutils literal">if</tt> 或 <tt class="docutils literal">while</tt> 语句加上测试条件 <tt class="docutils literal">carries_object()</tt> 来判断乐跑是否携带了物品（落叶）。</p>
 </div>
 </div>
-<div class="section" id="more-yard-work">
-<h2>30.6. More yard work!<a class="headerlink" href="#more-yard-work" title="Permalink to this headline">¶</a></h2>
-<p>Reeborg’s parents are so proud of his work, that they ask him to pick up
-all the leaves that got blown away in their backyard during the
-windstorm, as illustrated on <strong>Storm&nbsp;3</strong>. Have Reeborg pick up all the
-leaves and put it in the compost bin.</p>
+<div class="section" id="id7">
+<h2>30.6. 更多整理院子的工作！<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>乐跑的家长为它所做的工作感到很骄傲，所以把清理后院的工作也交给了它（ <strong>暴风雨之三</strong> ）。请让乐跑收集全部的落叶并放进堆肥箱。</p>
 <div class="topic">
-<p class="topic-title first">Your turn!</p>
-<p>Write a program that will work in all three <strong>Storm</strong> worlds.</p>
+<p class="topic-title first">轮到你了！</p>
+<p>写一段程序来攻克全部三个 <strong>暴风雨</strong> 关卡。</p>
 </div>
 </div>
-<div class="section" id="finding-the-center">
-<h2>30.7. Finding the center<a class="headerlink" href="#finding-the-center" title="Permalink to this headline">¶</a></h2>
-<p>Have a look at the worlds <strong>Center&nbsp;1</strong> to <strong>Center&nbsp;3</strong>.</p>
+<div class="section" id="id8">
+<h2>30.7. 找到世界的中心<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>观察一下关卡 <strong>世界的中心之一</strong> 和 <strong>世界的中心之二</strong> 。</p>
 <div class="topic">
-<p class="topic-title first">Do this!</p>
-<p>Write a <strong>single</strong>
-program that has Reeborg put a token at the geometric center of the
-rectangular room he finds himself in. Begin with
-the simplest case, making progressive improvements to tackle the
-more complicated cases.  Note that this is a more challenging task.</p>
+<p class="topic-title first">这样做！</p>
+<p>写 <strong>一段</strong> 程序让乐跑把一个笑脸放在它所在的世界的中心。请从简单的关卡（ <strong>世界的中心之一</strong> ）开始，逐步改进以解决更复杂的问题。请注意这是一个很有挑战性的任务。</p>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p class="last">You may find it useful to have Reeborg, who carries two tokens,
-drop one token at each end of a line. Then,
-by picking one token at one end and moving it one step, going back and
-forth until both tokens are at the same position,
-the location of the center can be
-found. When you know how to do this in one dimension (along a horizontal
-line), you can use that location as the starting point to find the
-location along the other location (a vertical line).</p>
+<p class="last">乐跑带了两个笑脸，你可以在一条直路的两端各放一个。然后，拾起一个笑脸、前进一格再放下；走到另外一个笑脸处，拾起来、前进一格再放下。如此往复，直到两个笑脸都放在了相同的位置。这个位置就是这条直路的中心位置。当乐跑在一个一维的空间（比如一条水平的直路）里找到中心后，以此为起点，找到另外一维（比如一条垂直的直路）的中心，这样就找到了这个二维的世界的中心。</p>
 </div>
 </div>
 </div>
@@ -283,10 +224,10 @@ location along the other location (a vertical line).</p>
              <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-             <a href="summary4.html" title="31. Summary"
+             <a href="summary4.html" title="31. 小结"
              >next</a> |</li>
         <li class="right" >
-             <a href="surprises.html" title="29. Surprises"
+             <a href="surprises.html" title="29. 惊喜"
              >previous</a> |</li>
         <li><a class="logo" href="/index_en.html" class="fake_button">
               <img class="logo"  src="../_static/robot_e.png" alt="Logo"/>
